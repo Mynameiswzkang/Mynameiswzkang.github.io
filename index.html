@@ -148,6 +148,264 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-css东西" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/19/css%E4%B8%9C%E8%A5%BF/">JavaScript的数组</a>
+    </h1>
+  
+
+        
+        <a href="/2021/08/19/css%E4%B8%9C%E8%A5%BF/" class="archive-article-date">
+  	<time datetime="2021-08-19T12:39:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <br>
+
+<h2 id="CSS之content与arrt的纠缠"><a href="#CSS之content与arrt的纠缠" class="headerlink" title="CSS之content与arrt的纠缠"></a>CSS之content与arrt的纠缠</h2><p>content 属性与 :before 及 :after 伪元素配合使用，来插入生成内容。<br>before:之前。<br>after:之后。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;style <span class="built_in">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><br><span class="line">a:after</span><br><span class="line">&#123;content: <span class="string">&quot; (&quot;</span> attr(href) <span class="string">&quot;)&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p&gt;&lt;a href=<span class="string">&quot;http://www.baidu.com/&quot;</span>&gt;hello world&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p>返回值: hello world(<a target="_blank" rel="noopener" href="http://www.baidu.con/">http://www.baidu.con/</a>)<br>翻译：和a标签有关，在其之前插入” (“ attr(href) “)”;<br>其中”(“和”)”是让插入后的链接变好看，像这样hello world(<a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com/</a>)<br>attr(href)：返回其同等的值，就你a标签里href=的东西。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">content</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">attr</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/19/css%E4%B8%9C%E8%A5%BF/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Math对象与其方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/19/Math%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%85%B6%E6%96%B9%E6%B3%95/">JavaScript Math 对象</a>
+    </h1>
+  
+
+        
+        <a href="/2021/08/19/Math%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%85%B6%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2021-08-19T11:36:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <br>
+
+<h2 id="什么是-JavaScript-Math-对象？"><a href="#什么是-JavaScript-Math-对象？" class="headerlink" title="什么是 JavaScript Math 对象？"></a>什么是 JavaScript Math 对象？</h2><p>Math 对象<br>Math 对象用于执行数学任务。</p>
+<p>使用 Math 的属性和方法的语法：<br>注释：Math 对象并不像 Date 和 String 那样是对象的类，<br>因此没有构造函数 Math()，像 Math.sin() 这样的函数只是函数，<br>不是某个对象的方法。您无需创建它，<br>通过把 Math 作为对象使用就可以调用其所有属性和方法。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var pi_value = Math.PI;</span><br><span class="line">var sqrt_value = Math.sqrt(15);</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">方法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Math对象</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/19/Math%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%85%B6%E6%96%B9%E6%B3%95/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-日期函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/19/%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0/">JavaScript Date对象</a>
+    </h1>
+  
+
+        
+        <a href="/2021/08/19/%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2021-08-19T09:53:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <br>
+
+<h2 id="什么是-Date-对象？"><a href="#什么是-Date-对象？" class="headerlink" title="什么是 Date 对象？"></a>什么是 Date 对象？</h2><p>Date 对象用于处理日期和时间。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var myDate = new Date();      //创建Date对象的语法</span><br><span class="line">documet.write(myDate);</span><br></pre></td></tr></table></figure>
+<p>返回值：Thu Aug 19 2021 17:56:32 GMT+0800 (中国标准时间)<br>注释：Date 对象会自动把当前日期和时间保存为其初始值。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日期对象</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Date</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/19/%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-时间复杂度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -239,7 +497,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/17/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E6%96%B9%E6%B3%95/">JavaScript杂七杂八方法</a>
+      <a class="article-title" href="/2021/08/17/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E6%96%B9%E6%B3%95/">JavaScript 各种方法</a>
     </h1>
   
 
@@ -518,6 +776,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Date</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">content</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">attr</a>
               </li>
             
             <div class="clearfix"></div>

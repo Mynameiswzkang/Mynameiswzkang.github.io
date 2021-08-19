@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>复杂度分析 | 年轻人第一次做博客</title>
+  <title>JavaScript Date对象 | 年轻人第一次做博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="大O表示法O表示法”表示程序的执行时间或占用空间随数据规模的增长趋势。大O表示法就是将代码的所有步骤转换为关于数据规模n的公式项，然后排除不会对问题的整体复杂度产生较大影响的低阶系数项和常数项。">
+  <meta name="description" content="什么是 Date 对象？Date 对象用于处理日期和时间。 12var myDate &#x3D; new Date();      &#x2F;&#x2F;创建Date对象的语法documet.write(myDate); 返回值：Thu Aug 19 2021 17:56:32 GMT+0800 (中国标准时间)注释：Date 对象会自动把当前日期和时间保存为其初始值。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="复杂度分析">
-<meta property="og:url" content="http://example.com/2021/08/18/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/index.html">
+<meta property="og:title" content="JavaScript Date对象">
+<meta property="og:url" content="http://example.com/2021/08/19/%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="年轻人第一次做博客">
-<meta property="og:description" content="大O表示法O表示法”表示程序的执行时间或占用空间随数据规模的增长趋势。大O表示法就是将代码的所有步骤转换为关于数据规模n的公式项，然后排除不会对问题的整体复杂度产生较大影响的低阶系数项和常数项。">
+<meta property="og:description" content="什么是 Date 对象？Date 对象用于处理日期和时间。 12var myDate &#x3D; new Date();      &#x2F;&#x2F;创建Date对象的语法documet.write(myDate); 返回值：Thu Aug 19 2021 17:56:32 GMT+0800 (中国标准时间)注释：Date 对象会自动把当前日期和时间保存为其初始值。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-18T10:14:37.000Z">
-<meta property="article:modified_time" content="2021-08-19T10:38:36.656Z">
+<meta property="article:published_time" content="2021-08-19T09:53:44.000Z">
+<meta property="article:modified_time" content="2021-08-19T10:39:56.369Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="空间复杂度">
-<meta property="article:tag" content="大O表示法">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="日期对象">
+<meta property="article:tag" content="Date">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="年轻人第一次做博客" type="application/atom+xml">
@@ -153,20 +153,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-时间复杂度" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-日期函数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      复杂度分析
+      JavaScript Date对象
     </h1>
   
 
         
-        <a href="/2021/08/18/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/" class="archive-article-date">
-  	<time datetime="2021-08-18T10:14:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-18</time>
+        <a href="/2021/08/19/%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2021-08-19T09:53:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-19</time>
 </a>
         
       </header>
@@ -175,12 +175,18 @@
       
         <br>
 
-<h2 id="大O表示法"><a href="#大O表示法" class="headerlink" title="大O表示法"></a>大O表示法</h2><p>O表示法”表示程序的执行时间或占用空间随数据规模的增长趋势。<br>大O表示法就是将代码的所有步骤转换为关于数据规模n的公式项，<br>然后排除不会对问题的整体复杂度产生较大影响的低阶系数项和常数项。</p>
+<h2 id="什么是-Date-对象？"><a href="#什么是-Date-对象？" class="headerlink" title="什么是 Date 对象？"></a>什么是 Date 对象？</h2><p>Date 对象用于处理日期和时间。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var myDate = new Date();      //创建Date对象的语法</span><br><span class="line">documet.write(myDate);</span><br></pre></td></tr></table></figure>
+<p>返回值：Thu Aug 19 2021 17:56:32 GMT+0800 (中国标准时间)<br>注释：Date 对象会自动把当前日期和时间保存为其初始值。</p>
 <span id="more"></span>
-<p>T(n) = O(f(n))<br>n：数据规模，通俗点说就是函数中的那个变量n。<br>f(n)：代码总的执行次数和数据规模的关系。<br>T(n)：代码的执行时间(并不是代码实际的执行时间，这里表示代码执行时间和数据规模之间的关系)。</p>
-<p>常量阶O(1)) &lt; 对数阶O(logn) &lt;  线性阶O(n) &lt; 线性对数阶O(nlogn)=nO(logn) &lt;<br>平方阶O(n²)…立方阶O(n³)…k方阶 &lt; 指数阶O( 2^n ) &lt; 阶乘阶O(n!) </p>
-<h2 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//我们先假设每条语句的执行时间为单位时间unit_time</span><br><span class="line">public int sums(int n)&#123;                   </span><br><span class="line">        int a = 0;                        //unit_time</span><br><span class="line">        int b = 0;                        //unit_time</span><br><span class="line">        <span class="keyword">for</span> ( i = 0 ; i &lt; n ; i + +)&#123;     //unit_time * n</span><br><span class="line">            a + = i;                      //unit_time * n</span><br><span class="line">	&#125;</span><br><span class="line">        <span class="keyword">for</span>( j = 0 ; j &lt; 2 * n ; j + +)&#123;  //unit_time * 2n</span><br><span class="line">            b + = j;                      //unit_time * 2n</span><br><span class="line">	&#125;</span><br><span class="line">        <span class="built_in">return</span> a + b;                     </span><br></pre></td></tr></table></figure>
-<p>即：T(n)=unit_time+unit_time+unit_time<em>n+unit_time</em>n=（2n+2）unit_time<br>当n趋于无穷大时，f(n)中的常数项对于整个公式的值的影响可以忽略，同样，<br>系数相比于数据规模n也可以忽略不计。<br>T(n)=O(f(n));<br>f(n)=2n+2;   //常数舍去，2舍去，反正无穷大没变化<br>反正最后是O(n)。<br>常用的空间复杂度就是O(1)。像O(n²)、O(n³)、O(logn)、O(nlogn)这样的空间复杂度平时都用不到。<br>int[] m = new int[n];<br>m数组内新建n个元素,那么占用空间O(n)。</p>
+
+
+<h2 id="Date-对象属性"><a href="#Date-对象属性" class="headerlink" title="Date 对象属性"></a>Date 对象属性</h2><p>constructor 返回对创建此对象的 Date 函数的引用。<br>prototype 使您有能力向对象添加属性和方法。  //这个在很多地方都可以用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> employee(name,old)&#123;</span><br><span class="line">    this.name=name;</span><br><span class="line">    this.old=old;</span><br><span class="line">&#125;</span><br><span class="line">var bill=new employee(<span class="string">&quot;张三&quot;</span>,<span class="string">&quot;25&quot;</span>);</span><br><span class="line">employee.prototype.success=60;</span><br><span class="line">document.write(bill.success);</span><br></pre></td></tr></table></figure>
+<p>返回值：60<br>从上面可以看到使用prototype可以添加对象的属性或方法。</p>
+<h2 id="Date-对象方法"><a href="#Date-对象方法" class="headerlink" title="Date 对象方法"></a>Date 对象方法</h2><p>Date(): 返回当日的日期和时间<br>getDate(): 从 Date 对象返回一个月中的某一天 (1 ~ 31)。<br>getDay()    从 Date 对象返回一周中的某一天 (0 ~ 6)。<br>getMonth()    从 Date 对象返回月份 (0 ~ 11)。<br>getFullYear()    从 Date 对象以四位数字返回年份。<br>getYear()    请使用 getFullYear() 方法代替。<br>getHours()    返回 Date 对象的小时 (0 ~ 23)。<br>getMinutes()    返回 Date 对象的分钟 (0 ~ 59)。<br>getSeconds()    返回 Date 对象的秒数 (0 ~ 59)。<br>getMilliseconds()    返回 Date 对象的毫秒(0 ~ 999)。<br>getTime()    返回 1970 年 1 月 1 日至今的毫秒数。<br>setDate()    设置 Date 对象中月的某一天 (1 ~ 31)。<br>setMonth()    设置 Date 对象中月份 (0 ~ 11)。<br>setFullYear()    设置 Date 对象中的年份（四位数字）。<br>setYear()    请使用 setFullYear() 方法代替。<br>setHours()    设置 Date 对象中的小时 (0 ~ 23)。<br>setMinutes()    设置 Date 对象中的分钟 (0 ~ 59)。<br>setSeconds()    设置 Date 对象中的秒钟 (0 ~ 59)。<br>setMilliseconds()    设置 Date 对象中的毫秒 (0 ~ 999)。<br>setTime()    以毫秒设置 Date 对象。<br>toString()    把 Date 对象转换为字符串。<br>toTimeString()    把 Date 对象的时间部分转换为字符串。<br>toDateString()    把 Date 对象的日期部分转换为字符串。<br>valueOf()    返回 Date 对象的原始值。</p>
+<h2 id="下面的方法应该这辈子都用不到了"><a href="#下面的方法应该这辈子都用不到了" class="headerlink" title="下面的方法应该这辈子都用不到了"></a>下面的方法应该这辈子都用不到了</h2><p>setUTCDate()    根据世界时设置 Date 对象中月份的一天 (1 ~ 31)。<br>setUTCMonth()    根据世界时设置 Date 对象中的月份 (0 ~ 11)。<br>setUTCFullYear()    根据世界时设置 Date 对象中的年份（四位数字）。<br>setUTCHours()    根据世界时设置 Date 对象中的小时 (0 ~ 23)。<br>setUTCMinutes()    根据世界时设置 Date 对象中的分钟 (0 ~ 59)。<br>setUTCSeconds()    根据世界时设置 Date 对象中的秒钟 (0 ~ 59)。<br>setUTCMilliseconds()    根据世界时设置 Date 对象中的毫秒 (0 ~ 999)。<br>toSource()    返回该对象的源代码。<br>toGMTString()    请使用 toUTCString() 方法代替。<br>toUTCString()    根据世界时，把 Date 对象转换为字符串。<br>toLocaleString()    根据本地时间格式，把 Date 对象转换为字符串。<br>toLocaleTimeString()    根据本地时间格式，把 Date 对象的时间部分转换为字符串。<br>toLocaleDateString()    根据本地时间格式，把 Date 对象的日期部分转换为字符串。<br>UTC()    根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数。<br>getTimezoneOffset()    返回本地时间与格林威治标准时间 (GMT) 的分钟差。<br>getUTCDate()    根据世界时从 Date 对象返回月中的一天 (1 ~ 31)。<br>getUTCDay()    根据世界时从 Date 对象返回周中的一天 (0 ~ 6)。<br>getUTCMonth()    根据世界时从 Date 对象返回月份 (0 ~ 11)。<br>getUTCFullYear()    根据世界时从 Date 对象返回四位数的年份。<br>getUTCHours()    根据世界时返回 Date 对象的小时 (0 ~ 23)。<br>getUTCMinutes()    根据世界时返回 Date 对象的分钟 (0 ~ 59)。<br>getUTCSeconds()    根据世界时返回 Date 对象的秒钟 (0 ~ 59)。<br>getUTCMilliseconds()    根据世界时返回 Date 对象的毫秒(0 ~ 999)。<br>parse()    返回1970年1月1日午夜到指定日期（字符串）的毫秒数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var myDate = new Date(); </span><br><span class="line">document.write(myDate.getDate()+<span class="string">&quot;&lt;br&gt;&quot;</span>);             //返回值：19               今天是8月的第19号</span><br><span class="line">document.write(myDate.getDay()+<span class="string">&quot;&lt;br&gt;&quot;</span>);              //返回值：4                今天是第3个周的周4</span><br><span class="line">document.write(myDate.getMonth()+<span class="string">&quot;&lt;br&gt;&quot;</span>);            //返回值：7                月份返回是从0~11号的，所以应该+1也就是7+1月份</span><br><span class="line">document.write(myDate.getFullYear()+<span class="string">&quot;&lt;br&gt;&quot;</span>);         //返回值：2021             告诉你是哪一年，四位数返回</span><br><span class="line">document.write(myDate.getYear()+<span class="string">&quot;&lt;br&gt;&quot;</span>);             //返回值：121              这是被遗弃了？让我们用getFullYear() 方法代替。</span><br><span class="line">document.write(myDate.getHours()+<span class="string">&quot;&lt;br&gt;&quot;</span>);            //返回值：18               返回对象的小时(0~23)</span><br><span class="line">document.write(myDate.getMinutes()+<span class="string">&quot;&lt;br&gt;&quot;</span>);          //返回值：6                返回对象的分钟(0~59)</span><br><span class="line">document.write(myDate.getSeconds()+<span class="string">&quot;&lt;br&gt;&quot;</span>);          //返回值：1                返回对象的秒数(0~59)</span><br><span class="line">document.write(myDate.getMilliseconds()+<span class="string">&quot;&lt;br&gt;&quot;</span>);     //返回值：133              返回对象的毫秒(0~999)</span><br><span class="line">document.write(myDate.getTime()+<span class="string">&quot;&lt;br&gt;&quot;</span>);             //返回值：1629367561133    返回从1970.1.1日到现在的毫秒数</span><br></pre></td></tr></table></figure>
 
       
 
@@ -194,15 +200,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">空间复杂度</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日期对象</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">大O表示法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Date</a>
         		</li>
       		
 		</ul>
@@ -221,18 +227,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/19/%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/08/19/Math%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%85%B6%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JavaScript Date对象
+          JavaScript Math 对象
         
       </div>
     </a>
   
   
-    <a href="/2021/08/17/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript 各种方法</div>
+    <a href="/2021/08/18/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">复杂度分析</div>
       <i class="icon-circle-right"></i>
     </a>
   
