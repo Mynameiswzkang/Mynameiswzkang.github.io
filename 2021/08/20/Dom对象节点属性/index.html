@@ -6,21 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>JavaScript Math 对象 | 年轻人第一次做博客</title>
+  <title>JavaScript Dom对象节点属性 | 年轻人第一次做博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是 JavaScript Math 对象？Math 对象Math 对象用于执行数学任务。 使用 Math 的属性和方法的语法：注释：Math 对象并不像 Date 和 String 那样是对象的类，因此没有构造函数 Math()，像 Math.sin() 这样的函数只是函数，不是某个对象的方法。您无需创建它，通过把 Math 作为对象使用就可以调用其所有属性和方法。 12var pi_va">
+  <meta name="description" content="访问指定节点访问指定节点有1个方法和3个属性。1.document.getElementById()方法。2.nodeName属性。  &#x2F;&#x2F;获取某一个节点的名称3.nodeType属性。  &#x2F;&#x2F;获取某个节点的类型   返回的都是整型，1代表元素节点，2代表属性节点，3代表文本节点4.nodeValue属性。 &#x2F;&#x2F;返回节点的值">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript Math 对象">
-<meta property="og:url" content="http://example.com/2021/08/19/Math%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%85%B6%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:title" content="JavaScript Dom对象节点属性">
+<meta property="og:url" content="http://example.com/2021/08/20/Dom%E5%AF%B9%E8%B1%A1%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/index.html">
 <meta property="og:site_name" content="年轻人第一次做博客">
-<meta property="og:description" content="什么是 JavaScript Math 对象？Math 对象Math 对象用于执行数学任务。 使用 Math 的属性和方法的语法：注释：Math 对象并不像 Date 和 String 那样是对象的类，因此没有构造函数 Math()，像 Math.sin() 这样的函数只是函数，不是某个对象的方法。您无需创建它，通过把 Math 作为对象使用就可以调用其所有属性和方法。 12var pi_va">
+<meta property="og:description" content="访问指定节点访问指定节点有1个方法和3个属性。1.document.getElementById()方法。2.nodeName属性。  &#x2F;&#x2F;获取某一个节点的名称3.nodeType属性。  &#x2F;&#x2F;获取某个节点的类型   返回的都是整型，1代表元素节点，2代表属性节点，3代表文本节点4.nodeValue属性。 &#x2F;&#x2F;返回节点的值">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-19T11:36:17.000Z">
-<meta property="article:modified_time" content="2021-08-19T12:05:06.916Z">
+<meta property="article:published_time" content="2021-08-20T12:45:42.000Z">
+<meta property="article:modified_time" content="2021-08-20T13:14:22.131Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="Math对象">
-<meta property="article:tag" content="方法">
+<meta property="article:tag" content="DOm">
+<meta property="article:tag" content="对象节点">
+<meta property="article:tag" content="更新">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="年轻人第一次做博客" type="application/atom+xml">
@@ -153,20 +154,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Math对象与其方法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Dom对象节点属性" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript Math 对象
+      JavaScript Dom对象节点属性
     </h1>
   
 
         
-        <a href="/2021/08/19/Math%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%85%B6%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-08-19T11:36:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-19</time>
+        <a href="/2021/08/20/Dom%E5%AF%B9%E8%B1%A1%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/" class="archive-article-date">
+  	<time datetime="2021-08-20T12:45:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-20</time>
 </a>
         
       </header>
@@ -175,36 +176,12 @@
       
         <br>
 
-<h2 id="什么是-JavaScript-Math-对象？"><a href="#什么是-JavaScript-Math-对象？" class="headerlink" title="什么是 JavaScript Math 对象？"></a>什么是 JavaScript Math 对象？</h2><p>Math 对象<br>Math 对象用于执行数学任务。</p>
-<p>使用 Math 的属性和方法的语法：<br>注释：Math 对象并不像 Date 和 String 那样是对象的类，<br>因此没有构造函数 Math()，像 Math.sin() 这样的函数只是函数，<br>不是某个对象的方法。您无需创建它，<br>通过把 Math 作为对象使用就可以调用其所有属性和方法。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var pi_value = Math.PI;</span><br><span class="line">var sqrt_value = Math.sqrt(15);</span><br></pre></td></tr></table></figure>
+<h2 id="访问指定节点"><a href="#访问指定节点" class="headerlink" title="访问指定节点"></a>访问指定节点</h2><p>访问指定节点有1个方法和3个属性。<br>1.document.getElementById()方法。<br>2.nodeName属性。  //获取某一个节点的名称<br>3.nodeType属性。  //获取某个节点的类型   返回的都是整型，1代表元素节点，2代表属性节点，3代表文本节点<br>4.nodeValue属性。 //返回节点的值</p>
 <span id="more"></span>
-<h2 id="Math-对象属性"><a href="#Math-对象属性" class="headerlink" title="Math 对象属性"></a>Math 对象属性</h2><p>E    返回算术常量 e，即自然对数的底数（约等于2.718）。<br>LN2    返回 2 的自然对数（约等于0.693）。<br>LN10    返回 10 的自然对数（约等于2.302）。<br>LOG2E    返回以 2 为底的 e 的对数（约等于 1.414）。<br>LOG10E    返回以 10 为底的 e 的对数（约等于0.434）。<br>PI    返回圆周率（约等于3.14159）。<br>SQRT1_2    返回返回 2 的平方根的倒数（约等于 0.707）。<br>SQRT2    返回 2 的平方根（约等于 1.414）。</p>
-<h2 id="Math-对象方法"><a href="#Math-对象方法" class="headerlink" title="Math 对象方法"></a>Math 对象方法</h2><h3 id="abs-方法"><a href="#abs-方法" class="headerlink" title="abs() 方法"></a>abs() 方法</h3><p>abs() 方法可返回数的绝对值。<br>语法：Math.abs(x)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = -25;</span><br><span class="line">document.write(Math.abs(a));</span><br></pre></td></tr></table></figure>
-<p>返回值: 25</p>
-<h3 id="ceil-方法"><a href="#ceil-方法" class="headerlink" title="ceil() 方法"></a>ceil() 方法</h3><p>ceil(x)    对数进行上舍入。<br>语法:Math.ceil(x)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = 3.14;</span><br><span class="line">document.write(Math.ceil(a))</span><br></pre></td></tr></table></figure>
-<p>返回值: 4</p>
-<h3 id="floor-方法"><a href="#floor-方法" class="headerlink" title="floor() 方法"></a>floor() 方法</h3><p>floor(x)    对数进行下舍入。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = 3.14;</span><br><span class="line">document.write(Math.floor(a))</span><br></pre></td></tr></table></figure>
-<p>返回值: 3</p>
-<h3 id="max-方法与-min-方法"><a href="#max-方法与-min-方法" class="headerlink" title="max() 方法与 min() 方法"></a>max() 方法与 min() 方法</h3><p>语法：max(x,y)/min(x,y)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var x = 9;</span><br><span class="line">var y = 0;</span><br><span class="line">document.write(Math.max(x,y)+<span class="string">&quot; &quot;</span>+Math.min(x,y));</span><br></pre></td></tr></table></figure>
-<p>返回值: 9 0<br>采坑经历：document.write(max(x,y))，好家伙不加Math就想用。</p>
-<h3 id="pow-方法"><a href="#pow-方法" class="headerlink" title="pow() 方法"></a>pow() 方法</h3><p>pow(x)    方法可返回x的y次幂的值。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = 2;</span><br><span class="line">document.write(Math.pow(a,10))</span><br></pre></td></tr></table></figure>
-<p>返回值: 1024</p>
-<h3 id="random-方法"><a href="#random-方法" class="headerlink" title="random() 方法"></a>random() 方法</h3><p>random()    方法可返回[0,1]之间的伪随机数。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(Math.random())</span><br></pre></td></tr></table></figure>
-<p>返回值: 0.7319948394423972</p>
-<h3 id="sqrt-方法"><a href="#sqrt-方法" class="headerlink" title="sqrt() 方法"></a>sqrt() 方法</h3><p>sqrt()    方法可返回数的平方根。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a=4</span><br><span class="line">document.write(Math.sqrt(a))</span><br></pre></td></tr></table></figure>
-<p>返回值: 2</p>
-<h3 id="round-方法"><a href="#round-方法" class="headerlink" title="round() 方法"></a>round() 方法</h3><p>round(x)    把数四舍五入为最接近的整数。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(Math.round(Math.PI));</span><br></pre></td></tr></table></figure>
-<p>返回值： 3</p>
-<h3 id="剩下不常用的"><a href="#剩下不常用的" class="headerlink" title="剩下不常用的"></a>剩下不常用的</h3><p>acos(x)    返回数的反余弦值。<br>asin(x)    返回数的反正弦值。<br>atan(x)    以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值。<br>atan2(y,x)    返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间）<br>cos(x)    返回数的余弦。<br>exp(x)    返回 e 的指数。<br>log(x)    返回数的自然对数（底为e）。<br>sin(x)    返回数的正弦。<br>tan(x)    返回角的正切。<br>toSource()    返回该对象的源代码。<br>valueOf()    返回 Math 对象的原始值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.write(document.getElementById(<span class="string">&quot;Body&quot;</span>).nodeName);//这样写属实用不了，不知道为啥视频教学可以</span><br><span class="line">document.write(document.body.nodeName)//网上这么教我也这么打，还是报错</span><br></pre></td></tr></table></figure>
+<p>一下是真的正确的代码上面代码运行错误是因为script脚本写body上面，根本读取不到body。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var str;</span><br><span class="line">var by=document.body</span><br><span class="line">str=<span class="string">&quot;节点名称：&quot;</span>+by.nodeName+<span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">str+=<span class="string">&quot;节点类型：&quot;</span>+by.nodeType+<span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">str+=<span class="string">&quot;节点值：&quot;</span>+by.nodeValue+<span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">document.write(str);</span><br></pre></td></tr></table></figure>
+<p>返回值:<br>节点名称：BODY<br>节点类型：1<br>节点值：null</p>
 
       
 
@@ -222,11 +199,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Math对象</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOm</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">方法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">对象节点</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
         		</li>
       		
 		</ul>
@@ -245,18 +226,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/19/css%E4%B8%9C%E8%A5%BF/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaScript的数组
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/08/19/%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript Date对象</div>
+    <a href="/2021/08/19/css%E4%B8%9C%E8%A5%BF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript的数组</div>
       <i class="icon-circle-right"></i>
     </a>
   

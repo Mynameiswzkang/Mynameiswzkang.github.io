@@ -16,11 +16,11 @@
 <meta property="og:description" content="各种方法想起多少我写多少 javaScript toStinr()方法toString() 方法可把一个逻辑值转换为字符串，并返回结果。 示例一： 12var boolean &#x3D; new Boolean(true);         &#x2F;&#x2F;true不要写Truedocument.write(boolean.toString());      &#x2F;&#x2F;不要拼错大写S">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-17T08:40:17.000Z">
-<meta property="article:modified_time" content="2021-08-19T10:40:14.178Z">
+<meta property="article:modified_time" content="2021-08-20T09:50:22.905Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="方法">
 <meta property="article:tag" content="更新">
+<meta property="article:tag" content="方法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="年轻人第一次做博客" type="application/atom+xml">
@@ -215,10 +215,14 @@
 
 
 
-
-
-
-
+<h2 id="javaScript-eval-函数"><a href="#javaScript-eval-函数" class="headerlink" title="javaScript eval() 函数"></a>javaScript eval() 函数</h2><p>eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码。<br>没错，就是直接执行脚本。<br>语法: eval(string)<br>string:必填。要计算的字符串，其中含有要计算的 JavaScript 表达式或要执行的语句。<br><font style="font-weight:bold">示例一：</font></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(<span class="string">&quot;x=10;y=20;document.write(x*y)&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值:200<br><font style="font-weight:bold">示例二：</font></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(<span class="string">&quot;function ssk()&#123;&quot;</span>+</span><br><span class="line">    <span class="string">&quot;document.write(&#x27;什么垃圾函数&#x27;)&quot;</span>+</span><br><span class="line"><span class="string">&quot;&#125;;ssk()&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>返回值:什么垃圾函数<br>看似好用其实感觉有点sb，估计用不多。</p>
+<h2 id="javaScript-prompt-函数"><a href="#javaScript-prompt-函数" class="headerlink" title="javaScript prompt() 函数"></a>javaScript prompt() 函数</h2><p>语法:prompt(text,defaultText)<br>text        可选。要在对话框中显示的提示信息（纯文本）。<br>defaultText    可选。默认的输入文本。<br>也就是vb里的inputbox，没错就那个提示框，<br>alter弹出的信息框里可以让你再输入信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">play</span></span>()&#123;</span><br><span class="line">    var user=prompt(<span class="string">&quot;请输入账号！&quot;</span>);</span><br><span class="line">    var password=prompt(<span class="string">&quot;请输入密码！&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span>((user!=null&amp;&amp;user!=<span class="string">&quot;&quot;</span>)&amp;&amp;(password!=null&amp;&amp;password!=<span class="string">&quot;&quot;</span>))&#123;</span><br><span class="line">        alert(<span class="string">&quot;您的账号为: &quot;</span>+user+<span class="string">&quot;\n您的密码为: &quot;</span>+password)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">onload=play()</span><br></pre></td></tr></table></figure>
+<p>返回值:<br>您的账号为: ‘user’<br>您的密码为: ‘password’</p>
 
       
 
@@ -236,11 +240,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">方法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">方法</a>
         		</li>
       		
 		</ul>
@@ -400,7 +404,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+                <a href="javascript:void(0)" class="js-tag color4">DOm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">对象节点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">更新</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -432,6 +444,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -441,10 +457,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">大O表示法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">更新</a>
               </li>
             
             <div class="clearfix"></div>
