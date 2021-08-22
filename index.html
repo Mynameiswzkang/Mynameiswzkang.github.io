@@ -49,7 +49,7 @@
 		  <h1 class="header-author"><a href="/">Bsan-san</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">年轻人目前还充满活力</p>
+		<p class="header-subtitle">年轻人目前想摸鱼偷懒</p>
 		
 
 		<nav class="header-menu">
@@ -105,7 +105,7 @@
 			  <h1 class="header-author js-header-author">Bsan-san</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>年轻人目前还充满活力<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>年轻人目前想摸鱼偷懒<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -155,7 +155,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/20/Dom%E5%AF%B9%E8%B1%A1%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/">JavaScript Dom对象节点属性</a>
+      <a class="article-title" href="/2021/08/20/Dom%E5%AF%B9%E8%B1%A1%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/">JavaScript 文档对象模型(Dom)</a>
     </h1>
   
 
@@ -170,7 +170,9 @@
       
         <br>
 
-<h2 id="访问指定节点"><a href="#访问指定节点" class="headerlink" title="访问指定节点"></a>访问指定节点</h2><p>访问指定节点有1个方法和3个属性。<br>1.document.getElementById()方法。<br>2.nodeName属性。  //获取某一个节点的名称<br>3.nodeType属性。  //获取某个节点的类型   返回的都是整型，1代表元素节点，2代表属性节点，3代表文本节点<br>4.nodeValue属性。 //返回节点的值</p>
+<h2 id="Dom分层"><a href="#Dom分层" class="headerlink" title="Dom分层"></a>Dom分层</h2><p>文档对象模型采用的分层结构为树形结构，以树节点的方式表示文档中的各种内容。</p>
+<p>1.在文档对象中，每一个元素对象都可以称之为节点<br>2.html可以说是根节点。<br>3.如果多个节点在同一个层次，并且拥有这相同的父节点，那么这几个节点就称之为兄弟节点。<br>4.一个节点之上的节点称之为父节点，一个节点之下的节点称之为子节点。<br>5.在树形结构最底部的节点被称为叶子节点。<br><font style="font-weight:bold">示范案例：</font></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;                                            &lt;html&gt;</span><br><span class="line">&lt;head&gt;                                          ↙      ↘</span><br><span class="line">&lt;title&gt;标题内容&lt;/title&gt;                      &lt;head&gt;    &lt;body&gt;     </span><br><span class="line">&lt;/head&gt;                                     ↙           ↓   ↘</span><br><span class="line">&lt;body&gt;                                  &lt;title&gt;        &lt;h3&gt;   &lt;b&gt;</span><br><span class="line">&lt;h3&gt;三号标题&lt;/h3&gt;                          ↓          ↙        ↓</span><br><span class="line">&lt;b&gt;加粗内容&lt;/b&gt;                         标题内容   3号标题    加粗内容</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;html&gt;</span><br></pre></td></tr></table></figure>
         
       
 
@@ -863,6 +865,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Date</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
@@ -872,14 +882,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">attr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Date</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -978,7 +980,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">年轻人打算写博客玩&lt;br&gt;&lt;br&gt;诶~没错就是玩</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">年轻人打算写博客玩&lt;br&gt;&lt;br&gt;诶~没错就是玩&lt;br&gt;&lt;br&gt;玩nm！</div>
   	  	
     	</section>
     
