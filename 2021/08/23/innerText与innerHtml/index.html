@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>JavaScript的数组 | 年轻人第一次做博客</title>
+  <title>JavaScript中innerText与innerHTML的区别 | 年轻人第一次做博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="也不知道学了啥因为不知道写啥就随便写写吧~ 12var Tree&#x3D;new Array();Tree[0]&#x3D;&quot;叶子&quot;;                      &#x2F;&#x2F;数组可以直接写直接添加">
+  <meta name="description" content="innerHTML会连同html标签也一起复制。innerText不会。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript的数组">
-<meta property="og:url" content="http://example.com/2021/08/16/js%E6%95%B0%E7%BB%84/index.html">
+<meta property="og:title" content="JavaScript中innerText与innerHTML的区别">
+<meta property="og:url" content="http://example.com/2021/08/23/innerText%E4%B8%8EinnerHtml/index.html">
 <meta property="og:site_name" content="年轻人第一次做博客">
-<meta property="og:description" content="也不知道学了啥因为不知道写啥就随便写写吧~ 12var Tree&#x3D;new Array();Tree[0]&#x3D;&quot;叶子&quot;;                      &#x2F;&#x2F;数组可以直接写直接添加">
+<meta property="og:description" content="innerHTML会连同html标签也一起复制。innerText不会。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-16T07:03:17.000Z">
-<meta property="article:modified_time" content="2021-08-17T11:22:29.574Z">
+<meta property="article:published_time" content="2021-08-23T10:46:42.000Z">
+<meta property="article:modified_time" content="2021-08-23T10:49:32.892Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="数组">
+<meta property="article:tag" content="小知识">
+<meta property="article:tag" content="更新">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="年轻人第一次做博客" type="application/atom+xml">
@@ -152,20 +153,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js数组" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-innerText与innerHtml" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript的数组
+      JavaScript中innerText与innerHTML的区别
     </h1>
   
 
         
-        <a href="/2021/08/16/js%E6%95%B0%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2021-08-16T07:03:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-16</time>
+        <a href="/2021/08/23/innerText%E4%B8%8EinnerHtml/" class="archive-article-date">
+  	<time datetime="2021-08-23T10:46:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-23</time>
 </a>
         
       </header>
@@ -174,12 +175,7 @@
       
         <br>
 
-<h2 id="也不知道学了啥"><a href="#也不知道学了啥" class="headerlink" title="也不知道学了啥"></a>也不知道学了啥</h2><p>因为不知道写啥就随便写写吧~</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var Tree=new Array();</span><br><span class="line">Tree[0]=<span class="string">&quot;叶子&quot;</span>;                      //数组可以直接写直接添加</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">document.write(Tree+<span class="string">&quot;&lt;br&gt;&quot;</span>);         //返回 叶子</span><br><span class="line">Tree.push(666,Date(),<span class="literal">false</span>)          //push可以添加新内容到后面，但是会返回当前数组的长度 </span><br><span class="line">document.write(Tree+<span class="string">&quot;&lt;br&gt;&quot;</span>);         //返回 叶子,666,Mon Aug 16 2021 18:30:42 GMT+0800 (中国标准时间),<span class="literal">false</span></span><br><span class="line">document.write(Tree.concat(<span class="string">&quot;5&quot;</span>,6));  //concat只是临时添加值，其实原数组的长度和内容没有任何变化</span><br><span class="line">//↑ 返回 叶子,666,Mon Aug 16 2021 18:30:42 GMT+0800 (中国标准时间),<span class="literal">false</span>,5,6 </span><br></pre></td></tr></table></figure>
-<h2 id="采坑经历"><a href="#采坑经历" class="headerlink" title="采坑经历"></a>采坑经历</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Tree.config(<span class="string">&quot;5&quot;</span>,<span class="string">&quot;6&quot;</span>);   </span><br><span class="line">documen.write(Tree);</span><br></pre></td></tr></table></figure>
-<p>简直伞兵，根本没变化。</p>
+<p>innerHTML会连同html标签也一起复制。<br>innerText不会。</p>
 
       
 
@@ -197,7 +193,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小知识</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
         		</li>
       		
 		</ul>
@@ -216,15 +216,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/17/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaScript 各种方法
-        
-      </div>
-    </a>
   
+    <a href="/2021/08/20/Dom%E5%AF%B9%E8%B1%A1%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript 文档对象模型(Dom)</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
