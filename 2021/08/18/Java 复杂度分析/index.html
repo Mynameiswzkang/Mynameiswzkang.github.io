@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>JavaScript的数组 | 年轻人第一次做博客</title>
+  <title>复杂度分析 | 年轻人第一次做博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="也不知道学了啥因为不知道写啥就随便写写吧~ 12var Tree&#x3D;new Array();Tree[0]&#x3D;&quot;叶子&quot;;                      &#x2F;&#x2F;数组可以直接写直接添加">
+  <meta name="description" content="大O表示法O表示法”表示程序的执行时间或占用空间随数据规模的增长趋势。大O表示法就是将代码的所有步骤转换为关于数据规模n的公式项，然后排除不会对问题的整体复杂度产生较大影响的低阶系数项和常数项。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript的数组">
-<meta property="og:url" content="http://example.com/2021/08/16/js%E6%95%B0%E7%BB%84/index.html">
+<meta property="og:title" content="复杂度分析">
+<meta property="og:url" content="http://example.com/2021/08/18/Java%20%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="年轻人第一次做博客">
-<meta property="og:description" content="也不知道学了啥因为不知道写啥就随便写写吧~ 12var Tree&#x3D;new Array();Tree[0]&#x3D;&quot;叶子&quot;;                      &#x2F;&#x2F;数组可以直接写直接添加">
+<meta property="og:description" content="大O表示法O表示法”表示程序的执行时间或占用空间随数据规模的增长趋势。大O表示法就是将代码的所有步骤转换为关于数据规模n的公式项，然后排除不会对问题的整体复杂度产生较大影响的低阶系数项和常数项。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-16T07:03:17.000Z">
-<meta property="article:modified_time" content="2021-08-17T11:22:29.574Z">
+<meta property="article:published_time" content="2021-08-18T10:14:37.000Z">
+<meta property="article:modified_time" content="2021-08-30T08:09:34.069Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="数组">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="空间复杂度">
+<meta property="article:tag" content="大O表示法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="年轻人第一次做博客" type="application/atom+xml">
@@ -152,20 +153,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js数组" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java 复杂度分析" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript的数组
+      复杂度分析
     </h1>
   
 
         
-        <a href="/2021/08/16/js%E6%95%B0%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2021-08-16T07:03:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-16</time>
+        <a href="/2021/08/18/Java%20%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/" class="archive-article-date">
+  	<time datetime="2021-08-18T10:14:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-18</time>
 </a>
         
       </header>
@@ -174,12 +175,12 @@
       
         <br>
 
-<h2 id="也不知道学了啥"><a href="#也不知道学了啥" class="headerlink" title="也不知道学了啥"></a>也不知道学了啥</h2><p>因为不知道写啥就随便写写吧~</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var Tree=new Array();</span><br><span class="line">Tree[0]=<span class="string">&quot;叶子&quot;</span>;                      //数组可以直接写直接添加</span><br></pre></td></tr></table></figure>
+<h2 id="大O表示法"><a href="#大O表示法" class="headerlink" title="大O表示法"></a>大O表示法</h2><p>O表示法”表示程序的执行时间或占用空间随数据规模的增长趋势。<br>大O表示法就是将代码的所有步骤转换为关于数据规模n的公式项，<br>然后排除不会对问题的整体复杂度产生较大影响的低阶系数项和常数项。</p>
 <span id="more"></span>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">document.write(Tree+<span class="string">&quot;&lt;br&gt;&quot;</span>);         //返回 叶子</span><br><span class="line">Tree.push(666,Date(),<span class="literal">false</span>)          //push可以添加新内容到后面，但是会返回当前数组的长度 </span><br><span class="line">document.write(Tree+<span class="string">&quot;&lt;br&gt;&quot;</span>);         //返回 叶子,666,Mon Aug 16 2021 18:30:42 GMT+0800 (中国标准时间),<span class="literal">false</span></span><br><span class="line">document.write(Tree.concat(<span class="string">&quot;5&quot;</span>,6));  //concat只是临时添加值，其实原数组的长度和内容没有任何变化</span><br><span class="line">//↑ 返回 叶子,666,Mon Aug 16 2021 18:30:42 GMT+0800 (中国标准时间),<span class="literal">false</span>,5,6 </span><br></pre></td></tr></table></figure>
-<h2 id="采坑经历"><a href="#采坑经历" class="headerlink" title="采坑经历"></a>采坑经历</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Tree.config(<span class="string">&quot;5&quot;</span>,<span class="string">&quot;6&quot;</span>);   </span><br><span class="line">documen.write(Tree);</span><br></pre></td></tr></table></figure>
-<p>简直伞兵，根本没变化。</p>
+<p>T(n) = O(f(n))<br>n：数据规模，通俗点说就是函数中的那个变量n。<br>f(n)：代码总的执行次数和数据规模的关系。<br>T(n)：代码的执行时间(并不是代码实际的执行时间，这里表示代码执行时间和数据规模之间的关系)。</p>
+<p>常量阶O(1)) &lt; 对数阶O(logn) &lt;  线性阶O(n) &lt; 线性对数阶O(nlogn)=nO(logn) &lt;<br>平方阶O(n²)…立方阶O(n³)…k方阶 &lt; 指数阶O( 2^n ) &lt; 阶乘阶O(n!) </p>
+<h2 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//我们先假设每条语句的执行时间为单位时间unit_time</span></span><br><span class="line">public int <span class="function"><span class="title">sums</span>(<span class="params">int n</span>)</span>&#123;                   </span><br><span class="line">        int a = <span class="number">0</span>;                        <span class="comment">//unit_time</span></span><br><span class="line">        int b = <span class="number">0</span>;                        <span class="comment">//unit_time</span></span><br><span class="line">        <span class="keyword">for</span> ( i = <span class="number">0</span> ; i &lt; n ; i + +)&#123;     <span class="comment">//unit_time * n</span></span><br><span class="line">            a + = i;                      <span class="comment">//unit_time * n</span></span><br><span class="line">	&#125;</span><br><span class="line">        <span class="keyword">for</span>( j = <span class="number">0</span> ; j &lt; <span class="number">2</span> * n ; j + +)&#123;  <span class="comment">//unit_time * 2n</span></span><br><span class="line">            b + = j;                      <span class="comment">//unit_time * 2n</span></span><br><span class="line">	&#125;</span><br><span class="line">        <span class="keyword">return</span> a + b;                     </span><br></pre></td></tr></table></figure>
+<p>即：T(n)=unit_time+unit_time+unit_time<em>n+unit_time</em>n=（2n+2）unit_time<br>当n趋于无穷大时，f(n)中的常数项对于整个公式的值的影响可以忽略，同样，<br>系数相比于数据规模n也可以忽略不计。<br>T(n)=O(f(n));<br>f(n)=2n+2;   //常数舍去，2舍去，反正无穷大没变化<br>反正最后是O(n)。<br>常用的空间复杂度就是O(1)。像O(n²)、O(n³)、O(logn)、O(nlogn)这样的空间复杂度平时都用不到。<br>int[] m = new int[n];<br>m数组内新建n个元素,那么占用空间O(n)。</p>
 
       
 
@@ -193,11 +194,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">空间复杂度</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">大O表示法</a>
         		</li>
       		
 		</ul>
@@ -216,15 +221,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/17/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/08/19/JavaScript%20Date%E5%AF%B9%E8%B1%A1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JavaScript 各种方法
+          JavaScript Date对象
         
       </div>
     </a>
   
+  
+    <a href="/2021/08/17/JavaScript%20%E5%90%84%E7%A7%8D%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript 各种方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -348,22 +358,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DOm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">对象节点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">更新</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
@@ -376,11 +370,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -388,15 +378,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Date</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color3">更新</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -408,11 +390,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">帧</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
+                <a href="javascript:void(0)" class="js-tag color2">帧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -421,6 +403,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">大O表示法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Date</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DOm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">对象节点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
             
             <div class="clearfix"></div>

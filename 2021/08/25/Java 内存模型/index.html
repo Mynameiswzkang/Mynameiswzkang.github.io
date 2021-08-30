@@ -6,22 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>JavaScript 文档对象模型(Dom) | 年轻人第一次做博客</title>
+  <title>Java内存模型 | 年轻人第一次做博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Dom分层文档对象模型采用的分层结构为树形结构，以树节点的方式表示文档中的各种内容。 1.在文档对象中，每一个元素对象都可以称之为节点2.html可以说是根节点。3.如果多个节点在同一个层次，并且拥有这相同的父节点，那么这几个节点就称之为兄弟节点。4.一个节点之上的节点称之为父节点，一个节点之下的节点称之为子节点。5.在树形结构最底部的节点被称为叶子节点。示范案例： 123456789&lt;">
+  <meta name="description" content="数组在java内存模型中是怎样的？先了解下几个基础概念：1.堆。数据都基本都放在堆里头，比如数组啊，值啊，这些值都是在堆里随便找个地方放着的，给个@xxx的牌子放在栈帧里。可以理解为仓库，放货的地方。2.栈。栈里面放的帧，一帧一帧的从最底下往上，跑完一个删一帧。3.帧。一帧一帧的运行，跑完后会清空掉，这里面放的东西不太多，比如仓库地址什么的(牌子)。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript 文档对象模型(Dom)">
-<meta property="og:url" content="http://example.com/2021/08/20/Dom%E5%AF%B9%E8%B1%A1%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/index.html">
+<meta property="og:title" content="Java内存模型">
+<meta property="og:url" content="http://example.com/2021/08/25/Java%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="年轻人第一次做博客">
-<meta property="og:description" content="Dom分层文档对象模型采用的分层结构为树形结构，以树节点的方式表示文档中的各种内容。 1.在文档对象中，每一个元素对象都可以称之为节点2.html可以说是根节点。3.如果多个节点在同一个层次，并且拥有这相同的父节点，那么这几个节点就称之为兄弟节点。4.一个节点之上的节点称之为父节点，一个节点之下的节点称之为子节点。5.在树形结构最底部的节点被称为叶子节点。示范案例： 123456789&lt;">
+<meta property="og:description" content="数组在java内存模型中是怎样的？先了解下几个基础概念：1.堆。数据都基本都放在堆里头，比如数组啊，值啊，这些值都是在堆里随便找个地方放着的，给个@xxx的牌子放在栈帧里。可以理解为仓库，放货的地方。2.栈。栈里面放的帧，一帧一帧的从最底下往上，跑完一个删一帧。3.帧。一帧一帧的运行，跑完后会清空掉，这里面放的东西不太多，比如仓库地址什么的(牌子)。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-20T12:45:42.000Z">
-<meta property="article:modified_time" content="2021-08-25T10:43:06.062Z">
+<meta property="article:published_time" content="2021-08-25T11:36:42.000Z">
+<meta property="article:modified_time" content="2021-08-30T10:48:14.560Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="DOm">
-<meta property="article:tag" content="对象节点">
-<meta property="article:tag" content="更新">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="内存模型">
+<meta property="article:tag" content="堆">
+<meta property="article:tag" content="栈">
+<meta property="article:tag" content="帧">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="年轻人第一次做博客" type="application/atom+xml">
@@ -154,81 +155,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Dom对象节点属性" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java 内存模型" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript 文档对象模型(Dom)
+      Java内存模型
     </h1>
   
 
         
-        <a href="/2021/08/20/Dom%E5%AF%B9%E8%B1%A1%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/" class="archive-article-date">
-  	<time datetime="2021-08-20T12:45:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-20</time>
+        <a href="/2021/08/25/Java%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
+  	<time datetime="2021-08-25T11:36:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <br>
-
-<h2 id="Dom分层"><a href="#Dom分层" class="headerlink" title="Dom分层"></a>Dom分层</h2><p>文档对象模型采用的分层结构为树形结构，以树节点的方式表示文档中的各种内容。</p>
-<p>1.在文档对象中，每一个元素对象都可以称之为节点<br>2.html可以说是根节点。<br>3.如果多个节点在同一个层次，并且拥有这相同的父节点，那么这几个节点就称之为兄弟节点。<br>4.一个节点之上的节点称之为父节点，一个节点之下的节点称之为子节点。<br>5.在树形结构最底部的节点被称为叶子节点。<br><font style="font-weight:bold">示范案例：</font></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;                                            &lt;html&gt;</span><br><span class="line">&lt;head&gt;                                          ↙      ↘</span><br><span class="line">&lt;title&gt;标题内容&lt;/title&gt;                      &lt;head&gt;    &lt;body&gt;     </span><br><span class="line">&lt;/head&gt;                                     ↙           ↓   ↘</span><br><span class="line">&lt;body&gt;                                  &lt;title&gt;        &lt;h3&gt;   &lt;b&gt;</span><br><span class="line">&lt;h3&gt;三号标题&lt;/h3&gt;                          ↓          ↙        ↓</span><br><span class="line">&lt;b&gt;加粗内容&lt;/b&gt;                         标题内容   3号标题    加粗内容</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;html&gt;</span><br></pre></td></tr></table></figure>
+        <hr>
+<h1 id="数组在java内存模型中是怎样的？"><a href="#数组在java内存模型中是怎样的？" class="headerlink" title="数组在java内存模型中是怎样的？"></a>数组在java内存模型中是怎样的？</h1><p>先了解下几个基础概念：<br>1.堆。数据都基本都放在堆里头，比如数组啊，值啊，这些值都是在堆里随便找个地方放着的，给个@xxx的牌子放在栈帧里。可以理解为仓库，放货的地方。<br>2.栈。栈里面放的帧，一帧一帧的从最底下往上，跑完一个删一帧。<br>3.帧。一帧一帧的运行，跑完后会清空掉，这里面放的东西不太多，比如仓库地址什么的(牌子)。</p>
 <span id="more"></span>
-
-
-<h2 id="访问指定节点"><a href="#访问指定节点" class="headerlink" title="访问指定节点"></a>访问指定节点</h2><p>访问指定节点有1个方法和3个属性。<br>1.document.getElementById()方法。<br>2.nodeName属性。  //获取某一个节点的名称<br>3.nodeType属性。  //获取某个节点的类型   返回的都是整型，1代表元素节点，2代表属性节点，3代表文本节点<br>4.nodeValue属性。 //返回节点的值</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.write(document.getElementById(<span class="string">&quot;Body&quot;</span>).nodeName);//这样写属实用不了，不知道为啥视频教学可以</span><br><span class="line">document.write(document.body.nodeName)//网上这么教我也这么打，还是报错</span><br></pre></td></tr></table></figure>
-<p>一下是真的正确的代码上面代码运行错误是因为script脚本写body上面，根本读取不到body。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var str;</span><br><span class="line">var by=document.body</span><br><span class="line">str=<span class="string">&quot;节点名称：&quot;</span>+by.nodeName+<span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">str+=<span class="string">&quot;节点类型：&quot;</span>+by.nodeType+<span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">str+=<span class="string">&quot;节点值：&quot;</span>+by.nodeValue+<span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">document.write(str);</span><br></pre></td></tr></table></figure>
-<p>返回值:<br>节点名称：BODY<br>节点类型：1<br>节点值：null</p>
-<h3 id="遍历文档树"><a href="#遍历文档树" class="headerlink" title="遍历文档树"></a>遍历文档树</h3><p>1.parentNode属性，返回当前节点的父节点。<br>2.firstChild属性，返回当前节点的第一个子节点。<br>3.lastChild属性，返回当前节点的最后一个子节点。<br>4.previousSibling属性，返回当前节点的前一个兄弟节点。<br>5.nbextSibling属性，返回当前节点的后一个兄弟节点。<br>注意：如果返回的节点不存在，那么返回值会是nulll。<br>hasChildNodes属性，检查是否拥有子节点，有则返回true无则flase。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=<span class="string">&quot;Content-Type&quot;</span> content=<span class="string">&quot;text/html&quot;</span>; charset=<span class="string">&quot;gb2312&quot;</span>&gt;</span><br><span class="line">&lt;title&gt;遍历文档树&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h3 id=<span class="string">&quot;h&quot;</span>&gt;三号标题&lt;/h3&gt;</span><br><span class="line">&lt;b&gt;加粗内容&lt;/b&gt;</span><br><span class="line">&lt;form name=<span class="string">&quot;for&quot;</span> method=<span class="string">&quot;GET&quot;</span> action=<span class="string">&quot;#&quot;</span>&gt;</span><br><span class="line">节点名称：&lt;input <span class="built_in">type</span>=<span class="string">&quot;text&quot;</span> id=<span class="string">&quot;mc&quot;</span> &gt;&lt;br&gt;</span><br><span class="line">节点类型：&lt;input <span class="built_in">type</span>=<span class="string">&quot;text&quot;</span> id=<span class="string">&quot;lx&quot;</span> &gt;&lt;br&gt;</span><br><span class="line">节点的值：&lt;input <span class="built_in">type</span>=<span class="string">&quot;text&quot;</span> id=<span class="string">&quot;dz&quot;</span> &gt;&lt;br&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">&quot;button&quot;</span> value=<span class="string">&quot;父节点&quot;</span> onclick=<span class="string">&quot;text=play(text,&#x27;parent&#x27;)&quot;</span>&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">&quot;button&quot;</span> value=<span class="string">&quot;第一个子节点&quot;</span> onclick=<span class="string">&quot;text=play(text,&#x27;first&#x27;)&quot;</span>&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">&quot;button&quot;</span> value=<span class="string">&quot;最后一个子节点&quot;</span> onclick=<span class="string">&quot;text=play(text,&#x27;last&#x27;)&quot;</span>&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">&quot;button&quot;</span> value=<span class="string">&quot;前一个兄弟节点&quot;</span> onclick=<span class="string">&quot;text=play(text,&#x27;previous&#x27;)&quot;</span>&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">&quot;button&quot;</span> value=<span class="string">&quot;最后一个兄弟节点&quot;</span> onclick=<span class="string">&quot;text=play(text,&#x27;next&#x27;)&quot;</span>&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">&quot;button&quot;</span> value=<span class="string">&quot;返回根节点&quot;</span> onclick=<span class="string">&quot;txt=document.documentElement;toplay(txt)&quot;</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line"><span class="keyword">function</span> toplay(name)&#123;</span><br><span class="line">        window.document.for.mc.value=name.nodeName;</span><br><span class="line">        window.document.for.lx.value=name.nodeType;</span><br><span class="line">        window.document.for.dz.value=name.nodeValue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> play(err,nodeName)&#123;</span><br><span class="line">    switch (nodeName)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;parent&quot;</span>:</span><br><span class="line">            <span class="keyword">if</span>(err.parentNode)&#123;</span><br><span class="line">                err=err.parentNode;</span><br><span class="line">            &#125;<span class="keyword">else</span> </span><br><span class="line">            alert(<span class="string">&quot;无父亲节点&quot;</span>);</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;first&quot;</span>:</span><br><span class="line">            <span class="keyword">if</span>(err.hasChildNodes())&#123;</span><br><span class="line">                err=err.firstChild;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">            alert(<span class="string">&quot;无子节点&quot;</span>);</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;last&quot;</span>:</span><br><span class="line">            <span class="keyword">if</span>(err.hasChildNodes())&#123;</span><br><span class="line">                err=err.lastChild;</span><br><span class="line">            &#125;<span class="keyword">else</span> </span><br><span class="line">            alert(<span class="string">&quot;无子节点&quot;</span>);</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;previous&quot;</span>:</span><br><span class="line">            <span class="keyword">if</span>(err.previousSibling)&#123;</span><br><span class="line">                err=err.previousSibling;</span><br><span class="line">            &#125;<span class="keyword">else</span> </span><br><span class="line">            alert(<span class="string">&quot;无兄弟节点&quot;</span>);</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;next&quot;</span>:</span><br><span class="line">            <span class="keyword">if</span>(err.nextSibling)&#123;</span><br><span class="line">                err=err.nextSibling;</span><br><span class="line">            &#125;<span class="keyword">else</span> </span><br><span class="line">            alert(<span class="string">&quot;无兄弟节点&quot;</span>);</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">            &#125;         </span><br><span class="line">        toplay(err);</span><br><span class="line">         <span class="built_in">return</span> err;       //<span class="built_in">return</span>会导致继承text,关了就是undefined</span><br><span class="line">    &#125;</span><br><span class="line">    var text=document.documentElement;</span><br><span class="line">    toplay(text);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>细节打磨有待优化，那个返回根节点。</p>
-<h2 id="节点操作"><a href="#节点操作" class="headerlink" title="节点操作"></a>节点操作</h2><p>创建新节点有3个方法 以下方法要跟着document<br>1.createElement()方法  创建新元素   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elememt翻译：要素；基本部分；典型部分；少量；有点；有些,个人觉得可以翻译成元素啥的。<br>2.createTextNode()方法 创建文本节点<br>3.appendChild()方法    将新的子节点添加到当前节点的末尾<br>appendChild()语法格式：obj.appendChild(newChild)。<br>obj：在该节点末尾末尾插入新节点。<br>newChild：新的子节点。<br><font style="font-weight:bold">示范案例一：</font></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">play</span></span>()&#123;</span><br><span class="line">    var value = document.createElement(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">    var txt = document.createTextNode(<span class="string">&quot;我是文本节点创造物！&quot;</span>);</span><br><span class="line">    value.appendChild(txt);</span><br><span class="line">    document.body.appendChild(value);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;body onload=<span class="string">&quot;play()&quot;</span>&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>返回值：<font style="font-weight:bold">我是文本节点创造物！</font><br>没错，他加粗了，这和createElement内的”b”有关，换成u是下划线，<br>这玩意儿似乎可以填很多元素属性，反正是元素节点，啥都可以填，如div,p。<br>注：createElement内似乎是必填？要不显示怎么也得填个null或者”null”（一样没区别）。</p>
-<h2 id="创建多个节点："><a href="#创建多个节点：" class="headerlink" title="创建多个节点："></a>创建多个节点：</h2><p><font style="font-weight:bold">示范案例二：</font></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;body onload=<span class="string">&quot;play()&quot;</span>&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">play</span></span>()&#123;</span><br><span class="line">    var txt=[<span class="string">&#x27;1号&#x27;</span>,<span class="string">&#x27;2号&#x27;</span>,<span class="string">&#x27;3号&#x27;</span>,<span class="string">&#x27;4号&#x27;</span>,<span class="string">&#x27;5号&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span>(var i=0;i&lt;txt.length;i++)&#123;</span><br><span class="line">        var a=document.createElement(<span class="string">&#x27;p&#x27;</span>);</span><br><span class="line">        var b=document.createTextNode(txt[i]);</span><br><span class="line">        a.appendChild(b);</span><br><span class="line">        document.body.appendChild(a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p>运行结果：<br>1号</p>
-<p>2号</p>
-<p>3号</p>
-<p>4号</p>
-<p>5号</p>
-<hr>
-<p>每次刷新加载页面会使浏览器变的缓慢，让我们看下面这个新方法。</p>
-<p>createDocumentFragment() 方法用来创建文件碎片节点。<br>这个方法本身创建的是一个虚拟的节点对象，可以包含各种类型的节点，在创建之初是空的。<br>DocumentFragment节点不属于文档树，继承的parentNode属性总是null。<br>如果要插入DocumentFragment节点，那么插入的不是它自身，而是它的所有子孙节点。<br>如果把dom元素放documentfragment里再用它来添加到页面可以减少页面渲染dom的次数，效率会提升。<br>如果使用appendChid方法将原dom树中的节点添加到DocumentFragment中时，会删除原来的节点。//摘的，没测试。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;body onload=<span class="string">&quot;play()&quot;</span>&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">play</span></span>()&#123;</span><br><span class="line">    var qaq=document.createDocumentFragment();</span><br><span class="line">    var txt=[<span class="string">&#x27;1号&#x27;</span>,<span class="string">&#x27;2号&#x27;</span>,<span class="string">&#x27;3号&#x27;</span>,<span class="string">&#x27;4号&#x27;</span>,<span class="string">&#x27;5号&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span>(var i=0;i&lt;txt.length;i++)&#123;</span><br><span class="line">        var a=document.createElement(<span class="string">&#x27;p&#x27;</span>);</span><br><span class="line">        var b=document.createTextNode(txt[i]);</span><br><span class="line">        a.appendChild(b);</span><br><span class="line">        qaq.appendChild(a);</span><br><span class="line">    &#125;</span><br><span class="line">    document.body.appendChild(qaq);</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p>乍一看好像没什么，浪费资源套娃，不理解这个东西。<br>反正这个方法是虚拟节点，appendChild出来的都是他子孙不是他自己。？？？谁来好像都一样？<br>不过貌似能提高加载资源（在多用dom元素），也不知道真假。</p>
-<h2 id="插入和追加"><a href="#插入和追加" class="headerlink" title="插入和追加"></a>插入和追加</h2><p>insertBefore(new,ref)<br>new:新的子节点。<br>ref:在该节点前插入新节点。<br>都是必填。函数本身就是之前，ref又是之前，2个之前插入的。<br>都是必填。函数本身就是之前，ref又是之前，2个之前插入的。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 id=<span class="string">&quot;h&quot;</span>&gt;在上面插入节点&lt;/h2&gt;</span><br><span class="line">&lt;form name=<span class="string">&quot;frm&quot;</span>&gt;输入文本：</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">&quot;text&quot;</span> name=txt&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">&quot;button&quot;</span> value=<span class="string">&quot;前插入&quot;</span> onclick=<span class="string">&quot;play(&#x27;h&#x27;,document.frm.txt.value)&quot;</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-<p>下面看代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> run(str)&#123;</span><br><span class="line">        var a=document.createElement(<span class="string">&quot;p&quot;</span>);</span><br><span class="line">        var b=document.createTextNode(str);</span><br><span class="line">        a.appendChild(b);</span><br><span class="line">        <span class="built_in">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">function</span> play(nodeId,str)&#123;</span><br><span class="line">        var q=document.getElementById(nodeId);</span><br><span class="line">        var txt=run(str);</span><br><span class="line">        <span class="keyword">if</span>(q.parentNode)&#123;</span><br><span class="line">            q.parentNode.insertBefore(txt,q);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="节点复制"><a href="#节点复制" class="headerlink" title="节点复制"></a>节点复制</h2><p>语法格式：obj.clonNode(deep)<br>obj:要复制的节点。<br>deep：Boolean值，表示是否为深度复制，true表示要深度复制，false表示简单复制。<br>深度复制：当前节点的全部子节点也复制。<br>简单复制：只复制当前节点，不复制子节点。</p>
-<h2 id="节点删除"><a href="#节点删除" class="headerlink" title="节点删除"></a>节点删除</h2><p>语法格式：obj.removeChild(oldChild)<br>oldChild:要删除的节点。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;di&quot;</span>&gt;</span><br><span class="line">    &lt;p&gt;第一行文本&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;第二行文本&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;第三行文本&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">    &lt;button onclick=<span class="string">&quot;play()&quot;</span> &gt;点我删除&lt;/button&gt;</span><br></pre></td></tr></table></figure>
-<p>先创建div元素，接下来看代码。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">play</span></span>()&#123;</span><br><span class="line">        var a = document.getElementById(<span class="string">&quot;di&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(a.hasChildNodes())&#123;</span><br><span class="line">            a.removeChild(a.lastChild)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>单击按钮就会删除最后一个p元素标签。</p>
-<h2 id="替换节点"><a href="#替换节点" class="headerlink" title="替换节点"></a>替换节点</h2><p>语法格式：obj.replaChild(new,old)<br>new:替换后的新节点。<br>old：需要被替换的旧节点。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;b id=<span class="string">&quot;bb&quot;</span>&gt;可以添加新内容&lt;/b&gt;</span><br><span class="line">&lt;form id=<span class="string">&quot;frm&quot;</span>&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;bj&quot;</span>&gt;&lt;br&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;txt&quot;</span>&gt;&lt;br&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">&quot;button&quot;</span> onclick=<span class="string">&quot;run(bj.value,txt.value)&quot;</span> value=<span class="string">&quot;插入&quot;</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-<p>下面看代码。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> run(bj,txt)&#123;</span><br><span class="line">    var a=document.getElementById(<span class="string">&#x27;bb&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span>(a)&#123;</span><br><span class="line">        var node=document.createElement(bj);</span><br><span class="line">        node.id=<span class="string">&quot;bb&quot;</span></span><br><span class="line">        var nodetxt=document.createTextNode(txt);</span><br><span class="line">        node.appendChild(nodetxt);</span><br><span class="line">        a.parentNode.replaceChild(node,a);</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="运行结果："><a href="#运行结果：" class="headerlink" title="运行结果："></a>运行结果：</h2><p><font style="font-weight:bold">可以添加新内容，好吧其实是插入？</font><br>txt框:用户输入<br>txt框:用户输入<br>按钮:value=插入</p>
-<p>node.id的存在可以一直让文本替换成功。</p>
-<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>document.documeneElement 属性，居然是返回文档元素，比如html文档返回html元素，<br>如果缺失元素会返回null，这个元素要用nodeName之类的才能操作查看。<br>childNodes()方法可以返回其下的子元素的集合。<br>createElement() 创建一个元素节点 =&gt; 接收参数为string类型的nodename<br>createTextNode() 创建一个文本节点 =&gt; 接收参数为string类型的text内容<br>createAttribute() 创建一个属性节点 =&gt; 接收参数为string类型的属性名称<br>createComment() 创建一个注释节点 =&gt; 接收参数为string类型的注释文本</p>
-<p>通过元素的name属性获取元素 document.getElementByName()<br>通过元素的id属性获取元素 document.getElementById()<br>做个垃圾导航。(getElementByid)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line"> &lt;table border=<span class="string">&quot;0&quot;</span> align=<span class="string">&quot;center&quot;</span> cellspacing=<span class="string">&quot;0&quot;</span> cellpadding=<span class="string">&quot;0&quot;</span> wid=<span class="string">&quot;1206&quot;</span>&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;&lt;div class=<span class="string">&quot;i01w&quot;</span>&gt;</span><br><span class="line">            &lt;table cellspacing=<span class="string">&quot;0&quot;</span> cellpadding=<span class="string">&quot;0&quot;</span> width=<span class="string">&quot;100%&quot;</span> border=<span class="string">&quot;0&quot;</span>&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                &lt;td id=<span class="string">&quot;a0bg&quot;</span>&gt;&lt;span id=<span class="string">&quot;a0color&quot;</span> onmouseover=<span class="string">&quot;run(&#x27;a0&#x27;,&#x27;a0color&#x27;,&#x27;a0bg&#x27;)&quot;</span>&gt;首页&lt;/span&gt;&lt;/td&gt;</span><br><span class="line">                &lt;td id=<span class="string">&quot;a1bg&quot;</span>&gt;&lt;span id=<span class="string">&quot;a1color&quot;</span> onmouseover=<span class="string">&quot;run(&#x27;a1&#x27;,&#x27;a1color&#x27;,&#x27;a1bg&#x27;)&quot;</span>&gt;爱情片&lt;/span&gt;&lt;/td&gt;</span><br><span class="line">                &lt;td id=<span class="string">&quot;a2bg&quot;</span>&gt;&lt;span id=<span class="string">&quot;a2color&quot;</span> onmouseover=<span class="string">&quot;run(&#x27;a2&#x27;,&#x27;a2color&#x27;,&#x27;a2bg&#x27;)&quot;</span>&gt;科幻片&lt;/span&gt;&lt;/td&gt;</span><br><span class="line">                &lt;/tr&gt;</span><br><span class="line">            &lt;/table&gt;</span><br><span class="line">        &lt;/div&gt;&lt;/td&gt;   </span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;&lt;table width=<span class="string">&quot;100%&quot;</span> height=<span class="string">&quot;41&quot;</span> cellpadding=<span class="string">&quot;0&quot;</span> cellspacing=<span class="string">&quot;0&quot;</span> id=<span class="string">&quot;a0&quot;</span> border=<span class="string">&quot;0&quot;</span>&gt;</span><br><span class="line">            &lt;tr&gt;</span><br><span class="line">                &lt;td align=<span class="string">&quot;left&quot;</span> style=<span class="string">&quot;padding-left:12px&quot;</span>&gt;欢迎来到我的博客&lt;/td&gt;</span><br><span class="line">            &lt;/tr&gt;</span><br><span class="line">            &lt;/table&gt;</span><br><span class="line">            &lt;table id=<span class="string">&quot;a1&quot;</span> style=<span class="string">&quot;display: none;&quot;</span> height=<span class="string">&quot;41&quot;</span> cellspacing=<span class="string">&quot;0&quot;</span> cellpadding=<span class="string">&quot;0&quot;</span> width=<span class="string">&quot;100%&quot;</span> border=<span class="string">&quot;0&quot;</span>&gt;</span><br><span class="line">            &lt;tr&gt;</span><br><span class="line">                &lt;td style=<span class="string">&quot;padding-left:97px&quot;</span> align=<span class="string">&quot;left&quot;</span>&gt;&lt;ul class=<span class="string">&quot;i02w&quot;</span>&gt;</span><br><span class="line">                    &lt;li&gt;爱情喜剧&lt;/li&gt;</span><br><span class="line">                    &lt;li&gt;古典爱情&lt;/li&gt;</span><br><span class="line">                    &lt;li&gt;现代爱情&lt;/li&gt;</span><br><span class="line">                    &lt;/ul&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span><br><span class="line">                    &lt;table id=<span class="string">&quot;a2&quot;</span> style=<span class="string">&quot;display: none;&quot;</span> height=<span class="string">&quot;41&quot;</span> cellspacing=<span class="string">&quot;0&quot;</span> cellpadding=<span class="string">&quot;0&quot;</span> width=<span class="string">&quot;100%&quot;</span> border=<span class="string">&quot;0&quot;</span>&gt;</span><br><span class="line">                        &lt;tr&gt;</span><br><span class="line">                            &lt;td style=<span class="string">&quot;padding-left:292px&quot;</span> align=<span class="string">&quot;left&quot;</span>&gt;&lt;ul class=<span class="string">&quot;i02w&quot;</span>&gt;</span><br><span class="line">                                &lt;li&gt;枪战片&lt;/li&gt;</span><br><span class="line">                                &lt;li&gt;武侠片&lt;/li&gt;</span><br><span class="line">                                &lt;li&gt;魔幻片&lt;/li&gt;</span><br><span class="line">                                &lt;/ul&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span><br><span class="line">                            &lt;/td&gt; </span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line"> &lt;/table&gt;   </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> run(par,par2,par3)&#123;</span><br><span class="line">    document.getElementById(<span class="string">&quot;a0&quot;</span>).style.display=<span class="string">&quot;none&quot;</span>;</span><br><span class="line">    document.getElementById(<span class="string">&quot;a1&quot;</span>).style.display=<span class="string">&quot;none&quot;</span>;</span><br><span class="line">    document.getElementById(<span class="string">&quot;a2&quot;</span>).style.display=<span class="string">&quot;none&quot;</span>;</span><br><span class="line"></span><br><span class="line">    document.getElementById(<span class="string">&quot;a0color&quot;</span>).style.color=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    document.getElementById(<span class="string">&quot;a1color&quot;</span>).style.color=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    document.getElementById(<span class="string">&quot;a2color&quot;</span>).style.color=<span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">    document.getElementById(<span class="string">&quot;a0bg&quot;</span>).style.backgroundImage=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    document.getElementById(<span class="string">&quot;a1bg&quot;</span>).style.backgroundImage=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    document.getElementById(<span class="string">&quot;a2bg&quot;</span>).style.backgroundImage=<span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">    document.getElementById(par).style.display=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    document.getElementById(par2).style.color=<span class="string">&quot;#ff0044&quot;</span>;</span><br><span class="line">    document.getElementById(par3).style.backgroundImage=<span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Debug01_swapByArray</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] swapdata=&#123;<span class="number">3</span>,<span class="number">5</span>&#125;;</span><br><span class="line">        System.out.println(swapdata[<span class="number">0</span>]);</span><br><span class="line">        System.out.println(swapdata[<span class="number">1</span>]);</span><br><span class="line">        <span class="comment">//执行下交换数组</span></span><br><span class="line">        swap(swapdata);</span><br><span class="line"></span><br><span class="line">        System.out.println(swapdata[<span class="number">0</span>]);</span><br><span class="line">        System.out.println(swapdata[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] data)</span></span>&#123;</span><br><span class="line">●       <span class="keyword">int</span> t=data[<span class="number">0</span>];</span><br><span class="line">        data[<span class="number">0</span>]=data[<span class="number">1</span>];</span><br><span class="line">        data[<span class="number">1</span>]=t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们把debug标识在第13行并运行看看。<br>可以看出栈里有2帧。<br><font style="font-weight:bold">swap:</font>19,Debug01_stackText(com.company.phase01)  //swap()帧<br>{<br>    data = {int[2]@808}{<br>        0 = 5               //这个堆的808号地址的第一个和第二个柜子都放了5<br>        1 = 5<br>    }<br>    data[1] = 5<br>    data[0] = 3<br>}</p>
+<p><font style="font-weight:bold">main:</font>11,Debug01_stackText(com.company.phasa01)  //main()帧<br>{<br>    args = {string[0]@807}<br>    swapdata = {int[2]@808}{<br>        0 = 3<br>        1 = 5<br>    }<br>    swapdata[1] = 5<br>    swapdata[0] = 3<br>}<br>当前大致结构如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">               栈                          堆</span><br><span class="line">         ——————————————    —————————————————————————————————  </span><br><span class="line">        丨             丨  丨    @808                        丨</span><br><span class="line">        丨             丨  丨    ——————                      丨</span><br><span class="line">        丨             丨  丨   丨3 , 5丨                    丨</span><br><span class="line">        丨             丨  丨    ——————                      丨</span><br><span class="line">        丨             丨  丨                                丨</span><br><span class="line">swap()  丨—————————————丨  丨                                丨</span><br><span class="line">        丨data @808    丨  丨    @807                        丨</span><br><span class="line">        丨             丨  丨    args                        丨</span><br><span class="line">        丨—————————————丨  丨                                丨</span><br><span class="line">main()  丨swapdata @808丨  丨                                丨</span><br><span class="line">        丨 args @807   丨  丨                                丨</span><br><span class="line">        丨             丨  丨                                丨                         </span><br><span class="line">         ——————————————    —————————————————————————————————  </span><br><span class="line">         帧(一小块的房间)</span><br></pre></td></tr></table></figure>
+<p>args：string型数组，既然是数组就从堆搞。<br>让我们下一步。<br>新建个t并赋值3，<br>这意味着swap()帧中要添加个t = 3。  //没去堆里<br>再下一步。<br>data[0]赋值为5，<br><font style="font-weight:bold">swap:</font>data = {int[2]@808}{<br>    0 = 5     //在堆中被修改了<br>    1 = 5<br>}<br><font style="font-weight:bold">main:</font>swapdata = {int[2]@808}{<br>    0 = 5     //main里的swapdata[0]也被同步修改了<br>    1 = 5<br>}<br>可见同@号的值在方法中被修改，导致堆里的值变化，反馈在所有牌子上的码也会变。<br>让我们接着下一步。<br>data[1]=t     //data:{5,3} t:3<br><font style="font-weight:bold">swap:</font>data = {int[2]@808}{<br>    0 = 5<br>    1 = 3     //在堆中又被修改了<br>}<br><font style="font-weight:bold">main:</font>swapdata = {int[2]@808}{<br>    0 = 5<br>    1 = 3     //main里的swapdata[1]照旧被同步修改<br>}<br>下一步，走出swap()，结果运算完毕，该帧删除，main中值成功变化，swap交换有效。<br>这就是我分析的java内存模型了，以后再补别的。</p>
 
       
 
@@ -242,19 +196,23 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">内存模型</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">对象节点</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">堆</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">帧</a>
         		</li>
       		
 		</ul>
@@ -273,18 +231,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/23/innerText%E4%B8%8EinnerHtml/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/08/30/Java%20%E5%90%84%E7%A7%8D%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JavaScript与DHTML相对应的DOM
+          Java 各种方法
         
       </div>
     </a>
   
   
-    <a href="/2021/08/19/css%E4%B8%9C%E8%A5%BF/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript的数组</div>
+    <a href="/2021/08/23/JavaScript%E4%B8%8EDHTML%E7%9B%B8%E5%AF%B9%E5%BA%94%E7%9A%84DOM/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript与DHTML相对应的DOM</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -410,22 +368,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DOm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">对象节点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">更新</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
@@ -438,11 +380,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -450,15 +388,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Date</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color3">更新</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -470,11 +400,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">帧</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
+                <a href="javascript:void(0)" class="js-tag color2">帧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -483,6 +413,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">大O表示法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Date</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DOm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">对象节点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
             
             <div class="clearfix"></div>

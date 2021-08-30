@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>JavaScript的数组 | 年轻人第一次做博客</title>
+  <title>JavaScript Date对象 | 年轻人第一次做博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CSS之content与arrt的纠缠content 属性与 :before 及 :after 伪元素配合使用，来插入生成内容。before:之前。after:之后。 123456789&lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;a:after&amp;#123;content: &quot; (&quot; attr(href) &quot;)&quot;&amp;#125">
+  <meta name="description" content="什么是 Date 对象？Date 对象用于处理日期和时间。 12var myDate &#x3D; new Date();      &#x2F;&#x2F;创建Date对象的语法documet.write(myDate); 返回值：Thu Aug 19 2021 17:56:32 GMT+0800 (中国标准时间)注释：Date 对象会自动把当前日期和时间保存为其初始值。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript的数组">
-<meta property="og:url" content="http://example.com/2021/08/19/css%E4%B8%9C%E8%A5%BF/index.html">
+<meta property="og:title" content="JavaScript Date对象">
+<meta property="og:url" content="http://example.com/2021/08/19/JavaScript%20Date%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="年轻人第一次做博客">
-<meta property="og:description" content="CSS之content与arrt的纠缠content 属性与 :before 及 :after 伪元素配合使用，来插入生成内容。before:之前。after:之后。 123456789&lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;a:after&amp;#123;content: &quot; (&quot; attr(href) &quot;)&quot;&amp;#125">
+<meta property="og:description" content="什么是 Date 对象？Date 对象用于处理日期和时间。 12var myDate &#x3D; new Date();      &#x2F;&#x2F;创建Date对象的语法documet.write(myDate); 返回值：Thu Aug 19 2021 17:56:32 GMT+0800 (中国标准时间)注释：Date 对象会自动把当前日期和时间保存为其初始值。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-19T12:39:42.000Z">
-<meta property="article:modified_time" content="2021-08-19T13:12:50.518Z">
+<meta property="article:published_time" content="2021-08-19T09:53:44.000Z">
+<meta property="article:modified_time" content="2021-08-30T08:09:00.403Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="CSS">
-<meta property="article:tag" content="content">
-<meta property="article:tag" content="attr">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Date">
+<meta property="article:tag" content="日期对象">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="年轻人第一次做博客" type="application/atom+xml">
@@ -153,20 +153,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-css东西" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JavaScript Date对象" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript的数组
+      JavaScript Date对象
     </h1>
   
 
         
-        <a href="/2021/08/19/css%E4%B8%9C%E8%A5%BF/" class="archive-article-date">
-  	<time datetime="2021-08-19T12:39:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-19</time>
+        <a href="/2021/08/19/JavaScript%20Date%E5%AF%B9%E8%B1%A1/" class="archive-article-date">
+  	<time datetime="2021-08-19T09:53:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-19</time>
 </a>
         
       </header>
@@ -175,9 +175,18 @@
       
         <br>
 
-<h2 id="CSS之content与arrt的纠缠"><a href="#CSS之content与arrt的纠缠" class="headerlink" title="CSS之content与arrt的纠缠"></a>CSS之content与arrt的纠缠</h2><p>content 属性与 :before 及 :after 伪元素配合使用，来插入生成内容。<br>before:之前。<br>after:之后。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;style <span class="built_in">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><br><span class="line">a:after</span><br><span class="line">&#123;content: <span class="string">&quot; (&quot;</span> attr(href) <span class="string">&quot;)&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p&gt;&lt;a href=<span class="string">&quot;http://www.baidu.com/&quot;</span>&gt;hello world&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<p>返回值: hello world(<a target="_blank" rel="noopener" href="http://www.baidu.con/">http://www.baidu.con/</a>)<br>翻译：和a标签有关，在其之前插入” (“ attr(href) “)”;<br>其中”(“和”)”是让插入后的链接变好看，像这样hello world(<a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com/</a>)<br>attr(href)：返回其同等的值，就你a标签里href=的东西。</p>
+<h2 id="什么是-Date-对象？"><a href="#什么是-Date-对象？" class="headerlink" title="什么是 Date 对象？"></a>什么是 Date 对象？</h2><p>Date 对象用于处理日期和时间。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myDate = <span class="keyword">new</span> <span class="built_in">Date</span>();      <span class="comment">//创建Date对象的语法</span></span><br><span class="line">documet.write(myDate);</span><br></pre></td></tr></table></figure>
+<p>返回值：Thu Aug 19 2021 17:56:32 GMT+0800 (中国标准时间)<br>注释：Date 对象会自动把当前日期和时间保存为其初始值。</p>
+<span id="more"></span>
+
+
+<h2 id="Date-对象属性"><a href="#Date-对象属性" class="headerlink" title="Date 对象属性"></a>Date 对象属性</h2><p>constructor 返回对创建此对象的 Date 函数的引用。<br>prototype 使您有能力向对象添加属性和方法。  //这个在很多地方都可以用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">employee</span>(<span class="params">name,old</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name=name;</span><br><span class="line">    <span class="built_in">this</span>.old=old;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> bill=<span class="keyword">new</span> employee(<span class="string">&quot;张三&quot;</span>,<span class="string">&quot;25&quot;</span>);</span><br><span class="line">employee.prototype.success=<span class="number">60</span>;</span><br><span class="line"><span class="built_in">document</span>.write(bill.success);</span><br></pre></td></tr></table></figure>
+<p>返回值：60<br>从上面可以看到使用prototype可以添加对象的属性或方法。</p>
+<h2 id="Date-对象方法"><a href="#Date-对象方法" class="headerlink" title="Date 对象方法"></a>Date 对象方法</h2><p>Date(): 返回当日的日期和时间<br>getDate(): 从 Date 对象返回一个月中的某一天 (1 ~ 31)。<br>getDay()    从 Date 对象返回一周中的某一天 (0 ~ 6)。<br>getMonth()    从 Date 对象返回月份 (0 ~ 11)。<br>getFullYear()    从 Date 对象以四位数字返回年份。<br>getYear()    请使用 getFullYear() 方法代替。<br>getHours()    返回 Date 对象的小时 (0 ~ 23)。<br>getMinutes()    返回 Date 对象的分钟 (0 ~ 59)。<br>getSeconds()    返回 Date 对象的秒数 (0 ~ 59)。<br>getMilliseconds()    返回 Date 对象的毫秒(0 ~ 999)。<br>getTime()    返回 1970 年 1 月 1 日至今的毫秒数。<br>setDate()    设置 Date 对象中月的某一天 (1 ~ 31)。<br>setMonth()    设置 Date 对象中月份 (0 ~ 11)。<br>setFullYear()    设置 Date 对象中的年份（四位数字）。<br>setYear()    请使用 setFullYear() 方法代替。<br>setHours()    设置 Date 对象中的小时 (0 ~ 23)。<br>setMinutes()    设置 Date 对象中的分钟 (0 ~ 59)。<br>setSeconds()    设置 Date 对象中的秒钟 (0 ~ 59)。<br>setMilliseconds()    设置 Date 对象中的毫秒 (0 ~ 999)。<br>setTime()    以毫秒设置 Date 对象。<br>toString()    把 Date 对象转换为字符串。<br>toTimeString()    把 Date 对象的时间部分转换为字符串。<br>toDateString()    把 Date 对象的日期部分转换为字符串。<br>valueOf()    返回 Date 对象的原始值。</p>
+<h2 id="下面的方法应该这辈子都用不到了"><a href="#下面的方法应该这辈子都用不到了" class="headerlink" title="下面的方法应该这辈子都用不到了"></a>下面的方法应该这辈子都用不到了</h2><p>setUTCDate()    根据世界时设置 Date 对象中月份的一天 (1 ~ 31)。<br>setUTCMonth()    根据世界时设置 Date 对象中的月份 (0 ~ 11)。<br>setUTCFullYear()    根据世界时设置 Date 对象中的年份（四位数字）。<br>setUTCHours()    根据世界时设置 Date 对象中的小时 (0 ~ 23)。<br>setUTCMinutes()    根据世界时设置 Date 对象中的分钟 (0 ~ 59)。<br>setUTCSeconds()    根据世界时设置 Date 对象中的秒钟 (0 ~ 59)。<br>setUTCMilliseconds()    根据世界时设置 Date 对象中的毫秒 (0 ~ 999)。<br>toSource()    返回该对象的源代码。<br>toGMTString()    请使用 toUTCString() 方法代替。<br>toUTCString()    根据世界时，把 Date 对象转换为字符串。<br>toLocaleString()    根据本地时间格式，把 Date 对象转换为字符串。<br>toLocaleTimeString()    根据本地时间格式，把 Date 对象的时间部分转换为字符串。<br>toLocaleDateString()    根据本地时间格式，把 Date 对象的日期部分转换为字符串。<br>UTC()    根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数。<br>getTimezoneOffset()    返回本地时间与格林威治标准时间 (GMT) 的分钟差。<br>getUTCDate()    根据世界时从 Date 对象返回月中的一天 (1 ~ 31)。<br>getUTCDay()    根据世界时从 Date 对象返回周中的一天 (0 ~ 6)。<br>getUTCMonth()    根据世界时从 Date 对象返回月份 (0 ~ 11)。<br>getUTCFullYear()    根据世界时从 Date 对象返回四位数的年份。<br>getUTCHours()    根据世界时返回 Date 对象的小时 (0 ~ 23)。<br>getUTCMinutes()    根据世界时返回 Date 对象的分钟 (0 ~ 59)。<br>getUTCSeconds()    根据世界时返回 Date 对象的秒钟 (0 ~ 59)。<br>getUTCMilliseconds()    根据世界时返回 Date 对象的毫秒(0 ~ 999)。<br>parse()    返回1970年1月1日午夜到指定日期（字符串）的毫秒数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myDate = <span class="keyword">new</span> <span class="built_in">Date</span>(); </span><br><span class="line"><span class="built_in">document</span>.write(myDate.getDate()+<span class="string">&quot;&lt;br&gt;&quot;</span>);             <span class="comment">//返回值：19               今天是8月的第19号</span></span><br><span class="line"><span class="built_in">document</span>.write(myDate.getDay()+<span class="string">&quot;&lt;br&gt;&quot;</span>);              <span class="comment">//返回值：4                今天是第3个周的周4</span></span><br><span class="line"><span class="built_in">document</span>.write(myDate.getMonth()+<span class="string">&quot;&lt;br&gt;&quot;</span>);            <span class="comment">//返回值：7                月份返回是从0~11号的，所以应该+1也就是7+1月份</span></span><br><span class="line"><span class="built_in">document</span>.write(myDate.getFullYear()+<span class="string">&quot;&lt;br&gt;&quot;</span>);         <span class="comment">//返回值：2021             告诉你是哪一年，四位数返回</span></span><br><span class="line"><span class="built_in">document</span>.write(myDate.getYear()+<span class="string">&quot;&lt;br&gt;&quot;</span>);             <span class="comment">//返回值：121              这是被遗弃了？让我们用getFullYear() 方法代替。</span></span><br><span class="line"><span class="built_in">document</span>.write(myDate.getHours()+<span class="string">&quot;&lt;br&gt;&quot;</span>);            <span class="comment">//返回值：18               返回对象的小时(0~23)</span></span><br><span class="line"><span class="built_in">document</span>.write(myDate.getMinutes()+<span class="string">&quot;&lt;br&gt;&quot;</span>);          <span class="comment">//返回值：6                返回对象的分钟(0~59)</span></span><br><span class="line"><span class="built_in">document</span>.write(myDate.getSeconds()+<span class="string">&quot;&lt;br&gt;&quot;</span>);          <span class="comment">//返回值：1                返回对象的秒数(0~59)</span></span><br><span class="line"><span class="built_in">document</span>.write(myDate.getMilliseconds()+<span class="string">&quot;&lt;br&gt;&quot;</span>);     <span class="comment">//返回值：133              返回对象的毫秒(0~999)</span></span><br><span class="line"><span class="built_in">document</span>.write(myDate.getTime()+<span class="string">&quot;&lt;br&gt;&quot;</span>);             <span class="comment">//返回值：1629367561133    返回从1970.1.1日到现在的毫秒数</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -191,15 +200,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">content</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Date</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">attr</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日期对象</a>
         		</li>
       		
 		</ul>
@@ -218,18 +227,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/20/Dom%E5%AF%B9%E8%B1%A1%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/08/19/JavaScript%20Math%20%E5%AF%B9%E8%B1%A1%20/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JavaScript 文档对象模型(Dom)
+          JavaScript Math 对象
         
       </div>
     </a>
   
   
-    <a href="/2021/08/19/Math%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%85%B6%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript Math 对象</div>
+    <a href="/2021/08/18/Java%20%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">复杂度分析</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -355,22 +364,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DOm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">对象节点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">更新</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
@@ -383,11 +376,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -395,15 +384,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Date</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color3">更新</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -415,11 +396,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">帧</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
+                <a href="javascript:void(0)" class="js-tag color2">帧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -428,6 +409,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">大O表示法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Date</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DOm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">对象节点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
             
             <div class="clearfix"></div>
