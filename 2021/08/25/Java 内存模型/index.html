@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Java内存模型 | 年轻人第一次做博客</title>
+  <title>Java 内存模型 | 年轻人第一次做博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="数组在java内存模型中是怎样的？先了解下几个基础概念：1.堆。数据都基本都放在堆里头，比如数组啊，值啊，这些值都是在堆里随便找个地方放着的，给个@xxx的牌子放在栈帧里。可以理解为仓库，放货的地方。2.栈。栈里面放的帧，一帧一帧的从最底下往上，跑完一个删一帧。3.帧。一帧一帧的运行，跑完后会清空掉，这里面放的东西不太多，比如仓库地址什么的(牌子)。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java内存模型">
+<meta property="og:title" content="Java 内存模型">
 <meta property="og:url" content="http://example.com/2021/08/25/Java%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="年轻人第一次做博客">
 <meta property="og:description" content="数组在java内存模型中是怎样的？先了解下几个基础概念：1.堆。数据都基本都放在堆里头，比如数组啊，值啊，这些值都是在堆里随便找个地方放着的，给个@xxx的牌子放在栈帧里。可以理解为仓库，放货的地方。2.栈。栈里面放的帧，一帧一帧的从最底下往上，跑完一个删一帧。3.帧。一帧一帧的运行，跑完后会清空掉，这里面放的东西不太多，比如仓库地址什么的(牌子)。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-25T11:36:42.000Z">
-<meta property="article:modified_time" content="2021-08-30T10:48:14.560Z">
+<meta property="article:modified_time" content="2021-09-01T07:03:47.162Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="内存模型">
@@ -58,7 +58,7 @@
 		  <h1 class="header-author"><a href="/">Bsan-san</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">年轻人目前想摸鱼偷懒</p>
+		<p class="header-subtitle">年轻人表示鸡汤不好喝</p>
 		
 
 		<nav class="header-menu">
@@ -114,7 +114,7 @@
 			  <h1 class="header-author js-header-author">Bsan-san</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>年轻人目前想摸鱼偷懒<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>年轻人表示鸡汤不好喝<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -162,7 +162,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Java内存模型
+      Java 内存模型
     </h1>
   
 
@@ -384,14 +384,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">更新</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内存模型</a>
               </li>
              
@@ -416,6 +408,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">更新</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">回顾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -425,10 +437,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
               </li>
              
               <li class="article-tag-list-item">
