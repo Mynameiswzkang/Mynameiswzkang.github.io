@@ -6,23 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Java 内存模型 | 年轻人第一次做博客</title>
+  <title>Tag: 函数 | 年轻人第一次做博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数组在java内存模型中是怎样的？先了解下几个基础概念：1.堆。数据都基本都放在堆里头，比如数组啊，值啊，这些值都是在堆里随便找个地方放着的，给个@xxx的牌子放在栈帧里。可以理解为仓库，放货的地方。2.栈。栈里面放的帧，一帧一帧的从最底下往上，跑完一个删一帧。3.帧。一帧一帧的运行，跑完后会清空掉，这里面放的东西不太多，比如仓库地址什么的(牌子)。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java 内存模型">
-<meta property="og:url" content="http://example.com/2021/08/25/Java%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="年轻人第一次做博客">
+<meta property="og:url" content="http://example.com/tags/%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="年轻人第一次做博客">
-<meta property="og:description" content="数组在java内存模型中是怎样的？先了解下几个基础概念：1.堆。数据都基本都放在堆里头，比如数组啊，值啊，这些值都是在堆里随便找个地方放着的，给个@xxx的牌子放在栈帧里。可以理解为仓库，放货的地方。2.栈。栈里面放的帧，一帧一帧的从最底下往上，跑完一个删一帧。3.帧。一帧一帧的运行，跑完后会清空掉，这里面放的东西不太多，比如仓库地址什么的(牌子)。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-25T11:36:42.000Z">
-<meta property="article:modified_time" content="2021-09-01T07:03:47.162Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="内存模型">
-<meta property="article:tag" content="堆">
-<meta property="article:tag" content="栈">
-<meta property="article:tag" content="帧">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="年轻人第一次做博客" type="application/atom+xml">
@@ -155,42 +146,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java 内存模型" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Java 内存模型
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/09/02/Java%20Hash%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2021-09-02T07:09:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-02</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/09/02/Java%20Hash%E5%87%BD%E6%95%B0/">Hash 函数</a>
     </h1>
   
 
-        
-        <a href="/2021/08/25/Java%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2021-08-25T11:36:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h1 id="数组在java内存模型中是怎样的？"><a href="#数组在java内存模型中是怎样的？" class="headerlink" title="数组在java内存模型中是怎样的？"></a>数组在java内存模型中是怎样的？</h1><p>先了解下几个基础概念：<br>1.堆。数据都基本都放在堆里头，比如数组啊，值啊，这些值都是在堆里随便找个地方放着的，给个@xxx的牌子放在栈帧里。可以理解为仓库，放货的地方。<br>2.栈。栈里面放的帧，一帧一帧的从最底下往上，跑完一个删一帧。<br>3.帧。一帧一帧的运行，跑完后会清空掉，这里面放的东西不太多，比如仓库地址什么的(牌子)。</p>
-<span id="more"></span>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Debug01_swapByArray</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] swapdata=&#123;<span class="number">3</span>,<span class="number">5</span>&#125;;</span><br><span class="line">        System.out.println(swapdata[<span class="number">0</span>]);</span><br><span class="line">        System.out.println(swapdata[<span class="number">1</span>]);</span><br><span class="line">        <span class="comment">//执行下交换数组</span></span><br><span class="line">        swap(swapdata);</span><br><span class="line"></span><br><span class="line">        System.out.println(swapdata[<span class="number">0</span>]);</span><br><span class="line">        System.out.println(swapdata[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] data)</span></span>&#123;</span><br><span class="line">●       <span class="keyword">int</span> t=data[<span class="number">0</span>];</span><br><span class="line">        data[<span class="number">0</span>]=data[<span class="number">1</span>];</span><br><span class="line">        data[<span class="number">1</span>]=t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们把debug标识在第13行并运行看看。<br>可以看出栈里有2帧。<br><font style="font-weight:bold">swap:</font>19,Debug01_stackText(com.company.phase01)  //swap()帧<br>{<br>    data = {int[2]@808}{<br>        0 = 5               //这个堆的808号地址的第一个和第二个柜子都放了5<br>        1 = 5<br>    }<br>    data[1] = 5<br>    data[0] = 3<br>}</p>
-<p><font style="font-weight:bold">main:</font>11,Debug01_stackText(com.company.phasa01)  //main()帧<br>{<br>    args = {string[0]@807}<br>    swapdata = {int[2]@808}{<br>        0 = 3<br>        1 = 5<br>    }<br>    swapdata[1] = 5<br>    swapdata[0] = 3<br>}<br>当前大致结构如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">               栈                          堆</span><br><span class="line">         ——————————————    —————————————————————————————————  </span><br><span class="line">        丨             丨  丨    @808                        丨</span><br><span class="line">        丨             丨  丨    ——————                      丨</span><br><span class="line">        丨             丨  丨   丨3 , 5丨                    丨</span><br><span class="line">        丨             丨  丨    ——————                      丨</span><br><span class="line">        丨             丨  丨                                丨</span><br><span class="line">swap()  丨—————————————丨  丨                                丨</span><br><span class="line">        丨data @808    丨  丨    @807                        丨</span><br><span class="line">        丨             丨  丨    args                        丨</span><br><span class="line">        丨—————————————丨  丨                                丨</span><br><span class="line">main()  丨swapdata @808丨  丨                                丨</span><br><span class="line">        丨 args @807   丨  丨                                丨</span><br><span class="line">        丨             丨  丨                                丨                         </span><br><span class="line">         ——————————————    —————————————————————————————————  </span><br><span class="line">         帧(一小块的房间)</span><br></pre></td></tr></table></figure>
-<p>args：string型数组，既然是数组就从堆搞。<br>让我们下一步。<br>新建个t并赋值3，<br>这意味着swap()帧中要添加个t = 3。  //没去堆里<br>再下一步。<br>data[0]赋值为5，<br><font style="font-weight:bold">swap:</font>data = {int[2]@808}{<br>    0 = 5     //在堆中被修改了<br>    1 = 5<br>}<br><font style="font-weight:bold">main:</font>swapdata = {int[2]@808}{<br>    0 = 5     //main里的swapdata[0]也被同步修改了<br>    1 = 5<br>}<br>可见同@号的值在方法中被修改，导致堆里的值变化，反馈在所有牌子上的码也会变。<br>让我们接着下一步。<br>data[1]=t     //data:{5,3} t:3<br><font style="font-weight:bold">swap:</font>data = {int[2]@808}{<br>    0 = 5<br>    1 = 3     //在堆中又被修改了<br>}<br><font style="font-weight:bold">main:</font>swapdata = {int[2]@808}{<br>    0 = 5<br>    1 = 3     //main里的swapdata[1]照旧被同步修改<br>}<br>下一步，走出swap()，结果运算完毕，该帧删除，main中值成功变化，swap交换有效。<br>这就是我分析的java内存模型了，以后再补别的。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,82 +185,33 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">内存模型</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">哈希</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">堆</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hash</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">帧</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">函数</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2021/08/30/Java%20%E5%90%84%E7%A7%8D%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java 各种方法
-        
-      </div>
-    </a>
   
   
-    <a href="/2021/08/23/JavaScript%E4%B8%8EDHTML%E7%9B%B8%E5%AF%B9%E5%BA%94%E7%9A%84DOM/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript与DHTML相对应的DOM</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -298,9 +234,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

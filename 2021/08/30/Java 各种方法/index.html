@@ -16,7 +16,7 @@
 <meta property="og:description" content="想起多少我写多少  for 循环123456public static void main(String[] args) &amp;#123;    int [] array &#x3D; &amp;#123;1,2,3,4,5&amp;#125;;    for (int i&#x3D;0;i&lt;array.length;i++)&amp;#123;        System.out.println(array[i]);    &amp;#125">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-30T09:28:42.000Z">
-<meta property="article:modified_time" content="2021-09-01T07:38:37.456Z">
+<meta property="article:modified_time" content="2021-09-02T08:45:32.873Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="方法">
@@ -200,7 +200,7 @@
 <p>运行结果：<br>qx<br>嘿嘿嘿</p>
 <h2 id="split-方法"><a href="#split-方法" class="headerlink" title="split() 方法"></a>split() 方法</h2><p>语法: public String[] split(String regex,int limit)<br>regex:正则表达式分隔符，比如”*”、”-“什么的。<br>limit：分割的份数。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">&quot;a-b-c&quot;</span>;</span><br><span class="line">String sqr = <span class="keyword">new</span> String(<span class="string">&quot;a-b-c&quot;</span>);</span><br><span class="line"><span class="keyword">for</span> (String x : sqr.split(<span class="string">&quot;-&quot;</span>,<span class="number">2</span>))&#123;</span><br><span class="line">    System.out.println(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果:<br>a<br>b-c<br>没错他是以数组的形式返回的。<br>“<font style="font-weight:bold">题外话：</font>“关于str和sqr什么区别，这里单纯的==是false，<br>但是str和同样方法搞出来的兄弟是true但是sqr和兄弟却是false。<br>qx说是内存地址分配不一致，但是他们的堆牌子都一样，以后再说。</p>
+<p>运行结果:<br>a<br>b-c<br>没错他是以数组的形式返回的。<br><font style="font-weight:bold">题外话：</font>关于str和sqr什么区别，这里单纯的==是false，<br>但是str和同样方法搞出来的兄弟是true但是sqr和兄弟却是false。<br>qx说是内存地址分配不一致，但是他们的堆牌子都一样，以后再说。</p>
 <h2 id="valueof-方法"><a href="#valueof-方法" class="headerlink" title="valueof() 方法"></a>valueof() 方法</h2><p>语法： string.valueof(value)<br>value:貌似可以是任何类型的东西，反正会把值转变成string型。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line">String txt = String.valueOf(x);</span><br><span class="line">System.out.println(txt);</span><br></pre></td></tr></table></figure>
 <p>运行结果：10 没报错，换int txt就不行。</p>
@@ -397,6 +397,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">更新</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内存模型</a>
               </li>
              
@@ -418,14 +438,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">大O表示法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">更新</a>
               </li>
              
               <li class="article-tag-list-item">

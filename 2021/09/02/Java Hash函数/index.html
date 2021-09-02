@@ -6,23 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Java 内存模型 | 年轻人第一次做博客</title>
+  <title>Hash 函数 | 年轻人第一次做博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数组在java内存模型中是怎样的？先了解下几个基础概念：1.堆。数据都基本都放在堆里头，比如数组啊，值啊，这些值都是在堆里随便找个地方放着的，给个@xxx的牌子放在栈帧里。可以理解为仓库，放货的地方。2.栈。栈里面放的帧，一帧一帧的从最底下往上，跑完一个删一帧。3.帧。一帧一帧的运行，跑完后会清空掉，这里面放的东西不太多，比如仓库地址什么的(牌子)。">
+  <meta name="description" content="Hash结构数组：采用一段连续的存储单元来存储数据。对于指定下标的查找，时间复杂度为O(1)；通过给定值进行查找，需要遍历数组，逐一比对给定关键字和数组元素，时间复杂度为O(n)，当然，对于有序数组，则可采用二分查找，插值查找，斐波那契查找等方式，可将查找复杂度提高为O(logn)；对于一般的插入删除操作，涉及到数组元素的移动，其平均复杂度也为O(n) 线性链表：对于链表的新增，删除等操作（在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 内存模型">
-<meta property="og:url" content="http://example.com/2021/08/25/Java%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:title" content="Hash 函数">
+<meta property="og:url" content="http://example.com/2021/09/02/Java%20Hash%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="年轻人第一次做博客">
-<meta property="og:description" content="数组在java内存模型中是怎样的？先了解下几个基础概念：1.堆。数据都基本都放在堆里头，比如数组啊，值啊，这些值都是在堆里随便找个地方放着的，给个@xxx的牌子放在栈帧里。可以理解为仓库，放货的地方。2.栈。栈里面放的帧，一帧一帧的从最底下往上，跑完一个删一帧。3.帧。一帧一帧的运行，跑完后会清空掉，这里面放的东西不太多，比如仓库地址什么的(牌子)。">
+<meta property="og:description" content="Hash结构数组：采用一段连续的存储单元来存储数据。对于指定下标的查找，时间复杂度为O(1)；通过给定值进行查找，需要遍历数组，逐一比对给定关键字和数组元素，时间复杂度为O(n)，当然，对于有序数组，则可采用二分查找，插值查找，斐波那契查找等方式，可将查找复杂度提高为O(logn)；对于一般的插入删除操作，涉及到数组元素的移动，其平均复杂度也为O(n) 线性链表：对于链表的新增，删除等操作（在">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-25T11:36:42.000Z">
-<meta property="article:modified_time" content="2021-09-01T07:03:47.162Z">
+<meta property="article:published_time" content="2021-09-02T07:09:36.000Z">
+<meta property="article:modified_time" content="2021-09-02T10:27:46.417Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Java">
-<meta property="article:tag" content="内存模型">
-<meta property="article:tag" content="堆">
-<meta property="article:tag" content="栈">
-<meta property="article:tag" content="帧">
+<meta property="article:tag" content="哈希">
+<meta property="article:tag" content="Hash">
+<meta property="article:tag" content="函数">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="年轻人第一次做博客" type="application/atom+xml">
@@ -155,34 +154,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java 内存模型" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java Hash函数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java 内存模型
+      Hash 函数
     </h1>
   
 
         
-        <a href="/2021/08/25/Java%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2021-08-25T11:36:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-25</time>
+        <a href="/2021/09/02/Java%20Hash%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2021-09-02T07:09:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h1 id="数组在java内存模型中是怎样的？"><a href="#数组在java内存模型中是怎样的？" class="headerlink" title="数组在java内存模型中是怎样的？"></a>数组在java内存模型中是怎样的？</h1><p>先了解下几个基础概念：<br>1.堆。数据都基本都放在堆里头，比如数组啊，值啊，这些值都是在堆里随便找个地方放着的，给个@xxx的牌子放在栈帧里。可以理解为仓库，放货的地方。<br>2.栈。栈里面放的帧，一帧一帧的从最底下往上，跑完一个删一帧。<br>3.帧。一帧一帧的运行，跑完后会清空掉，这里面放的东西不太多，比如仓库地址什么的(牌子)。</p>
+        <br>
+
+<h2 id="Hash结构"><a href="#Hash结构" class="headerlink" title="Hash结构"></a>Hash结构</h2><p><font style="font-weight:bold">数组：</font>采用一段连续的存储单元来存储数据。对于指定下标的查找，时间复杂度为O(1)；通过给定值进行查找，需要遍历数组，逐一比对给定关键字和数组元素，时间复杂度为O(n)，当然，对于有序数组，则可采用二分查找，插值查找，斐波那契查找等方式，可将查找复杂度提高为O(logn)；对于一般的插入删除操作，涉及到数组元素的移动，其平均复杂度也为O(n)</p>
+<p><font style="font-weight:bold">线性链表：</font>对于链表的新增，删除等操作（在找到指定操作位置后），仅需处理结点间的引用即可，时间复杂度为O(1)，而查找操作需要遍历链表逐一进行比对，复杂度为O(n)<br><font style="font-weight:bold">二叉树：</font>对一棵相对平衡的有序二叉树，对其进行插入，查找，删除等操作，平均复杂度均为O(logn)。<br><font style="font-weight:bold">哈希表：</font>在哈希表中进行添加，删除，查找等操作，性能十分之高，不考虑哈希冲突的情况下，仅需一次定位即可完成，时间复杂度为O(1)。<br>我们知道，数据结构的物理存储结构只有两种：顺序存储结构和链式存储结构（像栈，队列，树，图等是从逻辑结构去抽象的，映射到内存中，也这两种物理组织形式），而在上面我们提到过，在数组中根据下标查找某个元素，一次定位就可以达到，哈希表利用了这种特性，哈希表的主干就是数组。<br>　　比如我们要新增或查找某个元素，我们通过把当前元素的关键字 通过某个函数映射到数组中的某个位置，通过数组下标一次定位就可完成操作。<br>　　 location = hash(关键字)<br>其中，hash函数设计的优劣直接影响整体的性能。</p>
 <span id="more"></span>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Debug01_swapByArray</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] swapdata=&#123;<span class="number">3</span>,<span class="number">5</span>&#125;;</span><br><span class="line">        System.out.println(swapdata[<span class="number">0</span>]);</span><br><span class="line">        System.out.println(swapdata[<span class="number">1</span>]);</span><br><span class="line">        <span class="comment">//执行下交换数组</span></span><br><span class="line">        swap(swapdata);</span><br><span class="line"></span><br><span class="line">        System.out.println(swapdata[<span class="number">0</span>]);</span><br><span class="line">        System.out.println(swapdata[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] data)</span></span>&#123;</span><br><span class="line">●       <span class="keyword">int</span> t=data[<span class="number">0</span>];</span><br><span class="line">        data[<span class="number">0</span>]=data[<span class="number">1</span>];</span><br><span class="line">        data[<span class="number">1</span>]=t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们把debug标识在第13行并运行看看。<br>可以看出栈里有2帧。<br><font style="font-weight:bold">swap:</font>19,Debug01_stackText(com.company.phase01)  //swap()帧<br>{<br>    data = {int[2]@808}{<br>        0 = 5               //这个堆的808号地址的第一个和第二个柜子都放了5<br>        1 = 5<br>    }<br>    data[1] = 5<br>    data[0] = 3<br>}</p>
-<p><font style="font-weight:bold">main:</font>11,Debug01_stackText(com.company.phasa01)  //main()帧<br>{<br>    args = {string[0]@807}<br>    swapdata = {int[2]@808}{<br>        0 = 3<br>        1 = 5<br>    }<br>    swapdata[1] = 5<br>    swapdata[0] = 3<br>}<br>当前大致结构如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">               栈                          堆</span><br><span class="line">         ——————————————    —————————————————————————————————  </span><br><span class="line">        丨             丨  丨    @808                        丨</span><br><span class="line">        丨             丨  丨    ——————                      丨</span><br><span class="line">        丨             丨  丨   丨3 , 5丨                    丨</span><br><span class="line">        丨             丨  丨    ——————                      丨</span><br><span class="line">        丨             丨  丨                                丨</span><br><span class="line">swap()  丨—————————————丨  丨                                丨</span><br><span class="line">        丨data @808    丨  丨    @807                        丨</span><br><span class="line">        丨             丨  丨    args                        丨</span><br><span class="line">        丨—————————————丨  丨                                丨</span><br><span class="line">main()  丨swapdata @808丨  丨                                丨</span><br><span class="line">        丨 args @807   丨  丨                                丨</span><br><span class="line">        丨             丨  丨                                丨                         </span><br><span class="line">         ——————————————    —————————————————————————————————  </span><br><span class="line">         帧(一小块的房间)</span><br></pre></td></tr></table></figure>
-<p>args：string型数组，既然是数组就从堆搞。<br>让我们下一步。<br>新建个t并赋值3，<br>这意味着swap()帧中要添加个t = 3。  //没去堆里<br>再下一步。<br>data[0]赋值为5，<br><font style="font-weight:bold">swap:</font>data = {int[2]@808}{<br>    0 = 5     //在堆中被修改了<br>    1 = 5<br>}<br><font style="font-weight:bold">main:</font>swapdata = {int[2]@808}{<br>    0 = 5     //main里的swapdata[0]也被同步修改了<br>    1 = 5<br>}<br>可见同@号的值在方法中被修改，导致堆里的值变化，反馈在所有牌子上的码也会变。<br>让我们接着下一步。<br>data[1]=t     //data:{5,3} t:3<br><font style="font-weight:bold">swap:</font>data = {int[2]@808}{<br>    0 = 5<br>    1 = 3     //在堆中又被修改了<br>}<br><font style="font-weight:bold">main:</font>swapdata = {int[2]@808}{<br>    0 = 5<br>    1 = 3     //main里的swapdata[1]照旧被同步修改<br>}<br>下一步，走出swap()，结果运算完毕，该帧删除，main中值成功变化，swap交换有效。<br>这就是我分析的java内存模型了，以后再补别的。</p>
+<p><font style="font-weight:bold">哈希冲突：</font>哈希算法存在一个缺点就是哈希冲突。例如，我们进行数据存储时，我们通过对关键字进行hash时得到的地址已经存储过数据了，这时就会出现哈希冲突。因此，哈希函数的设计至关重要，好的哈希函数会尽可能地保证 计算简单和散列地址分布均匀。但是，我们需要清楚的是，数组是一块连续的固定长度的内存空间，再好的哈希函数也不能保证得到的存储地址绝对不发生冲突。那么哈希冲突如何解决呢？哈希冲突的解决方案有多种:开放定址法（发生冲突，继续寻找下一块未被占用的存储地址），再散列函数法，链地址法，而HashMap即是采用了链地址法，也就是数组+链表的方式。</p>
+<h2 id="HashMap的用法"><a href="#HashMap的用法" class="headerlink" title="HashMap的用法"></a>HashMap的用法</h2><p>Collection中的集合，元素是孤立存在的，向集合中存储元素采用一个个元素的方式存储。</p>
+<p><font style="font-weight:bold">Map中的集合，元素是成对存在的(key[键],value[值])。</font>每个元素由键与值两部分组成，通过键可以找对所对应的值。</p>
+<p>Collection中的集合称为单列集合，Map中的集合称为双列集合。</p>
+<p>需要注意的是，<font style="font-weight:bold">Map中的集合不能包含重复的键，值可以重复；每个键只能对应一个值。</font></p>
+<p>Map中常用的集合为HashMap集合、LinkedHashMap集合。</p>
+<p>HashMap&lt;K,V&gt;：存储数据采用的哈希表结构，元素的存取顺序不能保证一致。由于要保证键的唯一、不重复，需要重写键的hashCode()方法、equals()方法。</p>
+<p>LinkedHashMap&lt;K,V&gt;：HashMap下有个子类LinkedHashMap，存储数据采用的哈希表结构+链表结构。通过链表结构可以保证元素的存取顺序一致；通过哈希表结构可以保证的键的唯一、不重复，需要重写键的hashCode()方法、equals()方法。</p>
+<p>注意：Map接口中的集合都有两个泛型变量&lt;K,V&gt;,在使用时，要为两个泛型变量赋予数据类型。两个泛型变量&lt;K,V&gt;的数据类型可以相同，也可以不同。</p>
+<h3 id="Map接口的常用方法"><a href="#Map接口的常用方法" class="headerlink" title="Map接口的常用方法"></a>Map接口的常用方法</h3><p>get(Object key)：返回指定键所映射的值，如果没有映射关系返回null。<br>put(K key,V value)：将指定的值与指定键关联，让它们产生联系(可选操作)。<br>remove(Object key)：如果存在一个键的映射关系，则将其从此映射中移除(可选操作)。</p>
+<h2 id="Map的遍历"><a href="#Map的遍历" class="headerlink" title="Map的遍历"></a>Map的遍历</h2><p>使用keySet()遍历；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMap_Demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        HashMap&lt;String ,String&gt; weather = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        weather.put(<span class="string">&quot;温州&quot;</span>,<span class="string">&quot;晴天&quot;</span>);</span><br><span class="line">        weather.put(<span class="string">&quot;杭州&quot;</span>,<span class="string">&quot;雨天&quot;</span>);</span><br><span class="line">        weather.put(<span class="string">&quot;北京&quot;</span>,<span class="string">&quot;阴天&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Set&lt;String&gt; keyset = weather.keySet();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (String x:keyset) &#123;</span><br><span class="line">            String key = x;</span><br><span class="line">            String value = weather.get(x);</span><br><span class="line">            System.out.println(key+<span class="string">&quot;今天是&quot;</span>+value);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// Iterator&lt;String&gt; iterator =weather.keySet().iterator();</span></span><br><span class="line">        <span class="comment">// while(iterator.hasNext())&#123;</span></span><br><span class="line">        <span class="comment">//     String key = iterator.next();</span></span><br><span class="line">        <span class="comment">//     String value = weather.get(key);</span></span><br><span class="line">        <span class="comment">//     System.out.println(key+&quot;今天是&quot;+value);</span></span><br><span class="line">        <span class="comment">// &#125;这边是迭代器遍历,推荐foreach，效率高性能好。</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用entrySet()方法遍历；//感觉不好用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMap_Demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        HashMap&lt;String ,String&gt; weather = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        weather.put(<span class="string">&quot;温州&quot;</span>,<span class="string">&quot;晴天&quot;</span>);</span><br><span class="line">        weather.put(<span class="string">&quot;杭州&quot;</span>,<span class="string">&quot;雨天&quot;</span>);</span><br><span class="line">        weather.put(<span class="string">&quot;北京&quot;</span>,<span class="string">&quot;阴天&quot;</span>);</span><br><span class="line">        </span><br><span class="line">        Set&lt;Map.Entry&lt;String, String&gt;&gt; keyset = weather.entrySet();</span><br><span class="line"></span><br><span class="line">         <span class="keyword">for</span> (Map.Entry&lt;String, String&gt; x:keyset) &#123;</span><br><span class="line">            String key = x.getKey();</span><br><span class="line">            String value=x.getValue();</span><br><span class="line">            System.out.println(key+<span class="string">&quot; &quot;</span>+value);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Iterator&lt;Map.Entry&lt;String, String&gt;&gt; iterator = keyset.iterator();</span></span><br><span class="line">        <span class="comment">// while(iterator.hasNext())&#123;</span></span><br><span class="line">        <span class="comment">//     Map.Entry&lt;String,String&gt; it = iterator.next();</span></span><br><span class="line">        <span class="comment">//     String key = it.getKey();</span></span><br><span class="line">        <span class="comment">//     String value=it.getValue();//String data = weather.get(key);这也行</span></span><br><span class="line">        <span class="comment">//     System.out.println(key+&quot; &quot;+value);</span></span><br><span class="line">        <span class="comment">// &#125;迭代器还是麻烦</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用entrySet，其内部自带个已声明泛型接口map.Entry。<br>其下还有2个方法，getKey()与getValue()都可以方便(麻烦)获取值。<br>map.Entry&lt;String,String&gt;//貌似可以当int声明。<br>可以看作是饥荒打克劳斯掉的包裹(只有两格)。<br>没错，打包了key与value。再塞给set。。   </p>
 
       
 
@@ -200,19 +211,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">内存模型</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">哈希</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">堆</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hash</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">帧</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">函数</a>
         		</li>
       		
 		</ul>
@@ -231,18 +238,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/30/Java%20%E5%90%84%E7%A7%8D%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java 各种方法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/08/23/JavaScript%E4%B8%8EDHTML%E7%9B%B8%E5%AF%B9%E5%BA%94%E7%9A%84DOM/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript与DHTML相对应的DOM</div>
+    <a href="/2021/09/01/Java%20%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E8%AF%BE%E7%A8%8B%E5%9B%9E%E9%A1%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法设计——课程回顾</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -16,7 +16,7 @@
 <meta property="og:description" content="基础的不能再基础的东西1public static void main(String[] args) public:访问修饰符，它也是最宽松的，所有类可见。不写是default，同一包内可见，按严格类型划分它们中间还有个protected，最严格的是privat。static：关键字。(全局或静态的意思,动态是final，值不给变，修饰的方法不可被重写或者继承)&#x2F;&#x2F;Java语言没有全局变量的概">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-30T12:39:42.000Z">
-<meta property="article:modified_time" content="2021-08-30T13:10:18.260Z">
+<meta property="article:modified_time" content="2021-09-02T09:28:31.954Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="更新">
@@ -183,11 +183,27 @@
 <p>让我们从别处调用它</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.company.phase01;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Debug02_go</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Debug01_stackText.play(<span class="string">&quot;wzkang&quot;</span>,<span class="string">&quot;呵呵&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果：<br>wzkang<br>呵呵</p>
-<h2 id="如何创建个list列表？"><a href="#如何创建个list列表？" class="headerlink" title="如何创建个list列表？"></a>如何创建个list列表？</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure>
-<p>List:列表，同时要加载包。<br>Integer:里面存放的数据类型。<br>list：名字，可以改你喜欢的。<br>new 新建个 ArrayList&lt;&gt;();<br>ArrayList：数组列表。<br>&lt;这里面在这可以被省略(不省略的话写前面&lt;这里的东西&gt;)&gt;。<br>()：可以不管，但是你想直接插入值可以在这里写。??好像不对啊先放着以后搞。<br>这就可以举一反三创别的东西了</p>
-<h3 id="将数组列表转换为数组的方法"><a href="#将数组列表转换为数组的方法" class="headerlink" title="将数组列表转换为数组的方法"></a>将数组列表转换为数组的方法</h3><p>Object[] s = list.toArray();//list搞出来默认就是object类型<br>Arrays.toString(s)//可以这样搞回来<br>———————-分割线———————<br>Strint[] s = list.toArray(new String[value])<br>String[] s = str.toArray(String[]::new);<br>value：length值<br>用第二、三种方法可以把list放到对应类型的数组里。<br>ps:其实用for强循环就行。。</p>
 <h2 id="创建个栈"><a href="#创建个栈" class="headerlink" title="创建个栈"></a>创建个栈</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line"><span class="comment">//push 入栈</span></span><br><span class="line"><span class="comment">//pop  出栈</span></span><br><span class="line"><span class="comment">//peek 栈顶（用这个sout的话不会返回[]）</span></span><br></pre></td></tr></table></figure>
 <p>这里只是粗略写这些，详细的以后写。</p>
+<h2 id="Collection-方法接口"><a href="#Collection-方法接口" class="headerlink" title="Collection 方法接口"></a>Collection 方法接口</h2><p>Map是独立的接口，和collection是两条路。<br>Collection接口是 (java.util.Collection)是Java集合类的顶级接口之一。<br>Collection 接口有 3 种子类型集合: List、Set 和 Queue，再下面是一些抽象类，最后是具体实现类，常用的有 ArrayList、LinkedList、HashSet、LinkedHashSet、ArrayBlockingQueue等。<br>别的文章写到：Collection、List、Set和Map都是接口（Interface），不是具体的类实现。<br> List lst = new ArrayList(); 这是我们平常经常使用的创建一个新的List的语句，在这里， List是接口，ArrayList才是具体的类。<br> 懂了，接口是接口，类不一致说明可能是其下子类？</p>
+<h2 id="set-集合"><a href="#set-集合" class="headerlink" title="set 集合"></a>set 集合</h2><p>Set集合类似于一个罐子，程序可以依次把多个对象“丢进”Set集合，但它是无序的。实际上Set就是Collection只是行为略有不同。<br>Set集合不允许包含相同的元素，如果试图把两个相同元素加入同一个Set集合中，则添加操作失败，add()方法返回false，且新元素不会被加入。<br>为什么不能重复存在相同元素？<br>因为Set是在 HashMap的基础上来实现的，又因为HashMap的key是不能有重复的。<br><font style="font-weight:bold">常用的方法:</font><br>add() 向集合添加元素<br>clear() 去掉集合中所有的元素<br>contains() 判断集合中是否包含某一个元素<br>isEmpty() 判断集合是否为空<br>iterator() 主要用于递归集合，返回一个iterator()对象<br>size() 返回集合的大小<br><font style="font-weight:bold">HashSet：</font></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        set.add(<span class="number">3</span>);</span><br><span class="line">        set.add(<span class="number">5</span>);</span><br><span class="line">        set.add(<span class="number">1</span>);</span><br><span class="line">        set.add(<span class="number">5</span>);</span><br><span class="line">        set.forEach(x -&gt;&#123;</span><br><span class="line">            System.out.printt(x+<span class="string">&quot; &#x27;);</span></span><br><span class="line"><span class="string">        &#125;);运行结果：1 3 5</span></span><br></pre></td></tr></table></figure>
+<p>我就纳闷了，这不和TreeSet没差别吗？<br>1.不能保证元素的排列顺序，顺序有可能发生变化<br>2.不是同步的<br>3.集合元素可以是null,但只能放入一个null<br>TreeSet是根据二叉树实现的，不能放null，HashSet是根据hashCode的值进行equals比较的。<br>摘自网上他人的博客记录。<br><font style="font-weight:bold">LinkedHashSet：</font><br>HashSet的一个子类，一个链表。<br><font style="font-weight:bold">TreeSet：</font><br>SortedSet的子类，它不同于HashSet的根本就是TreeSet是有序的。它是通过SortedMap来实现的。<br>TreeSet是基于TreeMap实现的，TreeSet中的元素支持2种排序方式，自然排序或者根据创建TreeSet时提供的Comparator进行排序，这取决于使用的构造方法。<br>TreeSet是非同步的。 它的iterator 方法返回的迭代器是fail-fast的。<br>TreeSet会将里面的元素默认排序。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeSet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Set&lt;Integer&gt; test = <span class="keyword">new</span> java.util.TreeSet&lt;&gt;();</span><br><span class="line">        <span class="comment">//前面是接口及类型，后面new其方法</span></span><br><span class="line">        test.add(<span class="number">1</span>);</span><br><span class="line">        test.add(<span class="number">8</span>);</span><br><span class="line">        test.add(<span class="number">3</span>);</span><br><span class="line">        <span class="comment">//添加无序元素进去</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x:test) &#123;</span><br><span class="line">            System.out.print(x+<span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;<span class="comment">//foreach遍历，这个比迭代器好</span></span><br><span class="line">        System.out.println();</span><br><span class="line">        Iterator&lt;Integer&gt; value = test.iterator();</span><br><span class="line">        <span class="keyword">while</span> (value.hasNext())&#123;</span><br><span class="line">            System.out.print(value.next()+<span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;<span class="comment">//迭代器遍历，就是个sb</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;       <span class="comment">//运行结果1 3 8 回车 1 3 8</span></span><br></pre></td></tr></table></figure>
+<p>其他杂七杂八测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">test.removeAll(test);<span class="comment">//删除所有元素</span></span><br><span class="line">System.out.println(test.remove(<span class="number">8</span>))<span class="comment">//返回true</span></span><br></pre></td></tr></table></figure>
+<p>Set总结：<br>Set实现的基础是Map（HashMap）</p>
+<p>Set中的元素是不能重复的，如果使用add(Object obj)方法添加已经存在的对象，则会覆盖前面的对象</p>
+<h2 id="如何创建个list列表？"><a href="#如何创建个list列表？" class="headerlink" title="如何创建个list列表？"></a>如何创建个list列表？</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<p>List:列表，同时要加载包。    //接口<br>Integer:里面存放的数据类型。 //类型<br>list：名字，可以改你喜欢的。<br>new 新建个 ArrayList&lt;&gt;();   //方法，哪怕是子类方法<br>ArrayList：数组列表。<br>&lt;这里面在这可以被省略(不省略的话写前面&lt;这里的东西&gt;)&gt;。<br>()：可以不管，但是你想直接插入值可以在这里写。??好像不对啊先放着以后搞。<br>这就可以举一反三创别的东西了</p>
+<h3 id="将数组列表转换为数组的方法"><a href="#将数组列表转换为数组的方法" class="headerlink" title="将数组列表转换为数组的方法"></a>将数组列表转换为数组的方法</h3><p>Object[] s = list.toArray();//list搞出来默认就是object类型<br>Arrays.toString(s)//可以这样搞回来<br>———————-分割线———————<br>Strint[] s = list.toArray(new String[value])<br>String[] s = str.toArray(String[]::new);<br>value：length值<br>用第二、三种方法可以把list放到对应类型的数组里。<br>ps:其实用for强循环就行。。<br>———————-分割线———————<br>对上面Collection的衔接：<br>List是有序的Collection，使用此接口能够精确的控制每个元素插入的位置，类似Java的数组。<br><font style="font-weight:bold">Vector：</font><br>基于数组（Array）的List，其实就是封装了数组所不具备的一些功能方便我们使用，所以它难易避免数组的限制，同时性能也不可能超越数组。所以，在可能的情况下，我们要多运用数组。另外很重要的一点就是Vector是线程同步的(sychronized)的，这也是Vector和ArrayList 的一个的重要区别。<br><font style="font-weight:bold">ArrayList</font><br>同Vector一样是一个基于数组上的链表，但是不同的是ArrayList不是同步的。所以在性能上要比Vector好一些，但是当运行到多线程环境中时，可需要自己在管理线程的同步问题。<br><font style="font-weight:bold">LinkedList：</font><br>LinkedList不同于前面两种List，它不是基于数组的，所以不受数组性能的限制。<br>它每一个节点（Node）都包含两方面的内容：<br>1.节点本身的数据（data）；<br>2.下一个节点的信息（nextNode）。<br>所以当对LinkedList做添加，删除动作的时候就不用像基于数组的ArrayList一样，必须进行大量的数据移动。只要更改nextNode的相关信息就可以实现了，这是LinkedList的优势。<br>List总结：<br>所有的List中只能容纳单个不同类型的对象组成的表，而不是Key－Value键值对。例如：[ tom,1,c ]<br>所有的List中可以有相同的元素，例如Vector中可以有 [ tom,koo,too,koo ]<br>所有的List中可以有null元素，例如[ tom,null,1 ]<br>基于Array的List（Vector，ArrayList）适合查询，而LinkedList 适合添加，删除操作</p>
+<h2 id="Queue-队列"><a href="#Queue-队列" class="headerlink" title="Queue 队列"></a>Queue 队列</h2><p>队列通常（但并非一定）以 FIFO（先进先出）的方式排序各个元素。<br>不过优先级队列和 LIFO (后进先出)队列（或堆栈）例外。<br>LinkedList(链表)类实现了Queue接口，因此我们可以把LinkedList当成Queue来用。<br>Java Queue接口是Java Collections Framework的成员。<br>Queue 实现通常不允许插入 null 元素。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;String&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">queue.add(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">queue.offer(<span class="string">&quot;b&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (String x:queue) &#123;</span><br><span class="line">    System.out.print(x+<span class="string">&quot; &quot;</span>);</span><br><span class="line">&#125;<span class="comment">//运行结果：a b</span></span><br></pre></td></tr></table></figure>
+<p>Queue中add()和offer()都是用来向队列添加一个元素。<br>在容量已满的情况下，add() 方法会抛出IllegalStateException异常，offer() 方法只会返回 false 。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;String&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">queue.add(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">queue.offer(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">System.out.print(queue.element()+<span class="string">&quot; &quot;</span>);</span><br><span class="line">System.out.print(queue.peek());</span><br><span class="line"><span class="comment">//运行结果：a a</span></span><br></pre></td></tr></table></figure>
+<p>Queue 中 element() 和 peek()都是用来返回队列的头元素，不删除。<br>在队列元素为空的情况下，element() 方法会抛出NoSuchElementException异常，peek() 方法只会返回 null。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;String&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">queue.add(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">queue.offer(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">System.out.print(queue.remove()+<span class="string">&quot; &quot;</span>);</span><br><span class="line">System.out.print(queue.poll());</span><br></pre></td></tr></table></figure>
+<p>remove() 和 poll() 方法都是从队列中删除第一个元素。如果队列元素为空，调用remove() 的行为与 Collection 接口的版本相似会抛出异常，但是新的 poll() 方法在用空集合调用时只是返回 null。</p>
 
       
 
@@ -381,6 +397,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">更新</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内存模型</a>
               </li>
              
@@ -402,14 +438,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">大O表示法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">更新</a>
               </li>
              
               <li class="article-tag-list-item">
