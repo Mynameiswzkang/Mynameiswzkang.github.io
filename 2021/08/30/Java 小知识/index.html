@@ -16,7 +16,7 @@
 <meta property="og:description" content="基础的不能再基础的东西1public static void main(String[] args) public:访问修饰符，它也是最宽松的，所有类可见。不写是default，同一包内可见，按严格类型划分它们中间还有个protected，最严格的是privat。static：关键字。(全局或静态的意思,动态是final，值不给变，修饰的方法不可被重写或者继承)&#x2F;&#x2F;Java语言没有全局变量的概">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-30T12:39:42.000Z">
-<meta property="article:modified_time" content="2021-09-05T13:42:15.742Z">
+<meta property="article:modified_time" content="2021-09-07T11:41:12.627Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="更新">
@@ -204,6 +204,44 @@
 <p>Queue 中 element() 和 peek()都是用来返回队列的头元素，不删除。<br>在队列元素为空的情况下，element() 方法会抛出NoSuchElementException异常，peek() 方法只会返回 null。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;String&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">queue.add(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">queue.offer(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">System.out.print(queue.remove()+<span class="string">&quot; &quot;</span>);</span><br><span class="line">System.out.print(queue.poll());</span><br></pre></td></tr></table></figure>
 <p>remove() 和 poll() 方法都是从队列中删除第一个元素。如果队列元素为空，调用remove() 的行为与 Collection 接口的版本相似会抛出异常，但是新的 poll() 方法在用空集合调用时只是返回 null。</p>
+<h2 id="Java-interface接口初步使用"><a href="#Java-interface接口初步使用" class="headerlink" title="Java interface接口初步使用"></a>Java interface接口初步使用</h2><p>先来了解抽象的概念：<font style="font-weight:bold">absttact</font></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.company.phase04;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">car</span> </span>&#123;     <span class="comment">//抽象类</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>; <span class="comment">//抽象方法 连&#123;]都没有，够抽象了吧</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">peole</span> <span class="keyword">extends</span> <span class="title">car</span></span>&#123;        <span class="comment">//拓展业务</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;         <span class="comment">//一定得重写方法</span></span><br><span class="line">        System.out.println(<span class="string">&quot;人来run&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">autocar</span> <span class="keyword">extends</span> <span class="title">car</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;车来run&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>抽象类没有实体概念，不能搞static，否则就实例化了。</p>
+<h3 id="你问实例化对象是什么"><a href="#你问实例化对象是什么" class="headerlink" title="你问实例化对象是什么?"></a>你问实例化对象是什么?</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;  <span class="comment">//学生类</span></span><br><span class="line">    String name;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;这是有参构造&quot;</span>);</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再来个测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Student st = <span class="keyword">new</span> Student(<span class="string">&quot;Tom猫&quot;</span>,<span class="number">5</span>);        <span class="comment">//这就是实例化过程</span></span><br><span class="line">      <span class="comment">//Stunden st在栈中声明了个名为st的引用变量，new Student就是进行了实例化，即在堆中新建了个对象，并调用构造函数进行初始化。</span></span><br><span class="line">      <span class="comment">//= 表示将堆中对象的地址值传递给栈中的变量st,此时st就可以调用学生类成员中的属性和方法，格式是st.xxx</span></span><br><span class="line">        System.out.println(st.name+st.age+<span class="string">&quot;岁了&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1.以this.name=name;为例，this.name 表示调用成员变量name,后面的name表示形参的值，即我们在测试类中赋的值。<br>2.倘若直接在构造方法内部给this.name赋值，如this.name=”张三”，则优先执行在构造器内部赋的值。此时结果就是张三，而不是汤姆猫了。<br>3.成员变量有默认值，引用类型是null，值类型是0，布尔类型是false。</p>
+<h2 id="回到正题-abstract、interface"><a href="#回到正题-abstract、interface" class="headerlink" title="回到正题(abstract、interface)"></a>回到正题(abstract、interface)</h2><p>如果一个类中至少有一个抽象方法，那么这个类一定是抽象类，但反之则不然。也就是说一个抽象类中可以没有抽象方法。这样做的目的是为了此类不能被实例化。<br>如果一个类继承了一个抽象类，那么它必须全部覆写抽象类中的抽象方法，当然也可以不全部覆写，如果不覆写全部抽象方法则这个子类也必须是抽象类（这样做就无意义了）。</p>
+<p>理解了以上观点后再看看Interfac，它也就是一个抽象类型，是抽象方法的集合，接口通常以intrface来声明。<br>一个类通过继承接口的方式，从而来继承接口的抽象方法。<br>接口并不是类，编写接口的方式和类很相似，但是它们属于不同的概念。类描述对象的属性和方法。接口则包含类要实现的方法。<br>除非实现接口的类是抽象类，否则该类要定义接口中的所有方法。//abstract<br>接口无法被实例化，但是可以被实现。一个实现接口的类，必须实现接口内所描述的所有方法，否则就必须声明为抽象类。另外，在 Java 中，接口类型可用来声明一个变量，他们可以成为一个空指针，或是被绑定在一个以此接口实现的对象。<br><font style="font-weight:bold">接口与类相似点</font><br>一个接口可以有多个方法。<br>接口文件保存在 .java 结尾的文件中，文件名使用接口名。<br>接口的字节码文件保存在 .class 结尾的文件中。<br>接口相应的字节码文件必须在与包名称相匹配的目录结构中。<br><font style="font-weight:bold">接口和类的区别</font><br>接口不能用于实例化对象。<br>接口没有构造方法。<br>接口中所有的方法必须是抽象方法，Java 8 之后 接口中可以使用 default 关键字修饰的非抽象方法。<br>接口不能包含成员变量，除了 static 和 final 变量。<br>接口不是被类继承了，而是要被类实现。<br>接口支持多继承。//xxxx extend x,y,z<br><font style="font-weight:bold">接口特性</font><br>接口中每一个方法也是隐式抽象的,接口中的方法会被隐式的指定为 public abstract（只能是 public abstract，其他修饰符都会报错）。<br>接口中可以含有变量，但是接口中的变量会被隐式的指定为 public static final 变量（并且只能是 public，用 private 修饰会报编译错误）。<br>接口中的方法是不能在接口中实现的，只能由实现接口的类来实现接口中的方法。<br><font style="font-weight:bold">接口和抽象类的区别</font><br>抽象类中的方法可以有方法体，就是能实现方法的具体功能，但是接口中的方法不行。<br>抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是 public static final 类型的。<br>接口中不能含有静态代码块以及静态方法(用 static 修饰的方法)，而抽象类是可以有静态代码块和静态方法。<br>一个类只能继承一个抽象类，而一个类却可以实现多个接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//先看接口</span></span><br><span class="line"><span class="keyword">package</span> com.company.phase03;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">swapdata</span> </span>&#123;         <span class="comment">//默认是abstract类的</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>;  <span class="comment">//抽象方法，画个饼在这</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是实例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.company.phase03;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo</span> <span class="keyword">implements</span> <span class="title">swapdata</span> </span>&#123; <span class="comment">//由类来实现接口</span></span><br><span class="line">    <span class="meta">@Override</span>  <span class="comment">//重写</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; <span class="comment">//饼让后人做</span></span><br><span class="line">        <span class="keyword">int</span> t = x;</span><br><span class="line">        x = y;</span><br><span class="line">        y = t;</span><br><span class="line">        System.out.println(x+<span class="string">&quot; &quot;</span>+y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        demo ss = <span class="keyword">new</span> demo(); <span class="comment">//接口是不能实例化的，别乱new</span></span><br><span class="line">        ss.swap(<span class="number">3</span>,<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       
 
@@ -381,6 +419,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
@@ -390,18 +444,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">attr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">更新</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -421,6 +463,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">更新</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">空间复杂度</a>
               </li>
              
@@ -429,15 +479,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">哈希</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">函数</a>
+                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -449,19 +491,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DOm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">对象节点</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -473,7 +503,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">课程回顾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DOm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">对象节点</a>
               </li>
              
               <li class="article-tag-list-item">
