@@ -16,11 +16,11 @@
 <meta property="og:description" content="毕竟已经过段时间了，能回顾多少就看运气叭。  枚举1.枚举(Enumerate)也称为列举法、穷举法、又称为暴力法。2.枚举是一种简单而直接解决问题的方法，其基本思想是逐一列举问题所涉及的所有情形。3.应用枚举时应注意对问题所涉及的有限情形进行一一列举，既不能重复，又不能遗漏。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-09-01T07:02:31.000Z">
-<meta property="article:modified_time" content="2021-09-01T12:48:39.777Z">
+<meta property="article:modified_time" content="2021-09-09T10:30:53.064Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Java">
-<meta property="article:tag" content="算法">
 <meta property="article:tag" content="回顾">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="年轻人第一次做博客" type="application/atom+xml">
@@ -56,7 +56,7 @@
 		  <h1 class="header-author"><a href="/">Bsan-san</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">年轻人表示鸡汤不好喝</p>
+		<p class="header-subtitle">学好多又学不会学不懂，我真笨。</p>
 		
 
 		<nav class="header-menu">
@@ -112,7 +112,7 @@
 			  <h1 class="header-author js-header-author">Bsan-san</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>年轻人表示鸡汤不好喝<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>学好多又学不会学不懂，我真笨。<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -201,7 +201,16 @@
 <p>运行结果：5050<br><font style="font-weight:bold">课后示例一：</font>编写函数，函数的形式参数为两个正整数a和b,函数返回a与b的最大公约数，要求用递归方式实现。主函数中输入两个整数m和n，输出m和n的最大公约数。<br><font style="font-weight:bold">输入样式：</font>36 24<br><font style="font-weight:bold">输出样式：</font>12</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">            Scanner sc=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">            <span class="keyword">int</span> m=sc.nextInt();</span><br><span class="line">            <span class="keyword">int</span> n=sc.nextInt();</span><br><span class="line">            f(m,n);       <span class="comment">//接收参数并调用</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">            <span class="keyword">int</span> c=a%b;  <span class="comment">//不返回就直接输出</span></span><br><span class="line">            <span class="keyword">if</span> (c==<span class="number">0</span>)</span><br><span class="line">                System.out.println(b);</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                f(a=b,b=c);   <span class="comment">//已知搞下去总会有的</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><p>贪心算法又称贪婪算法，总是做出在当前看来是最好的选择，不从整体最优解上加以考虑，它所做出的是在某种意义上的局部最优解。<br>关键的是贪心策略的选择，选择的贪心策略必须具备无后效型。<br>即某个状态以前的状态不会影响以后的状态至于当前状态有关，在当前情况下贪心算法将问题化为若干个类似的小问题，进行局部的最优解，以此达到整体最优解。</p>
+<h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><p>贪心算法又称贪婪算法，总是做出在当前看来是最好的选择，不从整体最优解上加以考虑，它所做出的是在某种意义上的局部最优解。<br>关键的是贪心策略的选择，选择的贪心策略必须具备无后效型。<br>即某个状态以前的状态不会影响以后的状态至于当前状态有关，在当前情况下贪心算法将问题化为若干个类似的小问题，进行局部的最优解，以此达到整体最优解。<br><font style="font-weight:bold">示例一</font><br>小明是个好学的程序猿，他想在一天内尽可能多的选择课程进行学习。在下列课程中，他能选择的最多课程是几门？<br><font style="font-weight:bold">输入格式：</font>第一行为一个整数n，表示课程总数。接下来每行为x，y，z表示课程名，开始时间，结束时间。<br><font style="font-weight:bold">输出格式：</font>输出一个整数，表示小明最多可选的课程数。<br><font style="font-weight:bold">输入样式：</font>5<br>Art  9 10<br>English 9.3 10.3<br>Math 10 11<br>Computer 10.3  11.3<br>Music 11 12<br>结尾无空行<br><font style="font-weight:bold">输出样式：</font>3 结尾无空行<br>这边再提一次，类是类，接口是接口，接口是有抽象方法的，类要去实现这些方法，但是抽象类就和接口有一定类似了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
 
       
 
@@ -219,11 +228,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">回顾</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">回顾</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -379,31 +388,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">content</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">attr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">哈希</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">函数</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -423,7 +408,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方法</a>
+                <a href="javascript:void(0)" class="js-tag color3">哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">回顾</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -439,7 +436,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -447,23 +444,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">回顾</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">课程回顾</a>
+                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Date</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,7 +464,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">content</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">attr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Date</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,6 +493,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">白盒测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">安卓开发</a>
               </li>
             
             <div class="clearfix"></div>

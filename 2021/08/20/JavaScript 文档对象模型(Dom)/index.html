@@ -16,7 +16,7 @@
 <meta property="og:description" content="Dom分层文档对象模型采用的分层结构为树形结构，以树节点的方式表示文档中的各种内容。 1.在文档对象中，每一个元素对象都可以称之为节点2.html可以说是根节点。3.如果多个节点在同一个层次，并且拥有这相同的父节点，那么这几个节点就称之为兄弟节点。4.一个节点之上的节点称之为父节点，一个节点之下的节点称之为子节点。5.在树形结构最底部的节点被称为叶子节点。示范案例： 123456789&lt;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-20T12:45:42.000Z">
-<meta property="article:modified_time" content="2021-08-30T08:06:31.223Z">
+<meta property="article:modified_time" content="2021-09-08T11:47:13.391Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="更新">
 <meta property="article:tag" content="JavaScript">
@@ -57,7 +57,7 @@
 		  <h1 class="header-author"><a href="/">Bsan-san</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">年轻人表示鸡汤不好喝</p>
+		<p class="header-subtitle">学好多又学不会学不懂，我真笨。</p>
 		
 
 		<nav class="header-menu">
@@ -113,7 +113,7 @@
 			  <h1 class="header-author js-header-author">Bsan-san</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>年轻人表示鸡汤不好喝<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>学好多又学不会学不懂，我真笨。<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -212,7 +212,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> a=<span class="built_in">document</span>.createElement(<span class="string">&quot;p&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> b=<span class="built_in">document</span>.createTextNode(str);</span><br><span class="line">        a.appendChild(b);</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">play</span>(<span class="params">nodeId,str</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> q=<span class="built_in">document</span>.getElementById(nodeId);</span><br><span class="line">        <span class="keyword">var</span> txt=run(str);</span><br><span class="line">        <span class="keyword">if</span>(q.parentNode)&#123;</span><br><span class="line">            q.parentNode.insertBefore(txt,q);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="节点复制"><a href="#节点复制" class="headerlink" title="节点复制"></a>节点复制</h2><p>语法格式：obj.clonNode(deep)<br>obj:要复制的节点。<br>deep：Boolean值，表示是否为深度复制，true表示要深度复制，false表示简单复制。<br>深度复制：当前节点的全部子节点也复制。<br>简单复制：只复制当前节点，不复制子节点。</p>
+<h2 id="节点复制"><a href="#节点复制" class="headerlink" title="节点复制"></a>节点复制</h2><p>语法格式：obj.cloneNode(deep)<br>obj:要复制的节点。<br>deep：Boolean值，表示是否为深度复制，true表示要深度复制，false表示简单复制。<br>深度复制：当前节点的全部子节点也复制。<br>简单复制：只复制当前节点，不复制子节点。</p>
 <h2 id="节点删除"><a href="#节点删除" class="headerlink" title="节点删除"></a>节点删除</h2><p>语法格式：obj.removeChild(oldChild)<br>oldChild:要删除的节点。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;di&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>第一行文本<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>第二行文本<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>第三行文本<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;play()&quot;</span> &gt;</span>点我删除<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>先创建div元素，接下来看代码。</p>
@@ -411,31 +411,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">content</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">attr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">哈希</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">函数</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -455,7 +431,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方法</a>
+                <a href="javascript:void(0)" class="js-tag color3">哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">回顾</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -471,7 +459,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,23 +467,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">回顾</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">课程回顾</a>
+                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Date</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,7 +487,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">content</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">attr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Date</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,6 +516,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">白盒测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">安卓开发</a>
               </li>
             
             <div class="clearfix"></div>
