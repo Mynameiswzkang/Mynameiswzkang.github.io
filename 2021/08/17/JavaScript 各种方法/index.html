@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>JavaScript 各种方法 | 年轻人第一次做博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="各种方法想起多少我写多少 javaScript toStinr()方法toString() 方法可把一个逻辑值转换为字符串，并返回结果。 示例一： 12var boolean &#x3D; new Boolean(true);         &#x2F;&#x2F;true不要写Truedocument.write(boolean.toString());      &#x2F;&#x2F;不要拼错大写S">
+  <meta name="description" content="各种方法想起多少我写多少 javaScript toStinr()方法toString() 方法可把一个值转换为字符串，并返回结果。括号内可以携带参数，写个 16 就是以 16 进制返回,不过前提似乎是要转换的值必须是 number 型的。示例一： 12var boolean &#x3D; new Boolean(true); &#x2F;&#x2F;true不要写Truedocument.write(boolean.to">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 各种方法">
 <meta property="og:url" content="http://example.com/2021/08/17/JavaScript%20%E5%90%84%E7%A7%8D%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="年轻人第一次做博客">
-<meta property="og:description" content="各种方法想起多少我写多少 javaScript toStinr()方法toString() 方法可把一个逻辑值转换为字符串，并返回结果。 示例一： 12var boolean &#x3D; new Boolean(true);         &#x2F;&#x2F;true不要写Truedocument.write(boolean.toString());      &#x2F;&#x2F;不要拼错大写S">
+<meta property="og:description" content="各种方法想起多少我写多少 javaScript toStinr()方法toString() 方法可把一个值转换为字符串，并返回结果。括号内可以携带参数，写个 16 就是以 16 进制返回,不过前提似乎是要转换的值必须是 number 型的。示例一： 12var boolean &#x3D; new Boolean(true); &#x2F;&#x2F;true不要写Truedocument.write(boolean.to">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-17T08:40:17.000Z">
-<meta property="article:modified_time" content="2021-08-30T08:11:13.608Z">
+<meta property="article:modified_time" content="2021-09-11T15:30:24.922Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="更新">
 <meta property="article:tag" content="方法">
@@ -176,53 +176,81 @@
         <br>
 
 <h1 id="各种方法"><a href="#各种方法" class="headerlink" title="各种方法"></a>各种方法</h1><p>想起多少我写多少</p>
-<h2 id="javaScript-toStinr-方法"><a href="#javaScript-toStinr-方法" class="headerlink" title="javaScript toStinr()方法"></a>javaScript toStinr()方法</h2><p>toString() 方法可把一个逻辑值转换为字符串，并返回结果。</p>
-<p><font style="font-weight:bold">示例一：</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> boolean = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>);         <span class="comment">//true不要写True</span></span><br><span class="line"><span class="built_in">document</span>.write(boolean.toString());      <span class="comment">//不要拼错大写S</span></span><br></pre></td></tr></table></figure>
+<h2 id="javaScript-toStinr-方法"><a href="#javaScript-toStinr-方法" class="headerlink" title="javaScript toStinr()方法"></a>javaScript toStinr()方法</h2><p>toString() 方法可把一个值转换为字符串，并返回结果。<br>括号内可以携带参数，写个 16 就是以 16 进制返回,不过前提似乎是要转换的值必须是 number 型的。<br><font style="font-weight:bold">示例一：</font></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> boolean = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>); <span class="comment">//true不要写True</span></span><br><span class="line"><span class="built_in">document</span>.write(boolean.toString()); <span class="comment">//不要拼错大写S</span></span><br></pre></td></tr></table></figure>
+
 <span id="more"></span>
-<p>返回值：true<br>注：该 true 为字符型<br>别和java搞混了嗷！</p>
-<h2 id="javaScript-splice-方法"><a href="#javaScript-splice-方法" class="headerlink" title="javaScript splice()方法"></a>javaScript splice()方法</h2><p><font style="font-weight:bold"> 事先声明 splice()方法与slice()方法不同 不要搞混了！</font><br>splice() 方法向/从数组中添加/删除项目。<br>人话：该方法可以添加or替换or删除数组里的元素。<br>该方法会改变原本的数组数据。</p>
-<p>使用方法 arrayObject.splice(“index”,”howmany”,”item1,…..,itemX”)<br>index(必填。位置初始值);<br>howmany(必填。删除要素个数,填0不删除);<br>item1(可选，添加值可以是多个，你也可以不填，然后只删除元素啥的)。</p>
+
+<p>数组也行，别的类型没试过，不过盲猜可以。<br>返回值：true<br>注：该 true 为字符型<br>别和 java 搞混了嗷！</p>
+<h2 id="javaScript-splice-方法"><a href="#javaScript-splice-方法" class="headerlink" title="javaScript splice()方法"></a>javaScript splice()方法</h2><p><font style="font-weight:bold"> 事先声明 splice()方法与 slice()方法不同 不要搞混了！</font><br>splice() 方法向/从数组中添加/删除项目。<br>人话：该方法可以添加 or 替换 or 删除数组里的元素。<br>该方法会改变原本的数组数据。</p>
+<p>使用方法 arrayObject.splice(“index”,”howmany”,”item1,…..,itemX”)<br>index(必填。位置初始值);<br>howmany(必填。删除要素个数,填 0 不删除);<br>item1(可选，添加值可以是多个，你也可以不填，然后只删除元素啥的)。</p>
 <p><font style="font-weight:bold">示例一：</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">arr[<span class="number">0</span>] = <span class="string">&quot;a&quot;</span>;</span><br><span class="line">arr[<span class="number">1</span>] = <span class="string">&quot;c&quot;</span>;            <span class="comment">// var arr=[&quot;a&quot;,&quot;c&quot;,&quot;d&quot;];  ←为啥不试试这个？</span></span><br><span class="line">arr[<span class="number">2</span>] = <span class="string">&quot;d&quot;</span>;</span><br><span class="line">arr.splice(<span class="number">1</span>,<span class="number">0</span>,<span class="string">&quot;b&quot;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(arr);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">arr[<span class="number">0</span>] = <span class="string">&quot;a&quot;</span>;</span><br><span class="line">arr[<span class="number">1</span>] = <span class="string">&quot;c&quot;</span>; <span class="comment">// var arr=[&quot;a&quot;,&quot;c&quot;,&quot;d&quot;];  ←为啥不试试这个？</span></span><br><span class="line">arr[<span class="number">2</span>] = <span class="string">&quot;d&quot;</span>;</span><br><span class="line">arr.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="string">&quot;b&quot;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(arr);</span><br></pre></td></tr></table></figure>
+
 <p>返回值：a,b,c,d<br>上面实现了数组内任意位置的元素插入。</p>
 <p><font style="font-weight:bold">示例二：</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">arr[<span class="number">0</span>] = <span class="string">&quot;a&quot;</span>;</span><br><span class="line">arr[<span class="number">1</span>] = <span class="string">&quot;b&quot;</span>;            </span><br><span class="line">arr[<span class="number">2</span>] = <span class="string">&quot;b&quot;</span>;</span><br><span class="line">arr[<span class="number">3</span>] = <span class="string">&quot;d&quot;</span>;</span><br><span class="line">arr.splice(<span class="number">2</span>,<span class="number">1</span>,<span class="string">&quot;c&quot;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(arr);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">arr[<span class="number">0</span>] = <span class="string">&quot;a&quot;</span>;</span><br><span class="line">arr[<span class="number">1</span>] = <span class="string">&quot;b&quot;</span>;</span><br><span class="line">arr[<span class="number">2</span>] = <span class="string">&quot;b&quot;</span>;</span><br><span class="line">arr[<span class="number">3</span>] = <span class="string">&quot;d&quot;</span>;</span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">1</span>, <span class="string">&quot;c&quot;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(arr);</span><br></pre></td></tr></table></figure>
+
 <p>返回值：a,b,c,d<br>上面实现了数组内元素的替换。</p>
 <p><font style="font-weight:bold">示例三：</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">arr[<span class="number">0</span>] = <span class="string">&quot;a&quot;</span>;</span><br><span class="line">arr[<span class="number">1</span>] = <span class="string">&quot;a&quot;</span>;</span><br><span class="line">arr[<span class="number">2</span>] = <span class="string">&quot;e&quot;</span>;</span><br><span class="line">arr.splice(<span class="number">1</span>,<span class="number">1</span>,<span class="string">&quot;b&quot;</span>,<span class="string">&quot;c&quot;</span>,<span class="string">&quot;d&quot;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(arr);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">arr[<span class="number">0</span>] = <span class="string">&quot;a&quot;</span>;</span><br><span class="line">arr[<span class="number">1</span>] = <span class="string">&quot;a&quot;</span>;</span><br><span class="line">arr[<span class="number">2</span>] = <span class="string">&quot;e&quot;</span>;</span><br><span class="line">arr.splice(<span class="number">1</span>, <span class="number">1</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>, <span class="string">&quot;d&quot;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(arr);</span><br></pre></td></tr></table></figure>
+
 <p>返回值: a,b,c,d,e<br>不多讲，一目了然。</p>
 <h2 id="javaScript-slice-方法"><a href="#javaScript-slice-方法" class="headerlink" title="javaScript slice()方法"></a>javaScript slice()方法</h2><p>slice(start,end)方法可提取字符串的某个部分，并以新的字符串返回被提取的部分。<br>start:必填，指定提取的初始位置。<br>end：选填，指定提取的末尾位置，不填的话会一直提取到末尾。<br>人话：该方法可提取字符串任意位置到任意位置的字符并返回，没错他可以返回。</p>
 <p><font style="font-weight:bold">示例一：</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;abcde&quot;</span>;</span><br><span class="line"><span class="built_in">document</span>.write(a.slice(<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;abcde&quot;</span>;</span><br><span class="line"><span class="built_in">document</span>.write(a.slice(<span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+
 <p>返回值: bcde<br>提取到末尾</p>
 <p><font style="font-weight:bold">示例二：</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;abcde&quot;</span>;</span><br><span class="line"><span class="built_in">document</span>.write(a.slice(-<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
-<p>返回值: e<br>-1指倒数最后一个，同理-2指倒数第二个</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;abcde&quot;</span>;</span><br><span class="line"><span class="built_in">document</span>.write(a.slice(-<span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+
+<p>返回值: e<br>-1 指倒数最后一个，同理-2 指倒数第二个</p>
+<h2 id="javaScript-split-方法"><a href="#javaScript-split-方法" class="headerlink" title="javaScript split()方法"></a>javaScript split()方法</h2><p>将字符串以数组的形式返回。<br>括号里是以什么形式分割。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;a,o,e,i,u,y&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">arr = str.split(<span class="string">&quot;,&quot;</span>); <span class="comment">//以逗号形式分割</span></span><br><span class="line">arr.forEach(<span class="function">(<span class="params">x</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">document</span>.write(x + <span class="string">&quot;、&quot;</span>); <span class="comment">//题外话：continue可以跳过当前循环，for可以用。</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>返回值: a、o、e、i、u、y</p>
+<h2 id="javaScript-join-方法"><a href="#javaScript-join-方法" class="headerlink" title="javaScript join()方法"></a>javaScript join()方法</h2><p>将数组以字符串形式返回。<br>括号里是元素与元素之间的间隔符。<br>括号里啥都不加默认的话会加”,”。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;o&quot;</span>, <span class="string">&quot;e&quot;</span>, <span class="string">&quot;i&quot;</span>, <span class="string">&quot;u&quot;</span>, <span class="string">&quot;y&quot;</span>);</span><br><span class="line"><span class="built_in">document</span>.write(arr.join(<span class="string">&quot;|&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>返回值:a|o|e|i|u|y</p>
 <h2 id="javaScript-toFixed-方法"><a href="#javaScript-toFixed-方法" class="headerlink" title="javaScript toFixed()方法"></a>javaScript toFixed()方法</h2><p>人话：括号里填几保留几位小数里面是遵循四舍五入的,不填是整数。</p>
 <p><font style="font-weight:bold">示例一：</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2.49</span>;</span><br><span class="line"><span class="built_in">document</span>.write(a.toFixed(<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2.49</span>;</span><br><span class="line"><span class="built_in">document</span>.write(a.toFixed(<span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+
 <p>返回值: 2.5</p>
 <p><font style="font-weight:bold">示例二：</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2.49</span>;</span><br><span class="line"><span class="built_in">document</span>.write(a.toFixed())</span><br></pre></td></tr></table></figure>
-<p>返回值: 2<br>填-1肯定不行，但是填个1.5之类的似乎默认只看小数点前面的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2.49</span>;</span><br><span class="line"><span class="built_in">document</span>.write(a.toFixed());</span><br></pre></td></tr></table></figure>
+
+<p>返回值: 2<br>填-1 肯定不行，但是填个 1.5 之类的似乎默认只看小数点前面的。</p>
 <h2 id="javaScript-toExponential-方法"><a href="#javaScript-toExponential-方法" class="headerlink" title="javaScript toExponential()方法"></a>javaScript toExponential()方法</h2><p>按照科学记数法的方式返回字符型的值。</p>
 <p><font style="font-weight:bold">示例一：</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">10000000000</span>;   <span class="comment">//100亿</span></span><br><span class="line"><span class="built_in">document</span>.write(a.toExponential())</span><br></pre></td></tr></table></figure>
-<p>返回值:1e+10<br>解释：1*10^10，后面+N就是10^N。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10000000000</span>; <span class="comment">//100亿</span></span><br><span class="line"><span class="built_in">document</span>.write(a.toExponential());</span><br></pre></td></tr></table></figure>
+
+<p>返回值:1e+10<br>解释：1*10^10，后面+N 就是 10^N。</p>
 <p><font style="font-weight:bold">示例二：</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">10000000000</span>;   <span class="comment">//100亿</span></span><br><span class="line"><span class="built_in">document</span>.write(a.toExponential(<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10000000000</span>; <span class="comment">//100亿</span></span><br><span class="line"><span class="built_in">document</span>.write(a.toExponential(<span class="number">1</span>));</span><br></pre></td></tr></table></figure>
 
 <h2 id="javaScript-eval-函数"><a href="#javaScript-eval-函数" class="headerlink" title="javaScript eval() 函数"></a>javaScript eval() 函数</h2><p>eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码。<br>没错，就是直接执行脚本。<br>语法: eval(string)<br>string:必填。要计算的字符串，其中含有要计算的 JavaScript 表达式或要执行的语句。<br><font style="font-weight:bold">示例一：</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(<span class="string">&quot;x=10;y=20;document.write(x*y)&quot;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(<span class="string">&quot;x=10;y=20;document.write(x*y)&quot;</span>);</span><br></pre></td></tr></table></figure>
+
 <p>返回值:200<br><font style="font-weight:bold">示例二：</font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(<span class="string">&quot;function ssk()&#123;&quot;</span>+</span><br><span class="line">    <span class="string">&quot;document.write(&#x27;什么垃圾函数&#x27;)&quot;</span>+</span><br><span class="line"><span class="string">&quot;&#125;;ssk()&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>返回值:什么垃圾函数<br>看似好用其实感觉有点sb，估计用不多。</p>
-<h2 id="javaScript-prompt-函数"><a href="#javaScript-prompt-函数" class="headerlink" title="javaScript prompt() 函数"></a>javaScript prompt() 函数</h2><p>语法:prompt(text,defaultText)<br>text        可选。要在对话框中显示的提示信息（纯文本）。<br>defaultText    可选。默认的输入文本。<br>也就是vb里的inputbox，没错就那个提示框，<br>alter弹出的信息框里可以让你再输入信息。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">play</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> user=prompt(<span class="string">&quot;请输入账号！&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> password=prompt(<span class="string">&quot;请输入密码！&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span>((user!=<span class="literal">null</span>&amp;&amp;user!=<span class="string">&quot;&quot;</span>)&amp;&amp;(password!=<span class="literal">null</span>&amp;&amp;password!=<span class="string">&quot;&quot;</span>))&#123;</span><br><span class="line">        alert(<span class="string">&quot;您的账号为: &quot;</span>+user+<span class="string">&quot;\n您的密码为: &quot;</span>+password)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">onload=play()</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(<span class="string">&quot;function ssk()&#123;&quot;</span> + <span class="string">&quot;document.write(&#x27;什么垃圾函数&#x27;)&quot;</span> + <span class="string">&quot;&#125;;ssk()&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>返回值:什么垃圾函数<br>看似好用其实感觉有点 sb，估计用不多。</p>
+<h2 id="javaScript-prompt-函数"><a href="#javaScript-prompt-函数" class="headerlink" title="javaScript prompt() 函数"></a>javaScript prompt() 函数</h2><p>语法:prompt(text,defaultText)<br>text 可选。要在对话框中显示的提示信息（纯文本）。<br>defaultText 可选。默认的输入文本。<br>也就是 vb 里的 inputbox，没错就那个提示框，<br>alter 弹出的信息框里可以让你再输入信息。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">play</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> user = prompt(<span class="string">&quot;请输入账号！&quot;</span>);</span><br><span class="line">  <span class="keyword">var</span> password = prompt(<span class="string">&quot;请输入密码！&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (user != <span class="literal">null</span> &amp;&amp; user != <span class="string">&quot;&quot;</span> &amp;&amp; password != <span class="literal">null</span> &amp;&amp; password != <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">    alert(<span class="string">&quot;您的账号为: &quot;</span> + user + <span class="string">&quot;\n您的密码为: &quot;</span> + password);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">onload = play();</span><br></pre></td></tr></table></figure>
+
 <p>返回值:<br>您的账号为: ‘user’<br>您的密码为: ‘password’</p>
+<h2 id="javaScript-typeof-方法"><a href="#javaScript-typeof-方法" class="headerlink" title="javaScript typeof 方法"></a>javaScript typeof 方法</h2><p>这居然是个类型嘛？<br>语法：typeof 变量名|| typeof (表达式)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.write(typeof <span class="string">&quot;abc&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>返回值: string</p>
+<h2 id="querySelector"><a href="#querySelector" class="headerlink" title="querySelector()"></a>querySelector()</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> myButton = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;html&#x27;</span>);<span class="comment">//可以随便改其他标签</span></span><br><span class="line">    myButton.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="querySelectorAll"><a href="#querySelectorAll" class="headerlink" title="querySelectorAll()"></a>querySelectorAll()</h2><p>querySelectorAll() 方法可以拿对应标签的全部元素。</p>
+<h2 id="replace-方法"><a href="#replace-方法" class="headerlink" title="replace() 方法"></a>replace() 方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;I like you like&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.replace(<span class="regexp">/like/g</span>, <span class="string">&quot;讨厌&quot;</span>));</span><br><span class="line"><span class="built_in">console</span>.log(str);</span><br></pre></td></tr></table></figure>
+
+<p>首先，/xxx/g 这个 g 是全局替换的意思；<br>其次，使用”、’也可以运行但是不能”like”g。<br>所以为了规范还是使用/好了；<br>再其次，这个 replace 是临时改变值，不是永久改变，别被坑了。</p>
 
       
 
@@ -400,23 +428,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">content</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">attr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内存模型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">堆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">帧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -440,11 +464,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">空间复杂度</a>
+                <a href="javascript:void(0)" class="js-tag color5">内存模型</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">大O表示法</a>
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">帧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -452,11 +484,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color1">空间复杂度</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
+                <a href="javascript:void(0)" class="js-tag color1">大O表示法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -468,27 +500,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DOm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">对象节点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">content</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">attr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,11 +512,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">DOm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">对象节点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,6 +537,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">白盒测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
