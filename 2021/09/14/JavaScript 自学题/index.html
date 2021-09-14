@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: Date | 年轻人第一次做博客</title>
+  <title>Java 小知识 | 年轻人第一次做博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="年轻人第一次做博客">
-<meta property="og:url" content="http://example.com/tags/Date/index.html">
+  <meta name="description" content="挑战：内置对象使用案例 写一个函数，格式化日期对象，最终输入形式为：yyyy&#x2F;MM&#x2F;dd HH:mm:ss。比如：  2021&#x2F;09&#x2F;14 19:18:43  123456789101112131415161718192021function formatDate(d) &amp;#123;  &#x2F;&#x2F; 如果 d 不是日期对象的实例，返回空  if (!d instanceof Date) &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 小知识">
+<meta property="og:url" content="http://example.com/2021/09/14/JavaScript%20%E8%87%AA%E5%AD%A6%E9%A2%98/index.html">
 <meta property="og:site_name" content="年轻人第一次做博客">
+<meta property="og:description" content="挑战：内置对象使用案例 写一个函数，格式化日期对象，最终输入形式为：yyyy&#x2F;MM&#x2F;dd HH:mm:ss。比如：  2021&#x2F;09&#x2F;14 19:18:43  123456789101112131415161718192021function formatDate(d) &amp;#123;  &#x2F;&#x2F; 如果 d 不是日期对象的实例，返回空  if (!d instanceof Date) &amp;#123;">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-14T11:19:03.000Z">
+<meta property="article:modified_time" content="2021-09-14T14:05:46.639Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="更新">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="题目">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="年轻人第一次做博客" type="application/atom+xml">
@@ -146,68 +153,119 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JavaScript 自学题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/19/JavaScript%20Date%E5%AF%B9%E8%B1%A1/" class="archive-article-date">
-  	<time datetime="2021-08-19T09:53:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/19/JavaScript%20Date%E5%AF%B9%E8%B1%A1/">JavaScript Date对象</a>
+    <h1 class="article-title" itemprop="name">
+      Java 小知识
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/09/14/JavaScript%20%E8%87%AA%E5%AD%A6%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2021-09-14T11:19:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <br>
+
+<h2 id="挑战：内置对象使用案例"><a href="#挑战：内置对象使用案例" class="headerlink" title="挑战：内置对象使用案例"></a>挑战：内置对象使用案例</h2><font style="weight:bold">
+写一个函数，格式化日期对象，最终输入形式为：yyyy/MM/dd HH:mm:ss。比如：
+</font>
+2021/09/14 19:18:43
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatDate</span>(<span class="params">d</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果 d 不是日期对象的实例，返回空</span></span><br><span class="line">  <span class="keyword">if</span> (!d <span class="keyword">instanceof</span> <span class="built_in">Date</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> year = d.getFullYear(),</span><br><span class="line">    month = d.getMonth() + <span class="number">1</span>,</span><br><span class="line">    date = d.getDate(),</span><br><span class="line">    hour = d.getHours(),</span><br><span class="line">    minute = d.getMinutes(),</span><br><span class="line">    second = d.getSeconds();</span><br><span class="line">  month = month &lt; <span class="number">10</span> ? <span class="string">&quot;0&quot;</span> + month : month;</span><br><span class="line">  date = date &lt; <span class="number">10</span> ? <span class="string">&quot;0&quot;</span> + date : date;</span><br><span class="line">  hour = hour &lt; <span class="number">10</span> ? <span class="string">&quot;0&quot;</span> + hour : hour;</span><br><span class="line">  minute = minute &lt; <span class="number">10</span> ? <span class="string">&quot;0&quot;</span> + minute : minute;</span><br><span class="line">  second = second &lt; <span class="number">10</span> ? <span class="string">&quot;0&quot;</span> + second : second;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    year + <span class="string">&quot;/&quot;</span> + month + <span class="string">&quot;/&quot;</span> + date + <span class="string">&quot; &quot;</span> + hour + <span class="string">&quot;:&quot;</span> + minute + <span class="string">&quot;:&quot;</span> + second</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(formatDate(<span class="keyword">new</span> <span class="built_in">Date</span>()));</span><br></pre></td></tr></table></figure>
+
+<p>没啥好讲的下一题<br><font style="weight:bold"><br>写一个函数去掉数组中的重复元素。比如有一个数组 array = [“x”, “c”, “a”, “b”, “c”, “b”, “c”]。<br></font></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>, <span class="string">&quot;d&quot;</span>, <span class="string">&quot;b&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> item = arr[i]; <span class="comment">//a b c d b</span></span><br><span class="line">    <span class="keyword">if</span> (o[item]) &#123;</span><br><span class="line">      o[item]++; <span class="comment">//让它去死就对了</span></span><br><span class="line">    &#125; <span class="keyword">else</span> o[item] = <span class="number">1</span>; <span class="comment">//初始化，创建对应的属性与其值</span></span><br><span class="line">  &#125; <span class="comment">//这样for下来能让o对象里的arr数组属性的值弄完，</span></span><br><span class="line">  <span class="comment">//o对象的属性的数量是挑剔完重复数组的长度</span></span><br><span class="line">  <span class="keyword">var</span> tmpArray = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> o) &#123;</span><br><span class="line">    <span class="comment">//遍历循环，o里所有属性的值一次次遍历给key</span></span><br><span class="line">    <span class="keyword">if</span> (o[key] == <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="comment">//就正常没重复的</span></span><br><span class="line">      tmpArray.push(key); <span class="comment">//打进新数组里</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (tmpArray.indexOf(key) == -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="comment">//被标记的属性如果新数组里没有</span></span><br><span class="line">        tmpArray.push(key); <span class="comment">//那也打进来</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> tmpArray; <span class="comment">//就完事了</span></span><br><span class="line">&#125;</span><br><span class="line">alert(run());</span><br></pre></td></tr></table></figure>
+
+<font style="weight:bold">
+写一个函数判断一个字符串中出现次数最多的字符，并统计这个字符出现的次数。比如有这样一个字符串："daskljahiagnaknscsjdwfanalvnahdpwod"。
+</font>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">strX</span>(<span class="params">txt</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; txt.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> s = txt.charAt(i);</span><br><span class="line">    <span class="keyword">if</span> (o[s]) &#123;</span><br><span class="line">      o[s]++;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      o[s] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> sum = <span class="number">0</span>,</span><br><span class="line"><span class="comment">//拿对象当容器是真的牛逼</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> x <span class="keyword">in</span> o) &#123;   <span class="comment">//循环对象o的属性，也就是&quot;d&quot;啊&quot;s&quot;啊什么的赋给x</span></span><br><span class="line">    <span class="keyword">if</span> (o[x] &gt; sum) &#123;</span><br><span class="line">      sum = o[x];</span><br><span class="line">      <span class="keyword">var</span> strr;</span><br><span class="line">      strr = x;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">document</span>.write(strr + <span class="string">&quot;最多出现了&quot;</span> + sum + <span class="string">&quot;次&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">strX(str);</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Date</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日期对象</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题目</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/09/11/JavaScript%20%E5%B0%8F%E7%9F%A5%E8%AF%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java 小知识</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -230,9 +288,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
