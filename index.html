@@ -148,6 +148,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Ajax" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/16/Ajax/">AJax技术</a>
+    </h1>
+  
+
+        
+        <a href="/2021/09/16/Ajax/" class="archive-article-date">
+  	<time datetime="2021-09-16T09:46:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <br>
+
+<h2 id="什么是-Ajax-技术"><a href="#什么是-Ajax-技术" class="headerlink" title="什么是 Ajax 技术"></a>什么是 Ajax 技术</h2><p>Ajax 是 JavaScript、XML、CSS、DOM 等多种已有技术的组合，可以实现客户端的异步请求操作，这样可以实在在不需要刷新页面的情况下与服务器进行同行，从而减少了用户的等待时间。<br>Ajax 是由 JesseJamesGarrett 创造的，是 Asynchronous JavaScript And XMl 的缩写，即异步 JavaScript 和 XML 技术。<br>可以说，Ajax 是“增强的 JavaScript”，是一种可以调用后台服务器获得数据的客户端 JavaScript 技术，支持更新部分页面的内容而不重载整个页面。<br><font style="weight:bold">应用案例：</font></p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Ajax</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/09/16/Ajax/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JavaScript 自学题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -174,18 +258,7 @@
 写一个函数，格式化日期对象，最终输入形式为：yyyy/MM/dd HH:mm:ss。比如：
 </font>
 2021/09/14 19:18:43
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatDate</span>(<span class="params">d</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果 d 不是日期对象的实例，返回空</span></span><br><span class="line">  <span class="keyword">if</span> (!d <span class="keyword">instanceof</span> <span class="built_in">Date</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> year = d.getFullYear(),</span><br><span class="line">    month = d.getMonth() + <span class="number">1</span>,</span><br><span class="line">    date = d.getDate(),</span><br><span class="line">    hour = d.getHours(),</span><br><span class="line">    minute = d.getMinutes(),</span><br><span class="line">    second = d.getSeconds();</span><br><span class="line">  month = month &lt; <span class="number">10</span> ? <span class="string">&quot;0&quot;</span> + month : month;</span><br><span class="line">  date = date &lt; <span class="number">10</span> ? <span class="string">&quot;0&quot;</span> + date : date;</span><br><span class="line">  hour = hour &lt; <span class="number">10</span> ? <span class="string">&quot;0&quot;</span> + hour : hour;</span><br><span class="line">  minute = minute &lt; <span class="number">10</span> ? <span class="string">&quot;0&quot;</span> + minute : minute;</span><br><span class="line">  second = second &lt; <span class="number">10</span> ? <span class="string">&quot;0&quot;</span> + second : second;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    year + <span class="string">&quot;/&quot;</span> + month + <span class="string">&quot;/&quot;</span> + date + <span class="string">&quot; &quot;</span> + hour + <span class="string">&quot;:&quot;</span> + minute + <span class="string">&quot;:&quot;</span> + second</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(formatDate(<span class="keyword">new</span> <span class="built_in">Date</span>()));</span><br></pre></td></tr></table></figure>
-
-<p>没啥好讲的下一题<br><font style="weight:bold"><br>写一个函数去掉数组中的重复元素。比如有一个数组 array = [“x”, “c”, “a”, “b”, “c”, “b”, “c”]。<br></font></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>, <span class="string">&quot;d&quot;</span>, <span class="string">&quot;b&quot;</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> item = arr[i]; <span class="comment">//a b c d b</span></span><br><span class="line">    <span class="keyword">if</span> (o[item]) &#123;</span><br><span class="line">      o[item]++; <span class="comment">//让它去死就对了</span></span><br><span class="line">    &#125; <span class="keyword">else</span> o[item] = <span class="number">1</span>; <span class="comment">//初始化，创建对应的属性与其值</span></span><br><span class="line">  &#125; <span class="comment">//这样for下来能让o对象里的arr数组属性的值弄完，</span></span><br><span class="line">  <span class="comment">//o对象的属性的数量是挑剔完重复数组的长度</span></span><br><span class="line">  <span class="keyword">var</span> tmpArray = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> o) &#123;</span><br><span class="line">    <span class="comment">//遍历循环，o里所有属性的值一次次遍历给key</span></span><br><span class="line">    <span class="keyword">if</span> (o[key] == <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="comment">//就正常没重复的</span></span><br><span class="line">      tmpArray.push(key); <span class="comment">//打进新数组里</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (tmpArray.indexOf(key) == -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="comment">//被标记的属性如果新数组里没有</span></span><br><span class="line">        tmpArray.push(key); <span class="comment">//那也打进来</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> tmpArray; <span class="comment">//就完事了</span></span><br><span class="line">&#125;</span><br><span class="line">alert(run());</span><br></pre></td></tr></table></figure>
-
-<font style="weight:bold">
-写一个函数判断一个字符串中出现次数最多的字符，并统计这个字符出现的次数。比如有这样一个字符串："daskljahiagnaknscsjdwfanalvnahdpwod"。
-</font>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">strX</span>(<span class="params">txt</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; txt.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> s = txt.charAt(i);</span><br><span class="line">    <span class="keyword">if</span> (o[s]) &#123;</span><br><span class="line">      o[s]++;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      o[s] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> sum = <span class="number">0</span>,</span><br><span class="line"><span class="comment">//拿对象当容器是真的牛逼</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> x <span class="keyword">in</span> o) &#123;   <span class="comment">//循环对象o的属性，也就是&quot;d&quot;啊&quot;s&quot;啊什么的赋给x</span></span><br><span class="line">    <span class="keyword">if</span> (o[x] &gt; sum) &#123;</span><br><span class="line">      sum = o[x];</span><br><span class="line">      <span class="keyword">var</span> strr;</span><br><span class="line">      strr = x;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">document</span>.write(strr + <span class="string">&quot;最多出现了&quot;</span> + sum + <span class="string">&quot;次&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">strX(str);</span><br></pre></td></tr></table></figure>
-
+        
       
 
       
@@ -198,11 +271,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -285,11 +358,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -540,15 +613,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">回顾</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
         		</li>
       		
 		</ul>
@@ -624,15 +697,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">回顾</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
         		</li>
       		
 		</ul>
@@ -931,94 +1004,9 @@
 
 
   
-    <article id="post-Java 小知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/30/Java%20%E5%B0%8F%E7%9F%A5%E8%AF%86/">Java 小知识</a>
-    </h1>
-  
-
-        
-        <a href="/2021/08/30/Java%20%E5%B0%8F%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2021-08-30T12:39:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <br>
-
-<h2 id="基础的不能再基础的东西"><a href="#基础的不能再基础的东西" class="headerlink" title="基础的不能再基础的东西"></a>基础的不能再基础的东西</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br></pre></td></tr></table></figure>
-<p>public:访问修饰符，它也是最宽松的，所有类可见。不写是default，同一包内可见，按严格类型划分它们中间还有个protected，最严格的是privat。<br>static：关键字。(全局或静态的意思,动态是final，值不给变，修饰的方法不可被重写或者继承)//Java语言没有全局变量的概念<br>其他影响：static和final都是附加的功能没有默认一说，静态只能调静态，动态调动态。<br>//final还不能被继承。<br>void：返回类型。//不是void的话你可以是int型啥的 但是要return同类型的<br>main：方法名。//可改<br>string[]：string类数组。//可改,甚至不是数组，但是这样连运行入口都没了。。<br>args:字符串型数组。//可改</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/30/Java%20%E5%B0%8F%E7%9F%A5%E8%AF%86/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1113,6 +1101,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">更新</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
@@ -1125,7 +1141,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color1">空间复杂度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">大O表示法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1133,7 +1153,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">更新</a>
+                <a href="javascript:void(0)" class="js-tag color3">方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1153,39 +1173,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">哈希</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">函数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">空间复杂度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">大O表示法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1197,7 +1185,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1209,11 +1197,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">题目</a>
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+                <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">安卓开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1222,6 +1214,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">题目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1234,10 +1230,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">白盒测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">安卓开发</a>
               </li>
             
             <div class="clearfix"></div>
