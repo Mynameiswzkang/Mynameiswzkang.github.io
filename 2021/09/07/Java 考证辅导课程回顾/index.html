@@ -16,7 +16,7 @@
 <meta property="og:description" content="Java 异常处理机制1.1 异常的概念 1.程序出错或崩溃等意外情形为异常（Exception）。 2.三类程序错误：编译错误：特别是初学阶段&#x2F;&#x2F;盲猜红色波浪线运行时错误：运行环境 JVM 出错；内存不足等。逻辑错误：除数为 0；数组下标越界；打开不存在的文件；使用空指针等。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-09-07T10:12:11.000Z">
-<meta property="article:modified_time" content="2021-09-28T11:57:36.768Z">
+<meta property="article:modified_time" content="2021-09-29T06:40:07.860Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="更新">
 <meta property="article:tag" content="Java">
@@ -234,10 +234,17 @@
 <p>首先，返回值是整型。<br>其次，优先是比 ASCLL 值，怎么比？<br>所选字符串的首字符与被比字符串的首字符比，如果一致就比第二个，比下去。<br>不一致的返回相差的 ASCLL 码值，遇到长度不一样但是前面值都一样的情况就返回长度差距值。</p>
 <p>回到正题。<br>来个需求，学生对象有两个数学，对应学号与姓名。希望将这些学生对象加入 TreeSet 集合后，按照学号大小从小到大进行排序，如果学号相同再按照姓名自然排序。</p>
 <p>来看看实例怎么做到的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> java.util.TreeSet;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Comparable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> stuNum = -<span class="number">1</span>;</span><br><span class="line">    String stuName = <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">    Student(String name,<span class="keyword">int</span> num)&#123;</span><br><span class="line">        <span class="keyword">this</span>.stuNum = num;</span><br><span class="line">        <span class="keyword">this</span>.stuName = name;</span><br><span class="line">    &#125;  <span class="comment">//初始化与赋值先不说</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;学号为：&quot;</span> + stuNum + <span class="string">&quot;的学生，姓名为：&quot;</span> + stuName;</span><br><span class="line">    &#125;  <span class="comment">//不管是print打印会调用，不知道为啥下面的Object o也会自动调用</span></span><br><span class="line">       <span class="comment">//再其次是封装到TreeSet里的对象名称也会调用toString,没写toString会调用超类里的toString ?</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object o)</span></span>&#123;</span><br><span class="line">        Student input = (Student) o;  <span class="comment">//先搞清楚,o似乎是上次代码运行过的对象，如果是第一次运行那么就调用最初自己。</span></span><br><span class="line">        <span class="keyword">int</span> res = stuNum &gt; input.stuNum?<span class="number">1</span>:(stuNum==input.stuNum)?<span class="number">0</span>:-<span class="number">1</span>;</span><br><span class="line">               <span class="comment">//这个stuNum值是来自new给过来的参数 也就是上面初始化拿来的</span></span><br><span class="line">        <span class="keyword">if</span>(res==<span class="number">0</span>)&#123;</span><br><span class="line">            res = stuName.compareTo(input.stuName);<span class="comment">//不是递归调用是另一种用法</span></span><br><span class="line">        &#125;                         <span class="comment">//↑这个input可不能写(Object o).stuName</span></span><br><span class="line">        <span class="keyword">return</span> res;<span class="comment">//这个返回整数是真的离谱 0是等于 正数是大于 负数是小于</span></span><br><span class="line">    &#125;   <span class="comment">//如果是&quot;南天华,3&quot;取进来对比&quot;王云，1&quot;就是大于，那么TreeSet疑似会调整下标，就[0][1][2]这种</span></span><br><span class="line">&#125;<span class="comment">//我最下面的&quot;张平，1&quot;就是个例子，原本是&quot;张平，3&quot;，先说1，和上次对象&quot;刘静涛，2&quot;比，小于和更小的王云比</span></span><br><span class="line"><span class="comment">//如果是学号相同的情况下，就用另一种compareTo方法比，从首到尾，看ASCLL值，反正返回的是正负数来决定先后顺序</span></span><br><span class="line"><span class="comment">//如果是长度不同但是前面字符相同的情况，也会根据字符串长短返回多出或者少于的位数的值，反正也是正负整数。</span></span><br><span class="line"><span class="comment">//↑的另一种解释</span></span><br><span class="line"><span class="comment">//根据二叉树的排序进行比较，先取个值放第一个，再大的放右边小的放左边，相同情况再定义，看来是的TreeSet嘛，树，有序性</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestTreeSet2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//用有序的TreeSet存储学生对象</span></span><br><span class="line">        Set stuTS = <span class="keyword">new</span> TreeSet();</span><br><span class="line">        stuTS.add(<span class="keyword">new</span> Student(<span class="string">&quot;王云&quot;</span>, <span class="number">1</span>));  <span class="comment">//new出来的是调用初始化，然后返回帧跑add方法，又是一帧</span></span><br><span class="line">        stuTS.add(<span class="keyword">new</span> Student(<span class="string">&quot;南天华&quot;</span>, <span class="number">3</span>));<span class="comment">//然后莫名调用compareTo方法,先拿上次的对象比，再根据res值调整</span></span><br><span class="line">        stuTS.add(<span class="keyword">new</span> Student(<span class="string">&quot;刘静涛&quot;</span>, <span class="number">2</span>));<span class="comment">//有趣的是compareTo(Object o)与TreeSet内的对象的名字都是经过toString印刷出来的</span></span><br><span class="line">        stuTS.add(<span class="keyword">new</span> Student(<span class="string">&quot;张平&quot;</span>, <span class="number">1</span>));<span class="comment">//只能说nb</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(Object stu:stuTS)</span><br><span class="line">            System.out.println(stu);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Comparable-接口"><a href="#Comparable-接口" class="headerlink" title="Comparable 接口"></a>Comparable 接口</h3><p>如果程序员想定义自己的排序方式，一种简单的方法就是让加入 TreeSet 集合中的对象所属的类实现 Comparable 接口，通过实现 compareTo(Object o)方法，达到排序的目的。</p>
-<p>Comparable 接口实现了在 TreeSet 集合中的自定义排序。这种方法是通过集合元素重写 compareTo(Object o)方法定义排序规则的。因为是在类内部实现比较，所以也通常将 Comparable 称为内部比较器。</p>
+<p>来看外援优化版</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Student</span>&gt; </span>&#123;...&#125;<span class="comment">//先是泛型的使用，表明compareble接口是Student类型的</span></span><br><span class="line"><span class="comment">//然后来看实现接口后的重写方法，有些情况下@Override不写也行</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Student o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="keyword">this</span>.stuNum - o.stuNum;  <span class="comment">//直接对俩值加减比较搞</span></span><br><span class="line">        <span class="keyword">if</span> (res == <span class="number">0</span>) &#123;</span><br><span class="line">            res = <span class="keyword">this</span>.stuName.compareTo(o.stuName);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Comparable-接口与-conpareTo-内部比较器"><a href="#Comparable-接口与-conpareTo-内部比较器" class="headerlink" title="Comparable 接口与 conpareTo() 内部比较器"></a>Comparable 接口与 conpareTo() 内部比较器</h3><p>如果程序员想定义自己的排序方式，一种简单的方法就是让加入 TreeSet 集合中的对象所属的类实现 Comparable 接口，通过实现 compareTo(Object o)方法，达到排序的目的。</p>
+<p>Comparable 接口实现了在 TreeSet 集合中的自定义排序。这种方法是通过集合元素重写 compareTo(Object o)[笑死了确定不是 T?]方法定义排序规则的。因为是在类内部实现比较，所以也通常将 Comparable 称为内部比较器。</p>
+<h3 id="Conparetor-接口与-compare-外部比较器"><a href="#Conparetor-接口与-compare-外部比较器" class="headerlink" title="Conparetor 接口与 compare() 外部比较器"></a>Conparetor 接口与 compare() 外部比较器</h3><p>Comparator 可以理解为一个专用的比较器，当集合中的对象不支持自比较或者自比较的功能不能满足程序员的需求时，就可以写一个实现 Comparator 接口的比较器来完成两个对象之间的比较，从而实现按比较器规则进行排序的功能。例如要比较的对象是 JDK 中内置的某个类，而这个类又没有实现 Comparable 接口，因此我们是无法直接修改 JDK 内置类的源码的，因此就不能通过重写 compareTo(Object o)方法来定义排序规则了，而应该使用 Comparator 接口实现比较器功能。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="comment">//定义一个姓名比较器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NameComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span> </span>&#123;</span><br><span class="line"><span class="comment">//实现Comparator接口的compare()方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Object op1, Object op2)</span> </span>&#123;</span><br><span class="line">        Student eOp1 = (Student)op1;</span><br><span class="line">        Student eOp2 = (Student)op2;<span class="comment">//可以改Studentd的，改泛型</span></span><br><span class="line">        <span class="comment">//通过调用String类的compareTo()方法进行比较</span></span><br><span class="line">        <span class="keyword">return</span> eOp1.stuName.compareTo(eOp2.stuName);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义一个学号比较器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NumComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span> </span>&#123;</span><br><span class="line">    <span class="comment">//实现Comparator接口的compare()方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Object op1, Object op2)</span> </span>&#123;</span><br><span class="line">        Student eOp1 = (Student)op1;</span><br><span class="line">        Student eOp2 = (Student)op2;</span><br><span class="line">        <span class="keyword">return</span> eOp1.stuNum - eOp2.stuNum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestComparator</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//用LinkedList存储学生对象</span></span><br><span class="line">        LinkedList stuLL = <span class="keyword">new</span> LinkedList();</span><br><span class="line">        stuLL.add(<span class="keyword">new</span> Student(<span class="string">&quot;王云&quot;</span>,<span class="number">1</span>));</span><br><span class="line">        stuLL.add(<span class="keyword">new</span> Student(<span class="string">&quot;南天华&quot;</span>,<span class="number">3</span>));</span><br><span class="line">        stuLL.add(<span class="keyword">new</span> Student(<span class="string">&quot;刘静涛&quot;</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="comment">//使用sort方法，按姓名比较器进行排序</span></span><br><span class="line">        Collections.sort(stuLL,<span class="keyword">new</span> NameComparator());</span><br><span class="line">        System.out.println(<span class="string">&quot;***按学生姓名顺序输出学生信息***&quot;</span>);</span><br><span class="line">        Iterator it = stuLL.iterator();</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">            System.out.println(it.next());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//使用sort方法，按学号比较器进行排序</span></span><br><span class="line">        Collections.sort(stuLL,<span class="keyword">new</span> NumComparator());</span><br><span class="line">        System.out.println(<span class="string">&quot;***按学生学号顺序输出学生信息***&quot;</span>);</span><br><span class="line">        it = stuLL.iterator();</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">            System.out.println(it.next());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义学生对象，未实现Comparable接口</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> stuNum = -<span class="number">1</span>;</span><br><span class="line">    String stuName = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    Student(String name, <span class="keyword">int</span> num) &#123;</span><br><span class="line">        <span class="keyword">this</span>.stuNum = num;</span><br><span class="line">        <span class="keyword">this</span>.stuName = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;学号为：&quot;</span> + stuNum + <span class="string">&quot;的学生，姓名为：&quot;</span> + stuName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="COllection-工具类"><a href="#COllection-工具类" class="headerlink" title="COllection 工具类"></a>COllection 工具类</h2><p>静态类，可以直接 Collection.sort();这样调用。<br>这里的 sort(List list,Comparetor c);<br>如果就填个 list，list 内存放 obj 对象，就是根据 obj 所属类重写内部比较器 Comparable 中的 compareTo()方法定义的。<br>至于后面的 Comparetor c 可以自定义规则放上去。<br>shuffle(List list)方法可以随机排序。<br>reverse(List list)可以翻反转 list 集合中数据元素的顺序。</p>
 <h2 id="提一句话：关于-toString-与-compareTo-compare-自动调用问题。"><a href="#提一句话：关于-toString-与-compareTo-compare-自动调用问题。" class="headerlink" title="提一句话：关于 toString 与 compareTo/compare 自动调用问题。"></a>提一句话：关于 toString 与 compareTo/compare 自动调用问题。</h2><p>toString 会在打印的时候自调用(print)<br>compareTo 之类的，疑似在创建/构造对象的时候回自调用。</p>
 
       
@@ -416,18 +423,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">content</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">attr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -440,11 +435,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">回顾</a>
+                <a href="javascript:void(0)" class="js-tag color3">content</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">attr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,15 +463,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">回顾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">空间复杂度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">大O表示法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,19 +491,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">空间复杂度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">大O表示法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Date</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,6 +515,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Date</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
@@ -532,15 +539,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">安卓开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">入门</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">安卓开发</a>
               </li>
              
               <li class="article-tag-list-item">
