@@ -16,7 +16,7 @@
 <meta property="og:description" content="第一天0206新学了个filter函数 介绍：  这是一个数据查找的js函数，和findIndex类似，在数组中返回满足指定条件的数据">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-02-06T14:11:36.000Z">
-<meta property="article:modified_time" content="2022-02-07T09:09:20.936Z">
+<meta property="article:modified_time" content="2022-02-08T17:25:57.475Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="vue">
 <meta property="article:tag" content="js">
@@ -237,6 +237,83 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 80:80 -v /data:/data -d nginx:latest</span><br><span class="line">//使用镜像nginx:latest以后台模式启动一个容器，将容器的80端口映射到宿主机的80端口，主机的目录 /data 映射到容器的 /data。</span><br><span class="line">这个/-v好像是挂载</span><br></pre></td></tr></table></figure>
 
+<h1 id="第三天0208"><a href="#第三天0208" class="headerlink" title="第三天0208"></a>第三天0208</h1><h3 id="spring基础"><a href="#spring基础" class="headerlink" title="spring基础"></a>spring基础</h3><h4 id="resources下的beans-xml文件就可以看做是spring的容器"><a href="#resources下的beans-xml文件就可以看做是spring的容器" class="headerlink" title="resources下的beans.xml文件就可以看做是spring的容器"></a><strong>resources下的beans.xml文件就可以看做是spring的容器</strong></h4><p>被spring托管后会出现小叶子的绿色标志</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">       xmlns:p=&quot;http://www.springframework.org/schema/p&quot;</span><br><span class="line">       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</span><br><span class="line">       xmlns:http=&quot;http://www.springframework.org/schema/c&quot;</span><br><span class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</span><br><span class="line">       https://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">       http://www.springframework.org/schema/context</span><br><span class="line">       https://www.springframework.org/schema/context/spring-context.xsd</span><br><span class="line">       http://www.springframework.org/schema/tool</span><br><span class="line">       http://www.springframework.org/schema/tool/spring-tool.xsd&quot;&gt;</span><br><span class="line">//上面这些就是配置文件，要用到什么就配置什么，像现在要用的其实就一点点，根本不用写这么多</span><br><span class="line">&lt;context:annotation-config/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;bean id=&quot;user&quot; class=&quot;com.wzkang.pojo.demo.User&quot;&gt;</span><br><span class="line">    //这个id就是被托管进来的文件在spring容器中的id，class是指向这个文件的地址属性</span><br><span class="line">    </span><br><span class="line">        &lt;property name=&quot;name&quot; value=&quot;赫尔特雷斯&quot;&gt;&lt;/property&gt;</span><br><span class="line">        </span><br><span class="line">        //这个property中的name是你要绑定的类里面的属性，可以的话开头第一个字母写小写</span><br><span class="line">        //虽然这里大写也可以用，但是有一种更简便的写法p:</span><br><span class="line">        //&lt;bean id=&quot;user&quot; class=&quot;com.wzkang.pojo.demo.User&quot; p:name=&quot;赫尔特雷斯&quot;&gt;&lt;/bean&gt;</span><br><span class="line">        //实测运行结果一模一样，原理分析p:这里应该就是默认用了&lt;property&gt;标签</span><br><span class="line">        //name就是绑定setName，set t字母后面的单词，而且会自动拆解头一个字母的大写</span><br><span class="line">        //所以一定在定义set方法的时候一定要保证是大写，小写可不行</span><br><span class="line">        //最后的=&quot;赫尔特雷斯&quot;很明显就是注入属性嘛</span><br><span class="line">        </span><br><span class="line">        value值就给绑定的属性上值，也就是set方法注入</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    //上面的bean标签用的是set注入，接下来看看构造器注入吧</span><br><span class="line">    </span><br><span class="line">    &lt;bean id=&quot;user&quot; class=&quot;com.wzkang.pojo.demo.User&quot; &gt;</span><br><span class="line">        &lt;constructor-arg value=&quot;赫尔特雷斯&quot;/&gt;  //最后加个/直接去掉&lt;/constructor-arg&gt;懂的都懂</span><br><span class="line">        //原理：利用这个类里头的有参构造方法，注入属性，也不用绑定属性了，有参构造都写好了</span><br><span class="line">        //所以最后直接value赋值就行</span><br><span class="line">        //简写方法：？？没找到不知道，c:好像不行</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/beans&gt;</span><br><span class="line">//beans就是spring的容器，是用来约束别的文件的框架</span><br></pre></td></tr></table></figure>
+
+<p>其实property除了name属性，还有个ref属性，甚至可以这样p:ref=”xxx”</p>
+<p>这个ref就是指向已经被导入引用的bean标签的id</p>
+<hr>
+<p><strong>pojo类的代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package com.wzkang.pojo.demo;</span><br><span class="line"></span><br><span class="line">public class User &#123;</span><br><span class="line">    public String name;</span><br><span class="line">    </span><br><span class="line">    public String getName() &#123;return name;&#125;</span><br><span class="line">    public void setName(String name) &#123;this.name = name;&#125;</span><br><span class="line"></span><br><span class="line">    public User() &#123;</span><br><span class="line">    System.out.println(&quot;这是来自User的无参构造方法！&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void show()&#123;</span><br><span class="line">        System.out.println(&quot;name=&quot;+name);</span><br><span class="line">    &#125;</span><br><span class="line">    --------------------------------</span><br><span class="line">    public User(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    //如果是用构造注入的方法的话需要写有参构造，不需要setget与无参</span><br><span class="line">&#125;</span><br><span class="line">//很普通的类</span><br></pre></td></tr></table></figure>
+
+<p><strong>测试类的代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class MyTest &#123;</span><br><span class="line">    ApplicationContext context = new ClassPathXmlApplicationContext(&quot;beans.xml&quot;);</span><br><span class="line">    </span><br><span class="line">    //因为spring核心代码是一层层架构的，这个AplicationContext还是挺底层的所以用起来会很方便</span><br><span class="line">    //这里只要知道是这样用的就行，用CPXAC类的有参构造填入beans文件，返回AC类的context来用</span><br><span class="line">    //上面这个代码直接写在这挺通用的应该</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void test001()&#123;</span><br><span class="line">        User user = (User) context.getBean(&quot;user&quot;);</span><br><span class="line">        </span><br><span class="line">        //看，直接拿context的getBean方法，获取在spring容器中id叫做user的容器</span><br><span class="line">        //又因为这个方法返回的是Object类所以需要强转</span><br><span class="line">        //如果不想要强制转换的话，可以这样写</span><br><span class="line">        //User user = context.getBean(&quot;user&quot;,User.class);</span><br><span class="line">        </span><br><span class="line">        user.show();</span><br><span class="line">        //是不是很简单，直接拿来用</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">运行结果：</span><br><span class="line">这是来自User的无参构造方法！</span><br><span class="line">name=赫尔特雷斯</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="关于autowire-自动装配功能"><a href="#关于autowire-自动装配功能" class="headerlink" title="关于autowire 自动装配功能"></a><strong>关于autowire</strong> 自动装配功能</h4><p>没错，是小写的作用在bean标签上的autowire不是注解那个大写@Autowired</p>
+<p>这个属性有2个值</p>
+<p><strong>autowire=”byType”</strong></p>
+<p><strong>autowire=”byName”</strong></p>
+<p>autowire主体使用起来就有点像ref那样，自动找到并装配，然后完成工作</p>
+<p>先讲<strong>byType</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean class=&quot;com.wzkang.pojo.Dog&quot; p:name=&quot;ErHa&quot; /&gt;</span><br><span class="line">&lt;bean id=&quot;hello&quot; class=&quot;com.wzkang.pojo.Hello&quot; autowire=&quot;byType&quot; /&gt;</span><br><span class="line">//通过上面的学习这两段代码应该看得懂吧，用set注入名字叫ErHa</span><br><span class="line">//引入一个Dog类进入spring托管，哪怕没有id，这就是byType的魅力</span><br><span class="line">//然后有个hello的容器，让我们看看内部代码</span><br></pre></td></tr></table></figure>
+
+<p><strong>Hello.java</strong>的内部代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">package com.wzkang.pojo;</span><br><span class="line"></span><br><span class="line">public class Hello &#123;</span><br><span class="line"></span><br><span class="line">    private Dog doge;</span><br><span class="line"></span><br><span class="line">    public Dog getDog() &#123;return doge;&#125;</span><br><span class="line"></span><br><span class="line">    public void setDog(Dog doge) &#123;this.doge = doge;&#125;</span><br><span class="line"></span><br><span class="line">    public void Hi()&#123;</span><br><span class="line">        System.out.println(this.doge.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//没啥好看的，但是内部的Hi方法要调用隶属于Dog类的值，这下就导致spring开搞了，去弄Dog类去</span><br></pre></td></tr></table></figure>
+
+<p><strong>Dog.java的内部代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package com.wzkang.pojo;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"></span><br><span class="line">public class Dog &#123;</span><br><span class="line">    public String name;</span><br><span class="line"></span><br><span class="line">    public String getName() &#123;return name;&#125;</span><br><span class="line"></span><br><span class="line">    public void setName(String name) &#123;this.name = name;&#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;Dog&#123;&quot; +</span><br><span class="line">                &quot;name=&#x27;&quot; + name + &#x27;\&#x27;&#x27; +</span><br><span class="line">                &#x27;&#125;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//更没啥好看的</span><br><span class="line">总之就是byType的作用，可以让spring直接找Dog类，也就是那个class=&quot;xxxx.Dog&quot;，然后在注入一下拿到外面用</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import com.wzkang.pojo.Hello;</span><br><span class="line">import org.junit.Test;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line">public class MyTest &#123;</span><br><span class="line">    ApplicationContext context = new ClassPathXmlApplicationContext(&quot;beans.xml&quot;);</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void test3()&#123;</span><br><span class="line">        Hello hello = context.getBean(&quot;hello&quot;,Hello.class);</span><br><span class="line">        hello.Hi();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">运行结果：</span><br><span class="line">这是来自User的无参构造方法！  //这个哪儿来？spring全局注册容器肯定有走到它身上，大概是这个原理</span><br><span class="line">Dog&#123;name=&#x27;ErHa&#x27;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后关于<strong>byName</strong>一看就知道是和名字有关的，没错同样需要class引用Dog类，然后写个name是dog就行，千万不能是Dog、doG、dOg、doge这样，因为spring自动把set后面的大写字母给转换成小写了，讲了很多遍了。</p>
+<hr>
+<h4 id="关于-Autowired注解"><a href="#关于-Autowired注解" class="headerlink" title="关于@Autowired注解"></a>关于@Autowired注解</h4><p>其实和bean标签上的autowired差不多啦</p>
+<p>只是写在代码类上而已，应该吧</p>
+<p>拿之前的代码来做演示</p>
+<p><strong>Hello.java</strong>的内部代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package com.wzkang.pojo;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"></span><br><span class="line">public class Hello &#123;</span><br><span class="line">    @Autowired(required = false)</span><br><span class="line">    //只要这里这样写了，那么bean里就可以不用写autowire属性了</span><br><span class="line">    //关于byName与byType的优先度问题</span><br><span class="line">    //byType&gt;byName，两者都会用而已，先后有优先罢了</span><br><span class="line">    //required = false是什么？</span><br><span class="line">    //默认这个值是true，但是开了false之后就说明这个属性可以为null了，否则不能为空</span><br><span class="line">    </span><br><span class="line">    private Dog doge;</span><br><span class="line"></span><br><span class="line">    public Dog getDog() &#123;</span><br><span class="line">        return doge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setDog(Dog doge) &#123;</span><br><span class="line">        this.doge = doge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void Hi()&#123;</span><br><span class="line">        System.out.println(this.doge.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="关于-Qualifier注解"><a href="#关于-Qualifier注解" class="headerlink" title="关于@Qualifier注解"></a>关于@Qualifier注解</h4><p>这个注解主要是帮助Autowired注解在复杂的问题上做出选择</p>
+<p>使用@Qualifier(value = “xxx”)来具体指向目标</p>
+<p>先看<strong>beans.xml</strong>的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;dog1&quot; class=&quot;com.wzkang.pojo.Dog&quot; p:name=&quot;ErHa&quot; /&gt;</span><br><span class="line">&lt;bean id=&quot;dog2&quot; class=&quot;com.wzkang.pojo.Dog&quot; p:name=&quot;HaEr&quot; /&gt;</span><br><span class="line">//你看东西这么多@Autowired哪儿懂嘛这不让@Qualifier帮忙怎么行</span><br><span class="line">&lt;bean id=&quot;hello&quot; class=&quot;com.wzkang.pojo.Hello&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Hello.java</strong>的内部代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package com.wzkang.pojo;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.beans.factory.annotation.Qualifier;</span><br><span class="line"></span><br><span class="line">public class Hello &#123;</span><br><span class="line">    @Autowired(required = false)</span><br><span class="line">    @Qualifier(value = &quot;dog2&quot;)//指定使用dog2，你看简单易懂吧，其实value = 可以去掉，注解value有优待</span><br><span class="line"></span><br><span class="line">    private Dog doge;</span><br><span class="line"></span><br><span class="line">    public Dog getDog() &#123;</span><br><span class="line">        return doge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setDog(Dog doge) &#123;</span><br><span class="line">        this.doge = doge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void Hi()&#123;</span><br><span class="line">        System.out.println(this.doge.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">运行结果：</span><br><span class="line">Dog&#123;name=&#x27;HaEr&#x27;&#125;</span><br><span class="line">具体的MyTest.java类内部代码就不看了，也就那样上面有</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="关于-Component注解"><a href="#关于-Component注解" class="headerlink" title="关于@Component注解"></a>关于@Component注解</h4><p>扫描组件嘛，说明这个类被spring管理了，前提是spring要开放扫描</p>
+<p>用法：在要被spring托管的那个类的上方写上就行</p>
+<p>先看<strong>beans.xml</strong>那</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;context:component-scan base-package=&quot;com.wzkang.pojo&quot;/&gt;</span><br><span class="line">//只要记住，它可以让具体位置的注解可以被spring扫描到就行</span><br></pre></td></tr></table></figure>
+
+<p><strong>Hello.java</strong>内部代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">package com.wzkang.pojo;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">//不写在这上面不行，其次要开放扫描，不然这里写了也没用</span><br><span class="line">//最后这个注解就相当于在spring内写了这段代码</span><br><span class="line">//&lt;bean id=&quot;hello&quot; class=&quot;com.wzkang.pojo.Hello&quot; /&gt;</span><br><span class="line">public class Hello &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired(required = false)</span><br><span class="line"></span><br><span class="line">    private Dog doge;</span><br><span class="line"></span><br><span class="line">    public Dog getDog() &#123;</span><br><span class="line">        return doge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setDog(Dog doge) &#123;</span><br><span class="line">        this.doge = doge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void Hi()&#123;</span><br><span class="line">        System.out.println(this.doge.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就连Dog类都用@Component被spring管理了</p>
+<p>至于值是怎么插入进去的呢？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Value(&quot;ErHa&quot;)</span><br><span class="line">public String name;</span><br><span class="line">//太简单粗暴了</span><br></pre></td></tr></table></figure>
+
+<h5 id="关于-Component注解下的几个衍生注解"><a href="#关于-Component注解下的几个衍生注解" class="headerlink" title="关于@Component注解下的几个衍生注解"></a>关于@Component注解下的几个衍生注解</h5><p><strong>dao                 [@Repository]</strong></p>
+<p><strong>service           [@Service]</strong></p>
+<p><strong>controller     [@Controller]</strong></p>
+<p>其作用和@Component是一样的</p>
+<p>只是代表放在这些这些类的这些地方而已</p>
+<p>比如上面那个Dog类或许就应该用@Repository而不是@Component呢？</p>
+<hr>
+<h4 id="关于-Nullable注解"><a href="#关于-Nullable注解" class="headerlink" title="关于@Nullable注解"></a>关于@Nullable注解</h4><p>被该字段标记的属性可以为空，简单粗暴。 </p>
+<hr>
+<h4 id="关于-Scope注解"><a href="#关于-Scope注解" class="headerlink" title="关于@Scope注解"></a>关于@Scope注解</h4><p>也就是作用域</p>
+<p>属性有singleton(默认，单例)和prototype(原型)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">@Scope(&quot;singleton&quot;)</span><br><span class="line">//和Component同级写在类上方</span><br><span class="line">public class Hello &#123;</span><br><span class="line">    @Autowired(required = false)</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>直接看下面这个简单明了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> @Test</span><br><span class="line">    public void test3()&#123;</span><br><span class="line">        Hello hello1 = context.getBean(&quot;hello&quot;,Hello.class);</span><br><span class="line">        Hello hello2 = context.getBean(&quot;hello&quot;,Hello.class);</span><br><span class="line">        System.out.println(hello1==hello2);</span><br><span class="line">    &#125;</span><br><span class="line">处于单例模式下运行结果为true</span><br><span class="line">处于原型模式下运行结果为false</span><br></pre></td></tr></table></figure>
+
+<p>说白了，默认(单例)模式下，一个人就是一个人，哪怕它又被new了一次，</p>
+<p>他这个人也还是这个人，在原型模式下这个人才会变。</p>
 
       
 
@@ -405,6 +482,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -430,10 +519,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">回顾</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -465,10 +550,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">空间复杂度</a>
               </li>
              
@@ -477,11 +558,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">回顾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
+                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,7 +582,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小知识</a>
+                <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,6 +598,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
@@ -517,15 +618,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+                <a href="javascript:void(0)" class="js-tag color5">安卓开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,22 +631,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">白盒测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">安卓开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
             
             <div class="clearfix"></div>
