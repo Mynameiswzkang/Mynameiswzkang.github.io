@@ -16,7 +16,7 @@
 <meta property="og:description" content="第一天0206新学了个filter函数 介绍：  这是一个数据查找的js函数，和findIndex类似，在数组中返回满足指定条件的数据">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-02-06T14:11:36.000Z">
-<meta property="article:modified_time" content="2022-02-13T17:29:44.859Z">
+<meta property="article:modified_time" content="2022-02-22T13:23:57.807Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="vue">
 <meta property="article:tag" content="js">
@@ -414,7 +414,7 @@
 <li><p><strong>接口实现类</strong>由原来的UserDaoImpl转变为一个Mapper配置文件</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span></span></span><br><span class="line"><span class="meta">        <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">上面头文件不管他</span></span><br><span class="line"><span class="comment">这个文件的名字和存放地点好像是不做要求的</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">namespace绑定一个对应的Dao接口现在也可以叫做Mapper接口</span></span><br><span class="line"><span class="comment">不然怎么产生交集发生关系？就是通过这个namepace来唯一定位</span></span><br><span class="line"><span class="comment">这样才可以让名称空间绑定那个UserDao接口</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.wzkang.dao.UserDao&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">&lt;!--玩xml一个&lt;就可以看出所有东西了--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getUserList&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.wzkang.pojo.User&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">select就是查询的sql语句嘛，id是UserDao接口内的方法名字</span></span><br><span class="line"><span class="comment">这个查询是有结果集的，所以在标签后面用resultType(类型),或者resultMap(集合)</span></span><br><span class="line"><span class="comment">目前就先记这2个，至于属性值要写全限定名，初学者先写集合内的泛型，不搞什么集合先</span></span><br><span class="line"><span class="comment">--&gt;</span> </span><br><span class="line">        select * from BSAN.user//加个屁;号 踩坑了</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    //select标签内不可以有注解，不然好像也会报错！！！！！</span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
 <li><p>接下来<strong>测试</strong></p>
-<p>对想要测试的方法shift+ctrl+t可以快捷生成Test测试类，直接Enter就是规范的。</p>
+<p>对想要测试的方法ctrl+shift+t可以快捷生成Test测试类，直接Enter就是规范的。</p>
 <p>最好是规范建立，在哪个地方用就建在test/java包下的哪个包下面。</p>
 <p><strong>UserDaoTest.java内部代码</strong></p>
 </li>
@@ -423,7 +423,7 @@
 
 <p><strong>运行结果：</strong></p>
 <p>User{id=1, name=’张三’, pwd=’123456’}<br>User{id=2, name=’李四’, pwd=’654321’}<br>User{id=3, name=’王五’, pwd=’123321’}</p>
-<h1 id="第六天02011"><a href="#第六天02011" class="headerlink" title="第六天02011"></a>第六天02011</h1><h3 id="mybatis继承昨天的学习成果完成增删改查"><a href="#mybatis继承昨天的学习成果完成增删改查" class="headerlink" title="mybatis继承昨天的学习成果完成增删改查"></a>mybatis继承昨天的学习成果完成增删改查</h3><p>关于报错问题</p>
+<h1 id="第六天02011"><a href="#第六天02011" class="headerlink" title="第六天02011"></a>第六天02011</h1><h3 id="mybatis继承昨天的学习成果完成增删改查"><a href="#mybatis继承昨天的学习成果完成增删改查" class="headerlink" title="mybatis继承昨天的学习成果完成增删改查"></a>mybatis继承昨天的学习成果完成增删改查</h3><p><strong><u>关于报错问题</u></strong></p>
 <p>主要是target文件夹的test-classes-com-wzkang-dao文件夹下（好奇怪，不应该是target-classes-com-wzkang-dao这个文件夹下吗，怎么好像放哪里都行啊这个配置文件）</p>
 <p>没有UserMapper.xml，它并不会自动将上面写好的xml配置文件复制下来，在这里需要手动复制才可以</p>
 <p>如何解决Maven的问题？复制太麻烦了吧？</p>
@@ -513,6 +513,91 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getUserLike&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.wzkang.pojo.User&quot;</span>&gt;</span></span><br><span class="line">    select * from BSAN.user where name like &#x27;%$&#123;value&#125;%&#x27;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getUserLike</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    User user = userDao.getUserLike(<span class="string">&quot;&#x27; or &#x27;1&#x27;=&#x27;1&quot;</span>);</span><br><span class="line">    System.out.println(user);</span><br><span class="line"></span><br><span class="line">    sqlsession.close();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//反正就是查全部，知道就行</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="新的轮回，第一天2-22"><a href="#新的轮回，第一天2-22" class="headerlink" title="新的轮回，第一天2/22"></a>新的轮回，第一天2/22</h1><h3 id="mybatis-配置之属性优化"><a href="#mybatis-配置之属性优化" class="headerlink" title="mybatis-配置之属性优化"></a><strong>mybatis-配置之属性优化</strong></h3><p>新建了个大的包，叫做mybatis-02</p>
+<p>主体上把mybatis-01上的大部分内容抄了过来，但是删减了很多东西，使之成为纯净的。</p>
+<p>回到之前的mybatis-config.xml文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">configuration</span></span></span><br><span class="line"><span class="meta">        <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">&quot;development&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">&quot;development&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">&quot;JDBC&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">&quot;POOLED&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driver&quot;</span> <span class="attr">value</span>=<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;jdbc:mysql://47.101.139.146:3307/BSAN?useSSL=false<span class="symbol">&amp;amp;</span>useUnicode=true<span class="symbol">&amp;amp;</span>characterEncoding=UTF-8&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;BSAN&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;BSAN&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">&quot;com/wzkang/dao/UserMapper.xml&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>先来看<environments> 有个复数s，说明可以配置多套环境，但是使用的话只能选择一套，如何切换别套？</p>
+<p>那个</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">&quot;development&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个default就是选择要选择那套环境的id</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">&quot;JDBC&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><transactionManager>||<strong>事务管理器</strong>，有2中选择，一个默认是JDBC，还有个是MANAGED</p>
+<p>选择JDBC——这个配置就是直接使用了JDBC的提交和回滚设置，它依赖于从数据源得到的连接来管理事务作用域。</p>
+<p>而MANAGED几乎不做什么，它从来不提价或回滚一个连接，而是让容器来管理事务的整个生命周期，默认情况下它会管理连接，但是一些容器并不希望这样，因此需要将closeConnection属性设置为false来组织它默认的关闭行为。例如：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">&quot;MANAGED&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;closeConnection&quot;</span> <span class="attr">value</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transactionManager</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>但是如果用spring+mybatis就没必要搞这个。面试的时候不要只说JDBC一种就行。</p>
+<p><strong>下面来看数据源（dataSoure）</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">&quot;POOLED&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>有三种的数据源类型</p>
+<p>type=”[UNPOOLED|POOLED|JNDI]”</p>
+<p>翻译：【没有连接池|池子|正常连接】</p>
+<p>先来看池的概念：用完可以回收</p>
+<p><strong>UNPOOLED</strong>：每次被请求时打开和关闭连接，虽然有点慢，但是对性能方面没有较高要求。</p>
+<p>默认是POOLED，用完不会关掉，下个连进来还可以用。</p>
+<p><strong>只要了解概念，会搞多套环境就行。</strong></p>
+<h4 id="接下来是properties文件"><a href="#接下来是properties文件" class="headerlink" title="接下来是properties文件"></a><strong>接下来是properties文件</strong></h4><p>我在resources文件夹下新建了个db.properties文件</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">driver</span>=<span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line"><span class="attr">url</span>=<span class="string">jdbc:mysql://47.101.139.146:3307/BSAN?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8</span></span><br><span class="line"><span class="attr">username</span>=<span class="string">xxx</span></span><br><span class="line"><span class="attr">password</span>=<span class="string">xxx</span></span><br><span class="line"><span class="attr">//怎么可能涉及隐私呢我？</span></span><br></pre></td></tr></table></figure>
+
+<p>主要就是编写数据库的文件</p>
+<p>内容就是注册驱动啊，数据库地址啊，数据库账号和密码啊什么的。</p>
+<p>重点的是引入，怎么引入呢？</p>
+<p>有个重点，xml还是有点严格的，需要遵守规矩，其标签需要按如下顺序放：</p>
+<p>properties——settings——typeAliases——typeHandlers——objectFactor——objectWrapperFactor——reflectorFactory——plugins——environments——databaseldProvider——mappers\</p>
+<p>比如这样：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">&quot;db.properties&quot;</span>/&gt;</span>//自闭和</span><br><span class="line">        <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">&quot;development&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">xxx</span>&gt;</span><span class="tag">&lt;/<span class="name">xxx</span>&gt;</span></span><br><span class="line">            ....</span><br></pre></td></tr></table></figure>
+
+<p>这样就引入了外部文件</p>
+<p><strong>resources</strong>翻译：资源</p>
+<p>做完这步就可以便捷的导入资源了</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driver&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;driver&#125;&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;url&#125;&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;username&#125;&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;password&#125;&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>看，还是${}占位，一样的东西。</p>
+<p>当然还可以这样玩：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">&quot;db.properties&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">propertie</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;xxx&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">propertie</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">propertie</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;xxx&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">propertie</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>下面照样用。</p>
+<p>既然如此，衍生出个没事找事的主意，既在外部文件写上密码，又在内部propertie覆写密码</p>
+<p>出现什么问题呢？</p>
+<p>当然是以外部properties的导入源为准，外面对就对，外面错就错。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        &lt;typeAlias type=&quot;com.wzkang.pojo.User&quot; alias=&quot;user&quot;&gt;&lt;/typeAlias&gt;--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">&quot;com.wzkang.pojo&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>两种方式，一种是typeAlias，给一个实体类取别名，别人用的时候用小名就行。</p>
+<p>另一种方式是package，扫描包，它的默认别名就是这个类的类名的首字母小写，当然用大写也可以，但是还是要规范。</p>
+<p>在实体类较少的时候，使用第一种方式；</p>
+<p>如果实体类十分多，建议用第二种。</p>
+<p>区别：第一种可以DIY别名，第二种则·不行·</p>
+<p>当然用@Alias注解可以改别名</p>
+<p>实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Alias(&quot;hello&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String pwd;</span><br></pre></td></tr></table></figure>
+
+<p>在实体类头上用mybatis包下的Alias注解</p>
+<p>其默认value是hello，就是小名了。</p>
+<p><strong>注意：</strong>只有让userMapper.xml，也就是有用到hello的地方，不管别的sql语句有没有用到hello这个小名，都要用上hello，不能写之前的package的默认小名。否则报错</p>
+<p>别名可以取_int之类的，带 _ 的都是八大基本类型，也就是映射类型就是int</p>
+<p>不带_直接写int的话，映射类型就是Integer。</p>
+<h4 id="设置settings"><a href="#设置settings" class="headerlink" title="设置settings"></a><strong>设置settings</strong></h4><p><strong>MyBatis中极为重要的调整设置，它们会改变MyBatis的运行时行为。</strong></p>
+<p>就说几个可能遇见的</p>
+<p><strong>cacheEnabled：</strong>开启缓存。</p>
+<p><strong>lazyLoadingEnabled：</strong>懒加载。  //效率提高？</p>
+<p><strong>useGeneratedKeys：</strong>允许JDBC支持自动生成主键，需要驱动支持。如果为true，则强制使用自动生成主键，尽管一些驱动不能支持但任可正常工作。（比如Derby）//不知道啥时Derby</p>
+<p><strong>mapUnderscoreToCamelCase：</strong>是否开启自动驼峰命名规则（camel|case）映射，即从经典数据库列名A_COLUMN到经典Java属性名aColumn的类似映射。//大部分看不懂，总之数据库中不区分大小写，Oracle全都会转化成大写，总之最后这玩意儿好像是这样的  lastName—&gt;last_Name  ??真的吗？不知道啊</p>
+<p><strong>logImpl：</strong>指定MyBatis所用日志的具体实现，未指定时将自动查找。//目前为止先记住这一个  ？？？ </p>
+<h4 id="映射器mappers"><a href="#映射器mappers" class="headerlink" title="映射器mappers"></a><strong>映射器mappers</strong></h4><p>每一个Mapper.XML都需要在Mybatis核心配置文件中注册。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">&quot;com/wzkang/dao/UserMapper.xml&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line">//有的人会把dao层的UserMapper.xml文件放在resources下的mapper包里，虽然同样只要绑定到这儿来就能用，</span><br><span class="line">但是用class属性的时候回not found。</span><br></pre></td></tr></table></figure>
+
+<p>用class注册</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">class</span>=<span class="string">&quot;com.wzkang.dao.UserDaoTest&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>踩坑点：</strong></p>
+<p>1.接口和他的Mapper配置文件必须同名！</p>
+<p>2.接口和他的Mapper配置文件必须在同一个包下！</p>
 
       
 
@@ -693,35 +778,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">content</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">attr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内存模型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">堆</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">帧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -750,6 +807,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">content</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">attr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内存模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">帧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -793,11 +878,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">题目</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">题目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -813,11 +902,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
