@@ -16,7 +16,7 @@
 <meta property="og:description" content="第一天0206新学了个filter函数 介绍：  这是一个数据查找的js函数，和findIndex类似，在数组中返回满足指定条件的数据">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-02-06T14:11:36.000Z">
-<meta property="article:modified_time" content="2022-02-22T13:23:57.807Z">
+<meta property="article:modified_time" content="2022-02-24T15:29:57.694Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="vue">
 <meta property="article:tag" content="js">
@@ -427,8 +427,8 @@
 <p>主要是target文件夹的test-classes-com-wzkang-dao文件夹下（好奇怪，不应该是target-classes-com-wzkang-dao这个文件夹下吗，怎么好像放哪里都行啊这个配置文件）</p>
 <p>没有UserMapper.xml，它并不会自动将上面写好的xml配置文件复制下来，在这里需要手动复制才可以</p>
 <p>如何解决Maven的问题？复制太麻烦了吧？</p>
-<p>Maven特性：约定大于配置，所以我们要配置resouces，防止资源导出失败的问题</p>
-<p>这里把代码添加在了pom.xml文件中</p>
+<p><font color=red>Maven特性约定大于配置，所以我们要配置resouces，防止资源导出失败的问题</font></p>
+<p><strong>这里把代码添加在了pom.xml文件中</strong></font></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!--maven项目的打包方式</span></span><br><span class="line"><span class="comment">  jar: java应用</span></span><br><span class="line"><span class="comment">  war: javaweb应用</span></span><br><span class="line"><span class="comment">  --&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>总结一下：</p>
@@ -598,6 +598,28 @@
 <p><strong>踩坑点：</strong></p>
 <p>1.接口和他的Mapper配置文件必须同名！</p>
 <p>2.接口和他的Mapper配置文件必须在同一个包下！</p>
+<h1 id="第二天2-23"><a href="#第二天2-23" class="headerlink" title="第二天2/23"></a>第二天2/23</h1><h3 id="mybatis-生命周期-作用域-scope"><a href="#mybatis-生命周期-作用域-scope" class="headerlink" title="mybatis-生命周期-作用域(scope)"></a><strong>mybatis-生命周期-作用域</strong>(scope)</h3><p>​              <strong>mybatis-config.xml配置文件</strong></p>
+<h4 id="↓"><a href="#↓" class="headerlink" title="↓"></a><strong>↓</strong></h4><p><strong>开始</strong>—&gt;<strong>SqlSessionFactoryBuilder</strong>—&gt;<strong>SqlSessionFactory</strong>—&gt;<strong>SqlSession</strong>—&gt;<strong>SQL Mapper</strong>—&gt;<strong>结束</strong></p>
+<p><strong>奇思妙想记忆</strong>：在什么都没有的荒漠星球上，利用SqlSessionFactoryBuilder（工厂的建造者，FactoryBuilder是这么翻译的）构造一个基地，但是肯定需要水流的，基建嘛(暗示需要InputStream，从Resources.getResourceAsStream(“ mybatis-config.xml”)来，对应上图)，工厂地基搭建好后就只剩下SqlSessionFactory了(工厂的具体显现)，然后是利用他的openSession方法创建很多SqlSession请求(服务员)，最后迎接顾客(暗示UserDao.class接口，也就是Mapper，从这调方法)，因为顾客知识渊博，从中牟利。</p>
+<p><strong>SqlSessionFactoryBuilder</strong>一旦创建完工厂就不用它了，丢弃不要，所以是局部的。</p>
+<p><strong><font color=red>*</font> SqlSessionFactory</strong>一旦创建完就<strong>没有理由丢弃它或重新创建另一个实例</strong>，可以想象为数据库连接池。</p>
+<p><strong>SqlSession</strong>可以想象为连接到连接池的请求，因为不是线程安全的，所以需要用完关闭，否则资源被占用！</p>
+<p>发行版本乱改的问题</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>11<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>11<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">//这里改成自己需要的版本就行，放在pom.xml文件下</span><br></pre></td></tr></table></figure>
+
+<p>搞了一个小时的复制mybatis–03项目，基本就是各种错误，不要一口气复制多了，会导致鸠占鹊巢现象，很麻烦，我现在maven都多个root看的强迫症犯了，好在不影响使用，没办法明天再学，已经12.30了。</p>
+<p><font color=red>踩坑经历：改了目录名字以后，mappers里也要改！</font></p>
+<h1 id="第三天2-24"><a href="#第三天2-24" class="headerlink" title="第三天2/24"></a>第三天2/24</h1><h3 id="mybatis接档知识错误排查与ResultMap初用"><a href="#mybatis接档知识错误排查与ResultMap初用" class="headerlink" title="mybatis接档知识错误排查与ResultMap初用"></a><strong>mybatis接档知识错误排查与ResultMap初用</strong></h3><p>首先是数据库字段与代码字段不匹配问题</p>
+<h4 id="如："><a href="#如：" class="headerlink" title="如："></a><strong>如：</strong></h4><p><strong>数据库的密码叫做pwd，程序的User用户类的密码叫做password，那么sql语句的*号就会以数据库的字段为主，pwd的字段不匹配导致运行结果为null，解决方案，利用pwl as password 可以暴力解决，也就是起别名就能解决方法了。</strong></p>
+<p>但是这样做没有意义，让我们看看下面的解决方法。</p>
+<p>引入一个很重要的概念</p>
+<h3 id="ResultMap结果集"><a href="#ResultMap结果集" class="headerlink" title="ResultMap结果集"></a>ResultMap结果集</h3><p>这玩意儿是mybatis中最重要最强大的元素。</p>
+<p>现在先来看简单映射来解决字段不匹配问题</p>
+<p><strong>直接看代码</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//先回顾下resultType返回类型，parameterType是输入类型</span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getUserById&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;UserMap&quot;</span>&gt;</span></span><br><span class="line">    //利用结果集把数据库字段映射成实体类的字段。</span><br><span class="line">    //当然，这个resultMap属性指代的是id</span><br><span class="line">    select * from BSAN.user where id = #&#123;id&#125; </span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//取了id就要有对应的使用，这里的type就是parameterType是输入类型，user简化是扫描typeAliases的帮助</span><br><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;UserMap&quot;</span> <span class="attr">type</span>=<span class="string">&quot;user&quot;</span>&gt;</span></span><br><span class="line">    //column是列的意思，也就是每个数据库的字段名字，property是属性，也就是映射出来的别名</span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;id&quot;</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;name&quot;</span> <span class="attr">property</span>=<span class="string">&quot;name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;pwd&quot;</span> <span class="attr">property</span>=<span class="string">&quot;password&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">    //这里实测好像只需要改动第三个pwd字段映射就行，没变化的不用管</span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这样搞password字段不匹配问题就解决了。</p>
+<p>但是真正复杂的是后面。</p>
 
       
 
@@ -637,6 +659,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2022/02/06/0223Start-%E4%B8%8A%E8%AF%BE%E5%A4%8D%E4%B9%A0%20/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2021/09/23/jQuery%20%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
@@ -766,6 +797,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">content</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">attr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -798,30 +865,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">content</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">attr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内存模型</a>
               </li>
              
@@ -838,15 +881,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">空间复杂度</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">大O表示法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -870,11 +913,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">题目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">DOm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">对象节点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -886,14 +937,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">题目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">安卓开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
@@ -902,7 +945,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+                <a href="javascript:void(0)" class="js-tag color5">安卓开发</a>
               </li>
              
               <li class="article-tag-list-item">
