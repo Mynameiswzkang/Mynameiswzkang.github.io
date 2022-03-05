@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Python 基础入门 | 年轻人第一次做博客</title>
+  <title>jvm基础 | 年轻人第一次做博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="print 输出123print(&amp;#x27;hello python&amp;#x27;)print(38.5)print(2*3) 运行结果:hello python38.56     &#x2F;&#x2F;没错自动运算表达式">
+  <meta name="description" content="JVM基础.java-&gt;Class File-&gt;Class loader类加载器与实例的过程： 先类加载器初始化Car.class，这时候它应该是虚的抽象的模板。 123456789101112131415161718192021public class Car &amp;#123;    public static void main(String[] args) &amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python 基础入门">
-<meta property="og:url" content="http://example.com/2021/09/03/Python%20%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:title" content="jvm基础">
+<meta property="og:url" content="http://example.com/2022/03/05/jvm%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="年轻人第一次做博客">
-<meta property="og:description" content="print 输出123print(&amp;#x27;hello python&amp;#x27;)print(38.5)print(2*3) 运行结果:hello python38.56     &#x2F;&#x2F;没错自动运算表达式">
+<meta property="og:description" content="JVM基础.java-&gt;Class File-&gt;Class loader类加载器与实例的过程： 先类加载器初始化Car.class，这时候它应该是虚的抽象的模板。 123456789101112131415161718192021public class Car &amp;#123;    public static void main(String[] args) &amp;#123;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-09-03T11:33:14.000Z">
-<meta property="article:modified_time" content="2021-09-06T11:48:29.930Z">
+<meta property="article:published_time" content="2022-03-05T14:06:31.000Z">
+<meta property="article:modified_time" content="2022-03-05T14:19:40.119Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="更新">
-<meta property="article:tag" content="Python">
+<meta property="article:tag" content="java">
 <meta property="article:tag" content="基础">
+<meta property="article:tag" content="jvm">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="年轻人第一次做博客" type="application/atom+xml">
@@ -153,20 +153,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Python 基础入门" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-jvm入门" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Python 基础入门
+      jvm基础
     </h1>
   
 
         
-        <a href="/2021/09/03/Python%20%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2021-09-03T11:33:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-03</time>
+        <a href="/2022/03/05/jvm%E5%85%A5%E9%97%A8/" class="archive-article-date">
+  	<time datetime="2022-03-05T14:06:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-05</time>
 </a>
         
       </header>
@@ -175,55 +175,17 @@
       
         <br>
 
-<h2 id="print-输出"><a href="#print-输出" class="headerlink" title="print 输出"></a>print 输出</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello python&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">38.5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">2</span>*<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<p>运行结果:<br>hello python<br>38.5<br>6     //没错自动运算表达式</p>
-<span id="more"></span>
-<h2 id="open-基础用法"><a href="#open-基础用法" class="headerlink" title="open 基础用法"></a>open 基础用法</h2><p>a:(新增)写方式打开。<br>a+：(新增)读写方式打开。<br>w:(覆盖)写方式打开;<br>w+：(覆盖)读写方式打开。<br>a系和w系都会创建新文件,r系不行(它会报错)。<br>r：只读；<br>r+：(覆盖)读写。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">txt = <span class="built_in">open</span>(<span class="string">&#x27;E:/pycharm项目吧/文件存放/text.txt&#x27;</span>,<span class="string">&#x27;a+&#x27;</span>);</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span>,<span class="string">&quot;world....&quot;</span>,file= txt);</span><br><span class="line">txt.close();//关闭，不然之后的<span class="built_in">print</span>都会在该文件上进行</span><br></pre></td></tr></table></figure>
-<h2 id="转义字符的基础用法"><a href="#转义字符的基础用法" class="headerlink" title="\ 转义字符的基础用法"></a>\ 转义字符的基础用法</h2><p>\n：换行就不说了。<br>\t：水平制表符，4个一组，补空格。<br>\r：retun，回车，可能翻译问题，也有说replace(取代)的，我也觉得是这个把前面的全取代。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello\rworld!&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p>运行结果：world！<br>\b：退格，删一个字符。<br><font style="font-weight:bold">如何输出\这个符号呢？</font></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;http:\\\\www.baidu.com&#x27;</span>);<span class="comment">#有趣的是放一个\也能输出一个</span></span><br></pre></td></tr></table></figure>
-<p>这样就能打印\了，值得一提的是’\&#39;和’\\‘都能打印\。<br>更有趣的是\不能放最后因为最后个’被转义掉了。<br>\好像只能在’’或者””里用。<br><font style="font-weight:bold">如何让\转义字符失效？</font></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">r&#x27;\&#x27;大家好\&#x27;&#x27;</span>);<span class="comment">#前面加个r就行</span></span><br></pre></td></tr></table></figure>
-<p>运行结果：&#39;大家好&#39;<br><font style="font-weight:bold">如何输出’(分号)或者”(双引号)?</font></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\&#x27;大家好\&#x27;&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p>但我为什么不这样？</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#x27;大家好&#x27;&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p>运行结果：’大家好’</p>
-<h3 id="不给用关键字如何查看？"><a href="#不给用关键字如何查看？" class="headerlink" title="不给用关键字如何查看？"></a>不给用关键字如何查看？</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> keyword</span><br><span class="line"><span class="built_in">print</span>(keyword.kwlist)</span><br></pre></td></tr></table></figure>
-<p>运行结果：<br>[‘False’, ‘None’, ‘True’, ‘<strong>peg_parser</strong>‘, ‘and’, ‘as’, ‘assert’, ‘async’, ‘await’, ‘break’, ‘class’, ‘continue’, ‘def’, ‘del’, ‘elif’, ‘else’, ‘except’, ‘finally’, ‘for’, ‘from’, ‘global’, ‘if’, ‘import’, ‘in’, ‘is’, ‘lambda’, ‘nonlocal’, ‘not’, ‘or’, ‘pass’, ‘raise’, ‘return’, ‘try’, ‘while’, ‘with’, ‘yield’]</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">### 小数点不准确解决方法</span><br><span class="line">``` python</span><br><span class="line">value1=1.1</span><br><span class="line">value2=2.2</span><br><span class="line">print(value1+value2)</span><br><span class="line"># 运行结果:3.3000000000000003</span><br><span class="line">from decimal import Decimal</span><br><span class="line">print(Decimal(&#x27;1.1&#x27;)+Decimal(&#x27;2.2&#x27;))</span><br><span class="line"># 运行结果:3.3</span><br></pre></td></tr></table></figure>
-<p><font style="font-weight:bold">PS：</font>Decimal(这里不能放变量，比如value1之类的)。<br><font style="font-weight:bold">关于导包：</font>来自xx进口xx？(import翻译：进口)</p>
-<h2 id="布尔型"><a href="#布尔型" class="headerlink" title="布尔型"></a>布尔型</h2><p>True  -&gt; 1 真<br>False -&gt; 0 假<br>证明：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f1=<span class="literal">True</span></span><br><span class="line">f2=<span class="literal">False</span></span><br><span class="line"><span class="built_in">print</span>(f1,f2)</span><br><span class="line"><span class="built_in">print</span>(f1+<span class="number">1</span>,f2+<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p><font style="font-weight:bold">运行结果：</font><br>True False<br>2 1</p>
-<h3 id="type用法"><a href="#type用法" class="headerlink" title="type用法"></a>type用法</h3><p>和隔壁JavaScript有点类似但是又有些不同</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name=<span class="string">&quot;马来西亚&quot;</span></span><br><span class="line"><span class="built_in">print</span>(name,<span class="built_in">type</span>(name))</span><br></pre></td></tr></table></figure>
-<p><font style="font-weight:bold">运行结果：</font>马来西亚 &lt;class ‘str’&gt;</p>
-<h2 id="字符型用法"><a href="#字符型用法" class="headerlink" title="字符型用法"></a>字符型用法</h2><p>除了单引号，双引号，三引号也是可以用的。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n1=<span class="string">&#x27;苏轼&#x27;</span></span><br><span class="line">n2=<span class="string">&quot;李白&quot;</span></span><br><span class="line">n3=<span class="string">&#x27;&#x27;&#x27;杜牧&#x27;&#x27;&#x27;</span></span><br><span class="line">n4=<span class="string">&quot;&quot;&quot;杜甫&quot;&quot;&quot;</span></span><br><span class="line"><span class="built_in">print</span>(n1,<span class="built_in">type</span>(n1))</span><br><span class="line"><span class="built_in">print</span>(n2,<span class="built_in">type</span>(n2))</span><br><span class="line"><span class="built_in">print</span>(n3,<span class="built_in">type</span>(n3))</span><br><span class="line"><span class="built_in">print</span>(n4,<span class="built_in">type</span>(n4))</span><br></pre></td></tr></table></figure>
-<p><font style="font-weight:bold">运行结果：</font><br>苏轼 &lt;class ‘str’&gt;<br>李白 &lt;class ‘str’&gt;<br>杜牧 &lt;class ‘str’&gt;<br>杜甫 &lt;class ‘str’&gt;</p>
-<h3 id="字符型与数值型print报错问题"><a href="#字符型与数值型print报错问题" class="headerlink" title="字符型与数值型print报错问题"></a>字符型与数值型print报错问题</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name1=<span class="string">&quot;司马光&quot;</span></span><br><span class="line">age=<span class="number">7</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;我叫&#x27;</span>+name1,<span class="string">&#x27;今年&#x27;</span>+<span class="built_in">str</span>(age)+<span class="string">&#x27;岁&#x27;</span>) <span class="comment">#强制转换就可以了</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;我叫&#x27;</span>+name1,<span class="string">&#x27;今年&#x27;</span>+age+<span class="string">&#x27;岁&#x27;</span>)   <span class="comment">#这里必报错</span></span><br></pre></td></tr></table></figure>
-<p><font style="font-weight:bold">运行结果：</font><br>我叫司马光 今年7岁<br>Traceback (most recent call last):<br>  File “E:\pycharm项目吧\项目\demo\main.py”, line 43, in <module><br>    print(‘我叫’+name1,’今年’+age+’岁’)<br>TypeError: can only concatenate str (not “int”) to str<br>不过bool型转换int可以是0或1</p>
-<h2 id="文件自动转编码"><a href="#文件自动转编码" class="headerlink" title="文件自动转编码"></a>文件自动转编码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;文件开头改这个&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># coding:utf-8 #或者是gbk什么的</span></span><br></pre></td></tr></table></figure>
-<h2 id="input人机交互"><a href="#input人机交互" class="headerlink" title="input人机交互"></a>input人机交互</h2><p>像vb的inputbox</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">age=<span class="built_in">input</span>(<span class="string">&quot;你今年几岁？&quot;</span>)  <span class="comment">#这里要自己输入数字</span></span><br><span class="line"><span class="built_in">print</span>(age,<span class="built_in">type</span>(age))      <span class="comment">#然而输出结果是str类型</span></span><br></pre></td></tr></table></figure>
-<p><font style="font-weight:bold">运行结果：</font><br>你今年几岁？5<br>5 &lt;class ‘str’&gt;</p>
-<h2 id="基本算数运算符"><a href="#基本算数运算符" class="headerlink" title="基本算数运算符"></a>基本算数运算符</h2><p>加(+)减(-)乘(*)除(/)<br>整除(//)这里和java不太一样<br>取余(%)这个一样<br>幂次方(**)java是^或者pow<br><font style="font-weight:bold">整除问题</font></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="number">9</span>//<span class="number">4</span>)   <span class="comment">#2</span></span><br><span class="line"><span class="built_in">print</span>(-<span class="number">9</span>//-<span class="number">4</span>) <span class="comment">#2 负负得正，没问题</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">9</span>//-<span class="number">4</span>)  <span class="comment">#-3  向下取整，9/-4等于9*-1/4 大概是-2.25左右，负数向下取整，所以是-3</span></span><br><span class="line"><span class="built_in">print</span>(-<span class="number">9</span>//<span class="number">4</span>)  <span class="comment">#-3  一样的道理，其实无论是正数还是负数，都是取最小的那个</span></span><br></pre></td></tr></table></figure>
-<p><font style="font-weight:bold">取余问题</font></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="number">9</span>%<span class="number">4</span>)  <span class="comment">#1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">9</span>%-<span class="number">4</span>) <span class="comment">#-3   公式：除数-被除数*商(这个商好像是整除下来的？向下取整)</span></span><br><span class="line"><span class="built_in">print</span>(-<span class="number">9</span>%<span class="number">4</span>) <span class="comment">#3    -9-4*(-3)=3</span></span><br></pre></td></tr></table></figure>
-<h2 id="id用法"><a href="#id用法" class="headerlink" title="id用法"></a>id用法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">20</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(a))   <span class="comment">#2045111528016</span></span><br></pre></td></tr></table></figure>
-<p>返回的是内存地址</p>
-<h2 id="解包赋值用法"><a href="#解包赋值用法" class="headerlink" title="解包赋值用法"></a>解包赋值用法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a,b=<span class="number">10</span>,<span class="number">20</span></span><br><span class="line"><span class="built_in">print</span>(a,b) <span class="comment">#10 20</span></span><br><span class="line">a,b=b,a  <span class="comment">#太方便</span></span><br><span class="line"><span class="built_in">print</span>(a,b) <span class="comment">#20 10</span></span><br></pre></td></tr></table></figure>
-<h2 id="和is的区别"><a href="#和is的区别" class="headerlink" title="==和is的区别"></a>==和is的区别</h2><p>就相当于java里==和equals的区别<br>这里比的是标识</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a,b,c=<span class="number">10</span>,<span class="number">10</span>,<span class="number">20</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">is</span> b)       <span class="comment"># True</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">is</span> c)       <span class="comment"># False</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">is</span> <span class="keyword">not</span> c)   <span class="comment"># True</span></span><br><span class="line">list1=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]       </span><br><span class="line">list2=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="built_in">print</span>(list1 <span class="keyword">is</span> list2) <span class="comment">#False</span></span><br></pre></td></tr></table></figure>
-<h2 id="bool对象测试"><a href="#bool对象测试" class="headerlink" title="bool对象测试"></a>bool对象测试</h2><p>只有以下对象是False其余为True</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(<span class="literal">False</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(<span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(<span class="number">0.0</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(<span class="literal">None</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(<span class="string">&#x27;&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(<span class="string">&quot;&quot;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>([]))      <span class="comment">#空列表  别tm数组数组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(<span class="built_in">list</span>()))  <span class="comment">#空列表</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(()))      <span class="comment">#空元组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(<span class="built_in">tuple</span>())) <span class="comment">#空元组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(&#123;&#125;))      <span class="comment">#空字典</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(<span class="built_in">dict</span>()))  <span class="comment">#空字典</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(<span class="built_in">set</span>()))   <span class="comment">#空集合</span></span><br></pre></td></tr></table></figure>
+<h2 id="JVM基础"><a href="#JVM基础" class="headerlink" title="JVM基础"></a>JVM基础</h2><h3 id="java-gt-Class-File-gt-Class-loader"><a href="#java-gt-Class-File-gt-Class-loader" class="headerlink" title=".java-&gt;Class File-&gt;Class loader"></a>.java-&gt;Class File-&gt;Class loader</h3><p>类加载器与实例的过程：</p>
+<p>先类加载器初始化Car.class，这时候它应该是虚的抽象的模板。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Car car1 = <span class="keyword">new</span> Car();</span><br><span class="line">        Car car2 = <span class="keyword">new</span> Car();</span><br><span class="line">        Car car3 = <span class="keyword">new</span> Car();</span><br><span class="line"></span><br><span class="line">        System.out.println(car1.hashCode());</span><br><span class="line">        System.out.println(car2.hashCode());</span><br><span class="line">        System.out.println(car3.hashCode());</span><br><span class="line"></span><br><span class="line">        Class&lt;? extends Car&gt; aClass1 = car1.getClass();</span><br><span class="line">        Class&lt;? extends Car&gt; aClass2 = car2.getClass();</span><br><span class="line">        Class&lt;? extends Car&gt; aClass3 = car3.getClass();</span><br><span class="line"></span><br><span class="line">        System.out.println(aClass1.hashCode());</span><br><span class="line">        System.out.println(aClass2.hashCode());</span><br><span class="line">        System.out.println(aClass3.hashCode());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<p>运行结果：</p>
+<p>1121172875<br>649734728<br>1595953398<br>234698513<br>234698513<br>234698513</p>
+<p>从中可以看到Class对象，Class模板的哈希码都是一样的，但是用模板new出来的实例hashcode是不同的。</p>
+<p>想要逆推也很简单，从new的实例到Class模板再到类加载器就行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="keyword">new</span> Car().getClass().getClassLoader());</span><br></pre></td></tr></table></figure>
 
-
+<p>运行结果：jdk.internal.loader.ClassLoaders$AppClassLoader@2437c6dc</p>
 
       
 
@@ -237,15 +199,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">更新</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
         		</li>
       		
 		</ul>
@@ -264,18 +226,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/09/07/Java%20%E8%80%83%E8%AF%81%E8%BE%85%E5%AF%BC%E8%AF%BE%E7%A8%8B%E5%9B%9E%E9%A1%BE/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java 考证辅导课程回顾
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/09/02/Java%20Hash%E5%87%BD%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hash 函数</div>
+    <a href="/2022/02/27/yaml%E8%AF%AD%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">yaml基础</div>
       <i class="icon-circle-right"></i>
     </a>
   

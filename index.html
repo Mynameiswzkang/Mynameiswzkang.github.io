@@ -148,6 +148,100 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jvm入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/05/jvm%E5%85%A5%E9%97%A8/">jvm基础</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/05/jvm%E5%85%A5%E9%97%A8/" class="archive-article-date">
+  	<time datetime="2022-03-05T14:06:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <br>
+
+<h2 id="JVM基础"><a href="#JVM基础" class="headerlink" title="JVM基础"></a>JVM基础</h2><h3 id="java-gt-Class-File-gt-Class-loader"><a href="#java-gt-Class-File-gt-Class-loader" class="headerlink" title=".java-&gt;Class File-&gt;Class loader"></a>.java-&gt;Class File-&gt;Class loader</h3><p>类加载器与实例的过程：</p>
+<p>先类加载器初始化Car.class，这时候它应该是虚的抽象的模板。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Car car1 = <span class="keyword">new</span> Car();</span><br><span class="line">        Car car2 = <span class="keyword">new</span> Car();</span><br><span class="line">        Car car3 = <span class="keyword">new</span> Car();</span><br><span class="line"></span><br><span class="line">        System.out.println(car1.hashCode());</span><br><span class="line">        System.out.println(car2.hashCode());</span><br><span class="line">        System.out.println(car3.hashCode());</span><br><span class="line"></span><br><span class="line">        Class&lt;? extends Car&gt; aClass1 = car1.getClass();</span><br><span class="line">        Class&lt;? extends Car&gt; aClass2 = car2.getClass();</span><br><span class="line">        Class&lt;? extends Car&gt; aClass3 = car3.getClass();</span><br><span class="line"></span><br><span class="line">        System.out.println(aClass1.hashCode());</span><br><span class="line">        System.out.println(aClass2.hashCode());</span><br><span class="line">        System.out.println(aClass3.hashCode());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p>1121172875<br>649734728<br>1595953398<br>234698513<br>234698513<br>234698513</p>
+<p>从中可以看到Class对象，Class模板的哈希码都是一样的，但是用模板new出来的实例hashcode是不同的。</p>
+<p>想要逆推也很简单，从new的实例到Class模板再到类加载器就行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="keyword">new</span> Car().getClass().getClassLoader());</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：jdk.internal.loader.ClassLoaders$AppClassLoader@2437c6dc</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/05/jvm%E5%85%A5%E9%97%A8/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-yaml语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -155,7 +249,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/27/yaml%E8%AF%AD%E6%B3%95/">CSS小知识</a>
+      <a class="article-title" href="/2022/02/27/yaml%E8%AF%AD%E6%B3%95/">yaml基础</a>
     </h1>
   
 
@@ -170,11 +264,11 @@
       
         <br>
 
-<h2 id="CSS之content与arrt的纠缠"><a href="#CSS之content与arrt的纠缠" class="headerlink" title="CSS之content与arrt的纠缠"></a>CSS之content与arrt的纠缠</h2><p>其实是在springboot里头看到的<strong>application.properties</strong>文件</p>
+<h2 id="yaml语法"><a href="#yaml语法" class="headerlink" title="yaml语法"></a>yaml语法</h2><p>其实是在springboot里头看到的<strong>application.properties</strong>文件</p>
 <p>但是后缀名可以是**.yaml**文件(.yml也是一样的)</p>
 <p>语法：</p>
 <p>key 空格 value</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 普通的k-v</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">wzkang</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对象</span></span><br><span class="line"><span class="attr">student:</span> </span><br><span class="line">  <span class="attr">name:</span> <span class="string">wzkang</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">3</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 行内写法</span></span><br><span class="line"><span class="attr">student:</span> &#123;<span class="attr">name:</span> <span class="string">wzkang</span>,<span class="attr">age:</span> <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数组</span></span><br><span class="line"><span class="attr">pets:</span> </span><br><span class="line">  <span class="bullet">-</span> <span class="string">cat</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">dog</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">pig</span></span><br><span class="line"></span><br><span class="line"><span class="attr">ptes:</span> [<span class="string">cat</span>,<span class="string">dog</span>,<span class="string">pig</span>]</span><br><span class="line"><span class="comment"># 仔细想想，properties怎么存数组和对象呢？</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 普通的k-v</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">wzkang</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对象</span></span><br><span class="line"><span class="attr">student:</span> </span><br><span class="line">  <span class="attr">name:</span> <span class="string">wzkang</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">3</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 行内写法</span></span><br><span class="line"><span class="attr">student:</span> &#123;<span class="attr">name:</span> <span class="string">wzkang</span>,<span class="attr">age:</span> <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数组</span></span><br><span class="line"><span class="attr">pets:</span> </span><br><span class="line">  <span class="bullet">-</span> <span class="string">cat</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">dog</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">pig</span></span><br><span class="line"></span><br><span class="line"><span class="attr">ptes:</span> [<span class="string">cat</span>,<span class="string">dog</span>,<span class="string">pig</span>]</span><br><span class="line"><span class="comment"># 仔细想想，properties怎么存数组和对象呢？</span></span><br><span class="line"><span class="string">-------------------</span></span><br><span class="line"><span class="attr">person:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">王八</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">2000</span></span><br><span class="line">  <span class="attr">happy:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">birth:</span> <span class="number">2022</span><span class="string">/03/03</span></span><br><span class="line">  <span class="attr">maps:</span> &#123;<span class="attr">k1:</span> <span class="string">v1</span>,<span class="attr">k2:</span> <span class="string">v2</span>&#125;</span><br><span class="line">  <span class="attr">lists:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">code</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">music</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">girl</span></span><br><span class="line">  <span class="attr">dog:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">$&#123;person.name=王八:王八狗&#125;</span> <span class="comment">#玩法太多了，比prop好</span></span><br><span class="line">    <span class="attr">age:</span> <span class="string">$&#123;random.int(10)&#125;</span></span><br><span class="line"><span class="comment"># 又或者是换套环境</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="comment"># 这里是下一套环境</span></span><br></pre></td></tr></table></figure>
 
 
       
@@ -282,6 +376,56 @@
 <p>springboot会将所有的功能场景，都变成一个个的启动器</p>
 <p>我们要使用什么功能，就只需要找到对应的启动器就可以了<code>starter</code></p>
 <h3 id="主程序"><a href="#主程序" class="headerlink" title="主程序"></a>主程序</h3><p>….无语源码。</p>
+<h2 id="2022-03-03—springboot继续学习"><a href="#2022-03-03—springboot继续学习" class="headerlink" title="2022/03/03—springboot继续学习"></a>2022/03/03—springboot继续学习</h2><h4 id="1-Springboot项目构建完成后，需要注意一下application-properties文件，这里推荐改成-yml文件，别问，问就是高级n-1倍。"><a href="#1-Springboot项目构建完成后，需要注意一下application-properties文件，这里推荐改成-yml文件，别问，问就是高级n-1倍。" class="headerlink" title="1.Springboot项目构建完成后，需要注意一下application.properties文件，这里推荐改成.yml文件，别问，问就是高级n+1倍。"></a><strong>1.<strong>Springboot项目构建完成后，需要注意一下</strong>application.properties</strong>文件，这里推荐改成.yml文件，别问，问就是高级n+1倍。</h4><h4 id="2-导入配置文件处理器"><a href="#2-导入配置文件处理器" class="headerlink" title="2.导入配置文件处理器"></a>2.导入配置文件处理器</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--这个optional好像不用也行--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>然后编写yml文件：</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用yml可以给实体类赋值，就像key value那样，不用new也不用@Value赋值了</span></span><br><span class="line"><span class="attr">person:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">王八</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">2000</span></span><br><span class="line">  <span class="attr">happy:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">birth:</span> <span class="number">2022</span><span class="string">/03/03</span></span><br><span class="line">  <span class="attr">maps:</span> &#123;<span class="attr">k1:</span> <span class="string">v1</span>,<span class="attr">k2:</span> <span class="string">v2</span>&#125;</span><br><span class="line">  <span class="attr">lists:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">code</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">music</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">girl</span></span><br><span class="line">  <span class="attr">dog:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">$&#123;person.name=王八:王八狗&#125;</span> <span class="comment">#玩法太多了，比prop好</span></span><br><span class="line">    <span class="attr">age:</span> <span class="string">$&#123;random.int(10)&#125;</span></span><br><span class="line"><span class="comment">#server:</span></span><br><span class="line"><span class="comment">#  servlet:</span></span><br><span class="line"><span class="comment">#    context-path: 6666</span></span><br></pre></td></tr></table></figure>
+
+<p>光上面这个编写完还不行，还需要绑定扫描使用呢</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wzkang.springboot02config.pojo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span><span class="comment">//这个是注册Bean容器</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//@PropertySource(value = &quot;classpath:application2.properties&quot;) 如果硬要用properties文件注入属性的话就只好用这个了，指定某个配置文件，哪怕取不是application这名字都行</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(prefix = &quot;person&quot;)</span><span class="comment">//还是这个好，直接扫描application.yml文件下的person对象并赋值</span></span><br><span class="line"><span class="comment">//从application文件中拿person对象并进行赋值,只能是yml文件,传统properties很麻烦还要改File Encodings里的utf-8,还要勾√,不然是乱码</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"><span class="comment">//    @Value(&quot;#$&#123;name&#125;&quot;) 这样玩有病</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> Boolean happy;</span><br><span class="line">    <span class="keyword">private</span> Date birth;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String,Object&gt; maps;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Object&gt; lists;</span><br><span class="line">    <span class="keyword">private</span> Dog dog;<span class="comment">//接下来顺便看看Dog类吧</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Dog：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wzkang.springboot02config.pojo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Component</span> <span class="comment">//用这个标记表示它为Spring容器的一个Bean</span></span><br><span class="line"><span class="comment">//相当于配置文件里的&lt;Bean id=&quot;dog&quot; class=&quot;xxx.xxx.Dog(没记错的话)&quot;&gt;</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Value(&quot;旺财&quot;)</span></span><br><span class="line">    <span class="comment">//使用这个直接赋值也行</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@Value(&quot;3&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>弄完这些后直接在springboot自带的text测试类里测试下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wzkang.springboot02config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.wzkang.springboot02config.pojo.Dog;</span><br><span class="line"><span class="keyword">import</span> com.wzkang.springboot02config.pojo.Person;</span><br><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.Test;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Qualifier;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"><span class="comment">//这里是官方内置的注解，直接拿来用就行。</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Springboot02ConfigApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//自动装配啦，就那个byType&gt;byName</span></span><br><span class="line">    <span class="comment">//顺便讲下 @Qualifier</span></span><br><span class="line">    <span class="comment">//指定使用容器的哪个id</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Person person;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(person);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p>Person(name=王八, age=2000, happy=true, birth=Thu Mar 03 00:00:00 CST 2022, </p>
+<p>maps={k1=v1, k2=v2}, lists=[code, music, girl], </p>
+<p>dog=Dog(name=王八狗, age=5))</p>
+<h2 id="2022-03-05—springboot继续学习"><a href="#2022-03-05—springboot继续学习" class="headerlink" title="2022/03/05—springboot继续学习"></a>2022/03/05—springboot继续学习</h2><h4 id="yml的好处："><a href="#yml的好处：" class="headerlink" title="yml的好处："></a>yml的好处：</h4><p>可以松散绑定，啥意思，yml里写last-name和代码里的lastName是一样的，后面跟着的字母默认是大写的，这就是松散绑定。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties(prefix = &quot;person&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String lastName;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">person:</span></span><br><span class="line">  <span class="attr">last-name:</span> <span class="string">王八</span></span><br></pre></td></tr></table></figure>
+
+<p>当然也可以这样玩</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">@ConfigurationProperties(prefix</span> <span class="string">=</span> <span class="string">&quot;a.b&quot;</span><span class="string">)</span></span><br><span class="line"><span class="string">------------------yml------------------</span></span><br><span class="line"><span class="attr">a:</span></span><br><span class="line">  <span class="attr">b:</span></span><br><span class="line">    <span class="attr">last-name:</span> <span class="string">安安</span></span><br><span class="line"><span class="comment"># 照样可以绑定到</span></span><br></pre></td></tr></table></figure>
+
+<p>这个松散绑定，**@Value**可做不到。</p>
+<h3 id="JSR303校验"><a href="#JSR303校验" class="headerlink" title="JSR303校验"></a><strong>JSR303校验</strong></h3><p>现在需要导入依赖了</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-validation<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>导入完之后就可以用**javax.validation.constraints.***里的注解了</p>
+<p>前提是一件在class类上打了**@Validated**开启数据校验，否则没用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Email(message=&quot;邮箱格式错误&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String lastName;</span><br><span class="line"><span class="comment">//比如这样玩，检测邮箱的格式，我在yaml里放的name注入肯定是错的，那么他运行起来肯定会报错</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="application配置文件可以放在哪里？"><a href="#application配置文件可以放在哪里？" class="headerlink" title="application配置文件可以放在哪里？"></a><strong>application</strong>配置文件可以放在哪里？</h4><p>按照运行优先度：</p>
+<p>1.springboot-03-config/config/application.yml</p>
+<p>2.springboot-03-config//application.yml</p>
+<p>3.springboot-03-config/src/main/resources/config/aplication.yml</p>
+<p>4.springboot-03-config/src/main/resources/aplication.yml(<strong>默认放在这</strong>)</p>
+<h4 id="有多套application配置文件要怎么替换使用？"><a href="#有多套application配置文件要怎么替换使用？" class="headerlink" title="有多套application配置文件要怎么替换使用？"></a>有多套application配置文件要怎么替换使用？</h4><p>比如有3个配置文件</p>
+<p><strong>application.properties</strong>                默认环境</p>
+<p><strong>application-dev.properties</strong>        开发环境</p>
+<p><strong>application-test.properties</strong>       测试环境</p>
+<p>假设有3种环境要配套用，如果要替换，只能在<strong>application.properties</strong>使用下面的代码。</p>
+<p><font color="Red">spring.profiles.active=dev</font></p>
+<p>这样就会切换到别的配置文件了</p>
+<p>但是这很麻烦，还是看看yml吧</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line"><span class="comment"># 上面这个表示切换到dev环境</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8080</span></span><br><span class="line"><span class="comment"># 这里是默认环境的配置信息</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">dev</span></span><br><span class="line"><span class="comment"># 利用---隔开环境，再利用spring.profiles表明自己的环境名字叫dev</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8081</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">test</span></span><br><span class="line"><span class="comment"># 同理，环境名字叫test</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8082</span></span><br></pre></td></tr></table></figure>
+
+<p>但是好像过时了，其次感觉不方便管理啊。</p>
 
       
 
@@ -318,77 +462,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/02/27/Spring-boot/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-0206Start" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h1 id="第一天0206"><a href="#第一天0206" class="headerlink" title="第一天0206"></a>第一天0206</h1><h2 id="新学了个filter函数"><a href="#新学了个filter函数" class="headerlink" title="新学了个filter函数"></a>新学了个filter函数</h2><blockquote>
-<p>介绍：</p>
-</blockquote>
-<p>这是一个数据查找的js函数，和findIndex类似，在数组中返回满足指定条件的数据</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/06/0206Start/">展开 >></a>
         </p>
       
 
@@ -461,6 +534,77 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/02/06/0223Start-%E4%B8%8A%E8%AF%BE%E5%A4%8D%E4%B9%A0%20/">展开 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-0206Start" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h1 id="第一天0206"><a href="#第一天0206" class="headerlink" title="第一天0206"></a>第一天0206</h1><h2 id="新学了个filter函数"><a href="#新学了个filter函数" class="headerlink" title="新学了个filter函数"></a>新学了个filter函数</h2><blockquote>
+<p>介绍：</p>
+</blockquote>
+<p>这是一个数据查找的js函数，和findIndex类似，在数组中返回满足指定条件的数据</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/06/0206Start/">展开 >></a>
         </p>
       
 
@@ -924,89 +1068,6 @@
 
 
   
-    <article id="post-安卓应用开发课程回顾" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/09/%E5%AE%89%E5%8D%93%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E8%AF%BE%E7%A8%8B%E5%9B%9E%E9%A1%BE/">安卓应用开发课程回顾</a>
-    </h1>
-  
-
-        
-        <a href="/2021/09/09/%E5%AE%89%E5%8D%93%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E8%AF%BE%E7%A8%8B%E5%9B%9E%E9%A1%BE/" class="archive-article-date">
-  	<time datetime="2021-09-09T07:45:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <br>
-
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">回顾</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">安卓开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/09/%E5%AE%89%E5%8D%93%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E8%AF%BE%E7%A8%8B%E5%9B%9E%E9%A1%BE/">展开 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1108,14 +1169,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -1140,22 +1193,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">哈希</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">函数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -1168,7 +1205,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">回顾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">函数</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1192,10 +1253,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">空间复杂度</a>
               </li>
              
@@ -1208,15 +1265,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Date</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">日期对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1232,14 +1293,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
@@ -1252,11 +1305,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">入门</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1272,6 +1337,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">安卓开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
@@ -1281,10 +1350,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">白盒测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">安卓开发</a>
               </li>
             
             <div class="clearfix"></div>
