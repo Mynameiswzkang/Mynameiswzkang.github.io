@@ -16,7 +16,7 @@
 <meta property="og:description" content="1.0.0-项目搭建SpringBoot项目搭建，可以利用SpringBoot官网搭建传统Maven项目：https:&#x2F;&#x2F;start.spring.io&#x2F; 先选MavenProject，语言选Java，SpringBoot版本我这里是2.6.4，这个东西更新迭代很快，所以要赶紧学。Group是指组名，这里随便什么com.wzkang，Artiface是项目名字，Name和这个一样，不管先，然后">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-02-27T13:22:01.000Z">
-<meta property="article:modified_time" content="2022-03-05T14:05:20.617Z">
+<meta property="article:modified_time" content="2022-03-09T10:11:33.196Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="更新">
@@ -249,6 +249,103 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line"><span class="comment"># 上面这个表示切换到dev环境</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8080</span></span><br><span class="line"><span class="comment"># 这里是默认环境的配置信息</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">dev</span></span><br><span class="line"><span class="comment"># 利用---隔开环境，再利用spring.profiles表明自己的环境名字叫dev</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8081</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">test</span></span><br><span class="line"><span class="comment"># 同理，环境名字叫test</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8082</span></span><br></pre></td></tr></table></figure>
 
 <p>但是好像过时了，其次感觉不方便管理啊。</p>
+<h2 id="2022-03-09—springboot继续学习"><a href="#2022-03-09—springboot继续学习" class="headerlink" title="2022/03/09—springboot继续学习"></a>2022/03/09—springboot继续学习</h2><h4 id="那些源码先放着，先学开发吧，看了半天只有一点点头绪。"><a href="#那些源码先放着，先学开发吧，看了半天只有一点点头绪。" class="headerlink" title="那些源码先放着，先学开发吧，看了半天只有一点点头绪。"></a>那些源码先放着，先学开发吧，看了半天只有一点点头绪。</h4><p>这次先解决静态资源导入的问题。</p>
+<p>这里扯到一个<strong>WebMvcAutoConfiguration</strong>自动配置类</p>
+<p>里头有这个</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">WebMvcAutoConfigurationAdapter</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span>, <span class="title">ServletContextAware</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其头上的注解还有段这个</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableConfigurationProperties(&#123; WebMvcProperties.class, WebProperties.class &#125;)</span></span><br></pre></td></tr></table></figure>
+
+<p>这里头还有个添加静态资源的方法<strong>addResourceHandler</strong></p>
+<p>他是不是又扯到了这个啊</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getStaticPathPattern</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">this</span>.staticPathPattern;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>往下走</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> String staticPathPattern = <span class="string">&quot;/**&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>头上注解是不是这个啊</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties(prefix = &quot;spring.mvc&quot;)</span></span><br></pre></td></tr></table></figure>
+
+<p>这样是不是可以在yml里这样配置？</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">mvc:</span></span><br><span class="line">    <span class="attr">static-path-pattern:</span> <span class="string">、</span></span><br></pre></td></tr></table></figure>
+
+<p>是不是根据配置文件找的？这可不是凭空突然能记下来的。</p>
+<p>回到<strong>WebMvcAutoConfiguration</strong></p>
+<p>看看这个</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (!<span class="keyword">this</span>.resourceProperties.isAddMappings()) &#123;</span><br><span class="line">      logger.debug(<span class="string">&quot;Default resource handling disabled&quot;</span>);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">   &#125;</span><br><span class="line">    <span class="comment">//上面写了是不是没有配置就失效？springboot里的自动配置好多都是这样的，先写了，要用了再导入。</span></span><br><span class="line">   addResourceHandler(registry, <span class="string">&quot;/webjars/**&quot;</span>, <span class="string">&quot;classpath:/META-INF/resources/webjars/&quot;</span>);</span><br><span class="line">    <span class="comment">//看这个，前面是不是映射了一个什么/webjars/**的路由地址啊，是不是判断webjars有东西，有就添加到webjars后面的东西</span></span><br><span class="line">    <span class="comment">//这个东西在哪个位置呢？就在/META-INF/resources/webjars/  这</span></span><br><span class="line">    <span class="comment">//这是第一个能找到静态资源的地方，但是左侧没发现有，既然如此就百度webjars</span></span><br><span class="line">   addResourceHandler(registry, <span class="keyword">this</span>.mvcProperties.getStaticPathPattern(), (registration) -&gt; &#123;</span><br><span class="line">      registration.addResourceLocations(<span class="keyword">this</span>.resourceProperties.getStaticLocations());</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.servletContext != <span class="keyword">null</span>) &#123;</span><br><span class="line">         ServletContextResource resource = <span class="keyword">new</span> ServletContextResource(<span class="keyword">this</span>.servletContext, SERVLET_LOCATION);</span><br><span class="line">         registration.addResourceLocations(resource);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>百度webjars</strong>：<a target="_blank" rel="noopener" href="https://www.webjars.org/">https://www.webjars.org/</a></p>
+<p>发现它的官网。</p>
+<p>发现能maven导入，试试看。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">一个叫ace的东西，管他。</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.webjars<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ace<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>01.08.2014<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>导入完后确实maven包里多了个ace的包</p>
+<p>其结构符合</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/META-INF/resources/webjars/</span><br></pre></td></tr></table></figure>
+
+<p>之前也说了，他映射到/webjars/**</p>
+<p>我试了下<a target="_blank" rel="noopener" href="http://localhost:8081/webjars/ace/01.08.2014/ChangeLog.txt">http://localhost:8081/webjars/ace/01.08.2014/ChangeLog.txt</a></p>
+<p>确实访问到了这里头的东西</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2013.12</span><span class="number">.02</span> <span class="string">Version</span> <span class="number">1.1</span><span class="number">.2</span></span><br><span class="line"></span><br><span class="line"><span class="string">*</span> <span class="string">New</span> <span class="string">Features</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Accessibility</span> <span class="string">Theme</span> <span class="string">for</span> <span class="string">Ace</span> <span class="string">(Peter</span> <span class="string">Xiao)</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">use</span> <span class="string">snipetManager</span> <span class="string">for</span> <span class="string">expanding</span> <span class="string">emmet</span> <span class="string">snippets</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">update</span> <span class="string">jshint</span> <span class="string">to</span> <span class="number">2.1</span><span class="number">.4</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">improve</span> <span class="string">php</span> <span class="string">syntax</span> <span class="string">checker</span> <span class="string">(jdalegonzalez)</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">add</span> <span class="string">option</span> <span class="string">for</span> <span class="string">autoresizing</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">add</span> <span class="string">option</span> <span class="string">for</span> <span class="string">autohiding</span> <span class="string">vertical</span> <span class="string">scrollbar</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">improvements</span> <span class="string">to</span> <span class="string">highlighting</span> <span class="string">of</span> <span class="string">xml</span> <span class="string">like</span> <span class="string">languages</span> <span class="string">(danyaPostfactum)</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">add</span> <span class="string">support</span> <span class="string">for</span> <span class="string">autocompletion</span> <span class="string">and</span> <span class="string">snippets</span> <span class="string">(gjtorikyan</span> <span class="string">danyaPostfactum</span> <span class="string">and</span> <span class="string">others)</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">add</span> <span class="string">option</span> <span class="string">to</span> <span class="string">merge</span> <span class="string">similar</span> <span class="string">changes</span> <span class="string">in</span> <span class="string">undo</span> <span class="string">history</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">add</span> <span class="string">scrollPastEnd</span> <span class="string">option</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">6a87d97</span> <span class="string">Merge</span> <span class="string">pull</span> <span class="string">request</span> <span class="comment">#1494 from danyaPostfactum/snippetcompleter</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">use</span> <span class="string">html5</span> <span class="string">dragndrop</span> <span class="string">for</span> <span class="string">text</span> <span class="string">dragging</span> <span class="string">(danyaPostfactum)</span></span><br><span class="line"><span class="string">....</span></span><br><span class="line"><span class="string">//很多懒得复制</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>重新回到WebMvcAutoCOnfigration.java</strong></p>
+<p>略微深究下在哪儿能导入静态资源</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">registration.addResourceLocations(<span class="keyword">this</span>.resourceProperties.getStaticLocations());</span><br></pre></td></tr></table></figure>
+
+<p>可以看到添加资源位置在resourceProperties身上，点进去</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Resources resourceProperties;</span><br></pre></td></tr></table></figure>
+
+<p>发现有这个类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String[] CLASSPATH_RESOURCE_LOCATIONS = &#123; </span><br><span class="line">    <span class="string">&quot;classpath:/META-INF/resources/&quot;</span>,</span><br><span class="line">     <span class="string">&quot;classpath:/resources/&quot;</span>, <span class="string">&quot;classpath:/static/&quot;</span>, <span class="string">&quot;classpath:/public/&quot;</span> </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>回头看能看到我们项目自带的resources项目包自带的有一个static</p>
+<p>源码显示还能放一个public和resource包，两者都可以</p>
+<p>但是有优先度问题</p>
+<p><strong>resources &gt; static(默认) ＞ public</strong></p>
+<p><strong>总结：</strong>在Springboot中导入静态资源有以下方式<br>‌webjars | localhost:8080/webjars/<br>‌public static 等/** resources localhost:8080</p>
+<p>网页图标设置，现在只需要在static包 下面放.ioc好像就能直接识别。</p>
+<p>不过好像需要在yml里设置，没测试过，要试自己试。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">mvc:</span></span><br><span class="line">    <span class="attr">favicon:</span></span><br><span class="line">      <span class="attr">enabled:</span> <span class="literal">false</span></span><br><span class="line"><span class="comment"># 关闭默认图标</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="thymeleaf"><a href="#thymeleaf" class="headerlink" title="thymeleaf"></a><strong>thymeleaf</strong></h3><p>先导入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.thymeleaf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thymeleaf-spring5<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.thymeleaf.extras<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thymeleaf-extras-java8time<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>要点进</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>点一次</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>再点一次</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">thymeleaf.version</span>&gt;</span>3.0.15.RELEASE<span class="tag">&lt;/<span class="name">thymeleaf.version</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这玩意儿好像要基于3.几才行好像。</p>
+<p>本来是2.几的，把上面那个parent</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个版本来回跳再跳回来</p>
+<p>会发现他把版本改成3.几的了。</p>
+<p>现在版本更新快了，好像在pom用</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymelef<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>就可以解决问题。     </p>
+<p><strong>来看实例项目：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="comment">//这个注解代表他会跳转到别的页面</span></span><br><span class="line"><span class="comment">//在templates目录下的页面只能通过controller来跳转</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/index&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;index&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后是<strong>resources/templates/index.html</strong>的代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>index<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在没导入thymeleaf模板引擎的情况下肯定会报错的。</p>
+<p>但是导入后就不会了。</p>
+<p>链接上：<a target="_blank" rel="noopener" href="http://localhost:8080/index">http://localhost:8080/index</a></p>
+<p>运行结果：<strong>index</strong></p>
+<h3 id="原理解析：导入后找ThymeleafProperties"><a href="#原理解析：导入后找ThymeleafProperties" class="headerlink" title="原理解析：导入后找ThymeleafProperties"></a>原理解析：导入后找ThymeleafProperties</h3><p>现在导入的组件后面找Properties就是对应的组件配置了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//进来一看还是很明显的</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThymeleafProperties</span> </span>&#123;</span><br><span class="line"><span class="comment">//编码</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Charset DEFAULT_ENCODING = StandardCharsets.UTF_8;</span><br><span class="line"><span class="comment">//表示资源只能扫描到resources/templates里头</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_PREFIX = <span class="string">&quot;classpath:/templates/&quot;</span>;</span><br><span class="line"><span class="comment">//表示后缀只能是.html</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_SUFFIX = <span class="string">&quot;.html&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以说最后controller类里的接口的方法的return值，要和模板类里的页面的名字一样。</p>
+<p><strong>结论：</strong></p>
+<p>要用thymeleaf导入依赖就能用了，但是如果spring版本是1.x的话，那thymeleaf好像就要2.x，反正就是跳一个版本的意思？</p>
 
       
 
@@ -303,7 +400,7 @@
     </a>
   
   
-    <a href="/2022/02/06/0223Start-%E4%B8%8A%E8%AF%BE%E5%A4%8D%E4%B9%A0%20/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/02/06/0206Start/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
@@ -434,6 +531,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -443,18 +548,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">content</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">attr</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -470,31 +563,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">content</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">attr</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">回顾</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">哈希</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">函数</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,7 +595,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">哈希</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">回顾</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,11 +639,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Math对象</a>
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,18 +656,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">题目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SPringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,10 +675,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">yaml</a>
               </li>
              
@@ -599,6 +684,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">properties</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hash</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,6 +708,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">白盒测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SPringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
             
             <div class="clearfix"></div>
